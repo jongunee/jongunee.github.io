@@ -85,3 +85,7 @@ _sass > my-style.scss
   position:relative;
   top:1px;
 }
+
+.content a:not(.btn):not(.no-hover) {
+  text-decoration-color: #97adfd;
+}

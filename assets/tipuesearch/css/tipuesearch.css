@@ -41,7 +41,7 @@ http://www.tipue.com/search
      max-width: 150px;		/*최대 넓이 줄이고*/
      max-height: 20px;		/*높이 지정*/
      padding: 15px;			/*패딩 줄이기*/
-     border: 2px solid #626591;	/*굵게, 테두리는 색 바꾸기*/
+     border: 2px solid #97adfd;	/*굵게, 테두리는 색 바꾸기*/
      border-radius: 0;
      -moz-appearance: none;
      -webkit-appearance: none;
@@ -63,7 +63,7 @@ http://www.tipue.com/search
 {
      float: left;
      padding: 10px 5px 0 0;
-     color: #170247;
+     color: #97adfd;
      max-height: 20px;
 }
 .tipue_search_right
@@ -92,7 +92,7 @@ http://www.tipue.com/search
 }
 #tipue_search_warning a
 {
-     color: #5396ea;
+     color: #96abfb;
      text-decoration: none;
 }
 #tipue_search_warning a:hover
@@ -120,7 +120,7 @@ http://www.tipue.com/search
 }
 .tipue_search_content_url a, .tipue_search_related_text a
 {
-     color: #5396ea;
+     color: #96abfb;
      text-decoration: none;
 }
 .tipue_search_content_url a:hover, .tipue_search_related_text a:hover, .tipue_search_related_before, .tipue_search_related_after
