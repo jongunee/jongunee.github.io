@@ -25,13 +25,13 @@ Github pages 블로그를 운영하는 중 💻
 > - IoT
 > - OPC UA
 > - SQA 인증, OT 보안 인증
-> - 실무자
+> - 실무자 소프트웨어 교육
 
 📚**기술 스택**은 다음과 같습니다.
 
 > 📝 C, JAVA, Spring, Maria DB  
 
-저에게 조금 관심이 생기셨다면 [CV](/assets/CV.pdf)를 확인해주시면 감사하겠습니다! 😃
+저에게 조금 관심이 생기셨다면 [CV](/assets/CV_PJW.pdf)를 확인해주시면 감사하겠습니다! 😃
 
 
 
