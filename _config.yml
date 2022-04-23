@@ -49,11 +49,10 @@ author:
 
 # Add links to the sidebar.
 menu:
-  - title:             TIL
-    url:               /til/
   - title:             About
     url:               /about/
-
+  - title:             TIL
+    url:               /til/
 
 # Add links to the footer.
 # Typically you'll want to link to your cookie- or privacy policy (if appliable), etc..
