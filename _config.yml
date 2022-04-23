@@ -88,7 +88,7 @@ remote_theme: hydecorp/hydejack@v9       # Git에 올릴 때 주석 해제
 
 # Sidebar image and theme color of the site.
 accent_image:          /assets/img/blue_color.png
-accent_color:          rgb(38,139,210)
+accent_color:          #96abfb
 
 # This is used for the `theme-color` meta tag,
 # which changes the background color of the browser UI in certain browsers.

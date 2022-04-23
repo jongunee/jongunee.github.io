@@ -89,3 +89,7 @@ _sass > my-style.scss
 .content a:not(.btn):not(.no-hover) {
   text-decoration-color: #97adfd;
 }
+
+a::after{
+  display: none !important;
+}
