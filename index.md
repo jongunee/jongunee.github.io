@@ -2,7 +2,7 @@
 layout: about
 image: /assets/img/me/me.jpg
 description: >
-  인공지능을 공부하고 있는 대학원생입니다.
+  소프트웨어 인증 엔지니어 출신의 개발자입니다.
 hide_description: false
 ---
 
@@ -10,32 +10,29 @@ hide_description: false
 
 <!--author-->
 
-<br>
 
 ## 소개
 ---
-Github pages 블로그를 운영하는 중입니다.💻  
-인공지능 대학원 석사 과정 중입니다.✏️✒️
+Github pages 블로그를 운영하는 중 💻  
+ 💡__개발 공부를 하며 배운 것들을 정리하는 목표로 운영을 시작하게 되었습니다.__ 💡
 
- 💡__아무것도 몰랐을때 따라하면서 배워보자라는 생각으로 🍭따라쟁이🍭라 지었습니다.__ 💡
 
-제 📚**관심분야**는 다음과 같습니다.
+저는 외국계 인증 업체에서 소프트웨어 인증 업무를 전담하다 개발자로 전향했습니다.📜
 
-> 📝 Machine Learning, Deep Learning
+📖이런 경험들을 해보았어요
+> - 임베디드 시스템
+> - 리눅스 서버
+> - IoT
+> - OPC UA
+> - SQA 인증, OT 보안 인증
+> - 실무자
+
+📚**기술 스택**은 다음과 같습니다.
+
+> 📝 C, JAVA, Spring, Maria DB  
 
 저에게 조금 관심이 생기셨다면 [CV](/assets/CV.pdf)를 확인해주시면 감사하겠습니다! 😃
 
-<div class="me">
-    <div><img src= "/assets/me/cheetah1.jpg"></div>
-    <div><img src= "/assets/me/cheetah2.jpg"></div>
-    <div><img src= "/assets/me/cheetah3.jpg"></div>
-    <div><img src= "/assets/me/cheetah4.jpg"></div>
-</div>
 
-  <script>
-    $(document).ready(function(){
-      $('.me').slick();
-    });
-  </script>
 
 ---
