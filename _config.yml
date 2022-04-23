@@ -20,7 +20,7 @@ url:                   https://jongunee.github.io
 lang:                  ko-KR, en-US
 
 # The title of your blog. Used in the sidebar and the browser tab.
-title:                 백엔드 개발 준비 <br> 블로그
+title:                 백엔드 개발 준비
 
 
 # A short description (~150 chars) of the page used for the meta description tag.
@@ -49,19 +49,11 @@ author:
 
 # Add links to the sidebar.
 menu:
-  - title:             Example
-    url:               /example/
   - title:             TIL
     url:               /til/
   - title:             About
     url:               /about/
-  - title:             Subcat
-    url:               /subcat/
-    submenu:
-      - title:         Test1
-        url:           /test1/
-      - title:         Test2
-        url:           /test2/
+
 
 # Add links to the footer.
 # Typically you'll want to link to your cookie- or privacy policy (if appliable), etc..
@@ -87,8 +79,8 @@ paginate_path:         /:num/
 # Theme
 # ---------------------------------------------------------------------------------------
 
-#theme: jekyll-theme-hydejack              # 로컬 환경 (127.0.0.1:4000)에서 확인시 주석 해제
-remote_theme: hydecorp/hydejack@v9       # Git에 올릴 때 주석 해제
+theme: jekyll-theme-hydejack              # 로컬 환경 (127.0.0.1:4000)에서 확인시 주석 해제
+#remote_theme: hydecorp/hydejack@v9       # Git에 올릴 때 주석 해제
 #remote_theme: hydecorp/hydejack@v9.1.5
 #remote_theme: hydecorp/hydejack@v9.0.0-rc.6
 
