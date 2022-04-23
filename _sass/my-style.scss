@@ -90,6 +90,6 @@ _sass > my-style.scss
   text-decoration-color: #97adfd;
 }
 
-a::after{
+a.external::after, a::after{
   display: none !important;
 }
