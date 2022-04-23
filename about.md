@@ -2,7 +2,7 @@
 layout: about
 image: /assets/img/blog/hydejack-9.jpg
 description: >
-  외국계 인증 업체 퇴사 후 백엔드에 대해 공부중인 현 백수입니다.
+  외국계 인증 업체 퇴사 후 백엔드에 대해 공부중입니다.
 hide_description: true
 # redirect_from:
 #   - /download/
