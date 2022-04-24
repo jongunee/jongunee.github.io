@@ -1,12 +1,13 @@
 ---
 layout: post
-title: TIL-post1
+title: TIL-Algorithm-post1
 description: >
-  Howdy! This is an example blog post that shows several types of HTML content supported in this theme.
+    알고리즘 공부
 sitemap: false
 hide_last_modified: true
 categories:
   - til
+  - algorithm
 ---
 
 Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, nascetur ridiculus mus. *Aenean eu leo quam.* Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.

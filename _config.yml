@@ -55,7 +55,17 @@ menu:
     url:               /posts/
   - title:             TIL
     url:               /til/
-
+    submenu:
+      - title:         JAVA
+        url:           /java/
+      - title:         DB
+        url:           /db/
+      - title:         Algorithm
+        url:           /algorithm/
+      - title:         Spring
+        url:           /spring/
+      - title:         Others
+        url:           /others
 # Add links to the footer.
 # Typically you'll want to link to your cookie- or privacy policy (if appliable), etc..
 legal:

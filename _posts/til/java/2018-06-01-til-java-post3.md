@@ -1,8 +1,8 @@
 ---
 layout: post
-title: TIL-post3
+title: TIL-JAVA-post3
 description: >
-  A page showing Hydejack-specific markdown content.
+  자바 공부
 image: 
   path: /assets/img/blog/example-content-iii.jpg
   srcset:
@@ -15,6 +15,7 @@ related_posts:
 sitemap: false
 categories:
   - til
+  - java
 ---
 
 Hydejack offers a few additional features to markup your markdown.

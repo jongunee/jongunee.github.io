@@ -1,12 +1,13 @@
 ---
 layout: post
-title: TIL-post4
+title: TIL-Others-post4
 description: >
   마크다운 설명
 sitemap: false
 hide_last_modified: true
 categories:
   - til
+  - others
 ---
 
 # 마크다운 기초 설명
