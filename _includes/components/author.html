@@ -15,7 +15,7 @@
             {% include_cached components/hy-img.html class="avatar" img=author.picture alt=author.name width="180" height="180" %}
         {% endif %}
     <!-- 글 -->
-    <div class="author-body-description" >
+    <div class="author-body-description" style="margin-left: 180px; margin-top: 40px;" >
         <span style = " font-size:1.4em;  color: rgb(0, 0, 0);"><strong>{{ author.name | markdownify }}</strong></span>
         <b style = "font-size:0.8em; color: rgb(141, 141, 141);">{{ author.about | markdownify }}</b>
     </div>
