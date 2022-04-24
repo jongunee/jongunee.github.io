@@ -1,0 +1,37 @@
+0000000000000000000000000000000000000000 7b761bdfe1c290f8845b6b451901be76afa573f3 jongunee <jejeoppa@naver.com> 1650699558 +0900	commit (initial): blog
+7b761bdfe1c290f8845b6b451901be76afa573f3 0000000000000000000000000000000000000000 jongunee <jejeoppa@naver.com> 1650699565 +0900	Branch: renamed refs/heads/master to refs/heads/main
+0000000000000000000000000000000000000000 7b761bdfe1c290f8845b6b451901be76afa573f3 jongunee <jejeoppa@naver.com> 1650699565 +0900	Branch: renamed refs/heads/master to refs/heads/main
+7b761bdfe1c290f8845b6b451901be76afa573f3 c6815f8214179cbca17e9f2e33dfdf2468c817d8 jongunee <jejeoppa@naver.com> 1650699694 +0900	commit: init
+c6815f8214179cbca17e9f2e33dfdf2468c817d8 2f9ca4bc0164bda4e011ee348343b950a6319bc9 jongunee <jejeoppa@naver.com> 1650700881 +0900	commit: Subcategory added
+2f9ca4bc0164bda4e011ee348343b950a6319bc9 7b761bdfe1c290f8845b6b451901be76afa573f3 jongunee <jejeoppa@naver.com> 1650701187 +0900	reset: moving to 7b761bdfe1c290f8845b6b451901be76afa573f3
+7b761bdfe1c290f8845b6b451901be76afa573f3 c8df4e58d4db3732e09830f6f3bf038e73438737 jongunee <jejeoppa@naver.com> 1650702312 +0900	commit: init
+c8df4e58d4db3732e09830f6f3bf038e73438737 85eb0a8597afdfdf0f8efeefbbcedc8bd8132c1b jongunee <jejeoppa@naver.com> 1650702339 +0900	commit: init
+85eb0a8597afdfdf0f8efeefbbcedc8bd8132c1b 7b761bdfe1c290f8845b6b451901be76afa573f3 jongunee <jejeoppa@naver.com> 1650702599 +0900	reset: moving to 7b761bdfe1c290f8845b6b451901be76afa573f3
+7b761bdfe1c290f8845b6b451901be76afa573f3 4f74e3e2a77c9f5b7757b27f510b65f0bbe7a960 jongunee <jejeoppa@naver.com> 1650702683 +0900	commit: Merge branch 'main' of https://github.com/jongunee/jongunee.github.io
+4f74e3e2a77c9f5b7757b27f510b65f0bbe7a960 2f9ca4bc0164bda4e011ee348343b950a6319bc9 jongunee <jejeoppa@naver.com> 1650702950 +0900	reset: moving to origin/main
+2f9ca4bc0164bda4e011ee348343b950a6319bc9 a20ce66bd04d5488c4bf69c7e24924e9aa1edf07 jongunee <jejeoppa@naver.com> 1650703858 +0900	commit: fabicon added
+a20ce66bd04d5488c4bf69c7e24924e9aa1edf07 b1aee93bf20a143bd152e1b94938375da718bcbc jongunee <jejeoppa@naver.com> 1650703906 +0900	commit: Upload to blog
+b1aee93bf20a143bd152e1b94938375da718bcbc fb04329e77deaaac12c1fdfb0e4dd73cabd5576d jongunee <jejeoppa@naver.com> 1650704358 +0900	commit: Sidebar, Menu added
+fb04329e77deaaac12c1fdfb0e4dd73cabd5576d e10488d655c28c676da8b58f9b11e803264c9942 jongunee <jejeoppa@naver.com> 1650704478 +0900	commit: test
+e10488d655c28c676da8b58f9b11e803264c9942 98188153a4a65d3e9fa22c73cd116f8f39d0496b jongunee <jejeoppa@naver.com> 1650704843 +0900	commit: Search function added
+98188153a4a65d3e9fa22c73cd116f8f39d0496b 46d0aa3dd444ee938b401fa95dbc9308402999d6 jongunee <jejeoppa@naver.com> 1650705428 +0900	commit: Footer added
+46d0aa3dd444ee938b401fa95dbc9308402999d6 cbeb3924cb948a73956240da0a2724937c2d6665 jongunee <jejeoppa@naver.com> 1650706890 +0900	commit: Comment function added
+cbeb3924cb948a73956240da0a2724937c2d6665 02ed528ef6d01b6fc7b1e4b6f36b42b37b2ab054 jongunee <jejeoppa@naver.com> 1650707621 +0900	commit: Previous/Next button added
+02ed528ef6d01b6fc7b1e4b6f36b42b37b2ab054 02ed528ef6d01b6fc7b1e4b6f36b42b37b2ab054 jongunee <jejeoppa@naver.com> 1650714573 +0900	reset: moving to origin/main
+02ed528ef6d01b6fc7b1e4b6f36b42b37b2ab054 df377f1d11e22526719e1a36279da4333a2b7e0f jongunee <jejeoppa@naver.com> 1650721466 +0900	commit: Theme and about file edited
+df377f1d11e22526719e1a36279da4333a2b7e0f af200d306859b6567c40b8ac2a066f6bfe987b7f jongunee <jejeoppa@naver.com> 1650729465 +0900	commit: Hits added
+af200d306859b6567c40b8ac2a066f6bfe987b7f f093a1fa4729ca50f68293956fdd99261a14161c jongunee <jejeoppa@naver.com> 1650729768 +0900	commit: after link removed
+f093a1fa4729ca50f68293956fdd99261a14161c c75997d66322b81819c19df31ce7065c0dc546f9 jongunee <jejeoppa@naver.com> 1650730439 +0900	commit: Google analytics added
+c75997d66322b81819c19df31ce7065c0dc546f9 5893eca264b884bb8beec81329c40235bdde8496 jongunee <jejeoppa@naver.com> 1650731419 +0900	commit: Google analytics added
+5893eca264b884bb8beec81329c40235bdde8496 de15055e0523797c417d4a9656fad28874dc326f jongunee <jejeoppa@naver.com> 1650733845 +0900	commit: Index & Post category added
+de15055e0523797c417d4a9656fad28874dc326f 19ddab2420976298621011a9da4a7916109a7699 jongunee <jejeoppa@naver.com> 1650737359 +0900	commit: Index edited
+19ddab2420976298621011a9da4a7916109a7699 441d18fa09e17028c32a6b7618f6061af2e2db23 jongunee <jejeoppa@naver.com> 1650737558 +0900	commit: Index edited
+441d18fa09e17028c32a6b7618f6061af2e2db23 131063364e5f3e5e5f828dcf4faaf838bbeb99c8 jongunee <jejeoppa@naver.com> 1650740428 +0900	commit: Logo changed
+131063364e5f3e5e5f828dcf4faaf838bbeb99c8 9a9e305fdfae364d2861cb9cfd78397475ce923f jongunee <jejeoppa@naver.com> 1650793394 +0900	commit: Searching engine added
+9a9e305fdfae364d2861cb9cfd78397475ce923f 7a80bcdde5d08bf4ed14740bbeac9d04105c2027 jongunee <jejeoppa@naver.com> 1650793646 +0900	commit: feed added
+7a80bcdde5d08bf4ed14740bbeac9d04105c2027 1cb405133870d2159b5fc2981bd54f91595c7dd6 jongunee <jejeoppa@naver.com> 1650793822 +0900	commit: robots added
+1cb405133870d2159b5fc2981bd54f91595c7dd6 8dbdbfae0fd7b65b61b09fc7cb8604a0a1d4c2ef jongunee <jejeoppa@naver.com> 1650794505 +0900	commit: html file added for ownership
+8dbdbfae0fd7b65b61b09fc7cb8604a0a1d4c2ef 345274fa3ea8afe3ccffe8b11a89e0711e19af3b jongunee <jejeoppa@naver.com> 1650794981 +0900	commit: html file added for ownership (Naver)
+345274fa3ea8afe3ccffe8b11a89e0711e19af3b 4f72397ceb7c2775904e4f1b532944af158f307d jongunee <jejeoppa@naver.com> 1650796810 +0900	commit: Upload to google drive
+4f72397ceb7c2775904e4f1b532944af158f307d a1f4ab0cd42a4d17753ee34937bc899a6a73268a jongunee <jejeoppa@naver.com> 1650796831 +0900	pull --tags origin main: Merge made by the 'ort' strategy.
+a1f4ab0cd42a4d17753ee34937bc899a6a73268a a7c33d4a80c785544e67195e046c0935d3d70aa9 jongunee <jejeoppa@naver.com> 1650796859 +0900	commit: Upload to google drive
