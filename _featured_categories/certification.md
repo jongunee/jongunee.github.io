@@ -25,11 +25,11 @@ sitemap: false
 
 
 
-# Subcat
+# 인증 산업
 
 ## 카테고리
 
-* [OTsecurity]{:.heading.flip-title} --- OT 보안 IEC 62443에 대해
+* [OTsecurity]{:.heading.flip-title} --- OT 보안에 대해
 * [OPCUA]{:.heading.flip-title} --- OPC UA IEC 62541에 대해
 * [SQA]{:.heading.flip-title} --- 소프트웨어 품질 라이프사이클에 대해
 

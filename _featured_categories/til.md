@@ -25,7 +25,7 @@ sitemap: false
 
 
 
-# Subcat
+# TIL (Tody I Learned)
 
 ## 카테고리
 

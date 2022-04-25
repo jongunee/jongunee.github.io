@@ -51,12 +51,12 @@ author:
 menu:
   - title:             About
     url:               /about/
-  - title:             Posts
+  - title:             Post
     url:               /posts/
-  - title:             Certification Industry
+  - title:             인증 산업
     url:               /certification/
     submenu:
-      - title:         OTsecurity
+      - title:         OT 보안
         url:           /security/
       - title:         OPCUA
         url:           /opcua/
@@ -69,7 +69,7 @@ menu:
         url:           /java/
       - title:         DB
         url:           /db/
-      - title:         Algorithm
+      - title:         알고리즘
         url:           /algorithm/
       - title:         Spring
         url:           /spring/
@@ -114,7 +114,7 @@ accent_color:          #96abfb
 # This is used for the `theme-color` meta tag,
 # which changes the background color of the browser UI in certain browsers.
 # Defaults to `accent_color`.
-theme_color:           rgb(25,55,71)
+theme_color:           #rgb(25,55,71)
 
 # The string encoding which fonts to fetch from Google Fonts.
 # See: <https://hydejack.com/docs/configuration/>

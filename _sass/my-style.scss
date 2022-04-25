@@ -121,6 +121,8 @@ _sass > my-style.scss
 
 .content a:not(.btn):not(.no-hover) {
   text-decoration-color: #97adfd;
+  border-color: #97adfd;
+  accent-color: #97adfd;
 }
 
 a.external::after, a::after{
