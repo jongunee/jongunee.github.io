@@ -53,6 +53,15 @@ menu:
     url:               /about/
   - title:             Posts
     url:               /posts/
+  - title:             Certification Industry
+    url:               /certification/
+    submenu:
+      - title:         OTsecurity
+        url:           /security/
+      - title:         OPCUA
+        url:           /opcua/
+      - title:         SQA
+        url:           /sqa/
   - title:             TIL
     url:               /til/
     submenu:
