@@ -2,7 +2,6 @@
 layout: post
 title: 클래스와 객체
 description: 인프런 Do it! 자바 프로그래밍 입문 수강 중
-# related_posts:
 sitemap: false
 hide_last_modified: true
 categories:
