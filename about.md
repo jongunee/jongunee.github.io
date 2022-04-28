@@ -49,7 +49,7 @@ hide_description: true
 + 자동화 테스트 프로그램, 테스트 케이스 개발
 + IEC 62541 인증 프로젝트 핸들러 - KETI 산업용 Embedded 보드
 + ISO 25051 SQA 소프트웨어 품질 기능성 인증 프로젝트 핸들러 - 민팃 모바일폰 데이터 삭제 어플리케이션
-+ IEC 62443 LS ELECTRIC OT 사이버 보안 인증 프로젝트 참여
++ IEC 62443 OT 사이버 보안 인증 프로젝트 참여
 
 ## Eucation
 ---
