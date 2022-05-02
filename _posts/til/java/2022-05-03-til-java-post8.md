@@ -52,8 +52,8 @@ public class CompleteCalc implements Calc, Runnable{ // 여러 implements 구현
 
 ## 인터페이스와 다형성
 - 인터페이스는 <span style='background-color: #f5f0ff'>클라이언트 코드</span>와 서비스를 제공하는 <span style='background-color: #f5f0ff'>객체</span> 사이의 약속
-- 어떤 객체가 `interface` 타입이라는 것은 그 `interface`가 제공하는 메서드를 구현했다는 의미
-- 클라이언트는 어떻게 구현되었는지 상관 없이 `interface`의 정의만을 보고 사용할 수 있음  
+- 어떤 객체가 `interface` 타입이라는 것은 그 인터페이스가 제공하는 메서드를 구현했다는 의미
+- 클라이언트는 어떻게 구현되었는지 상관 없이 인터페이스의 정의만을 보고 사용할 수 있음  
 ex) JDBC
 - 다양한 구현이 필요한 인터페이스를 설계하는 것은 매우 중요한 일
 
