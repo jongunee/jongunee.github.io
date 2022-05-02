@@ -11,6 +11,8 @@ categories:
 ---
 ## 배열, ArrayList
 
+* toc
+{:toc .large-only}
 
 ## 배열
 > 동일한 자료형의 변수를 한꺼번에 순차적으로 관리하기 위한 데이터 타입. 

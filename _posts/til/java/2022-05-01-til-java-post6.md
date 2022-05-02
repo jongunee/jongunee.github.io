@@ -12,6 +12,9 @@ categories:
 ---
 ## 오버라이딩, 다형성
 
+* toc
+{:toc .large-only}
+
 ## 메서드 오버라이딩
 > 상위 클래스에 정의 된 메서드 중 하위 클래스와 기능이 맞지 않거나 추가 기능이 필요한 경우 같은 이름과 매개변수로 하위 클래스에서 <span style='background-color: #f5f0ff'>재정의</span> 할 수 있다.
 
@@ -28,6 +31,8 @@ public int calcPrice(int price){  // VIPCustomer 클래스(하위 클래스) 메
 }
 ```
 
+---
+
 ## 가상 메서드(virtual method)
 > 프로그램에서 어떤 객체의 변수나 메서드의 참조는 그 타입에 따라 이루어진다. <span style='background-color: #f5f0ff'>가상 메서드</span>의 경우는 타입과 상관 없이 실제 생성된 인스턴스의 메서드가 호출되는 원리이다.
 
@@ -40,6 +45,8 @@ vc.calcPrice(10000);
 ➡️즉, vc 타입은 `Customer`지만 실제 생성된 인스턴스인 `VIPCustoemr` 클래스의 `calcPrice()`메서드가 호출된다. 
 
 <mark>C++에서는 virtual 키워드를 사용해야 하지만 Java에서는 기본적으로 모든 메서드가 가상 메서드이다.</mark>
+
+---
 
 ## 다형성
 __다형성 이란?__
@@ -119,6 +126,8 @@ class Student{
   Subject korean;
 }
 ```
+
+---
 
 ## 다운 캐스팅 - instance of
 > 하위 클래스가 상위 클래스로 형 변환되는 것을 의미한다. 다시 원래 자료형인 하위 클래스로 형 변환 하려면 명시적으로 다운 캐스팅을 해야 한다. 이 떄 원래 인스턴스의 타입을 체크하는 예약어가 `instanceof`이다.
