@@ -96,3 +96,5 @@ public class Define{
   public static final String GOOD_MORNING = "Good Morning!";
 }
 ``` 
+
+끝!
