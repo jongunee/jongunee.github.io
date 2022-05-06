@@ -39,8 +39,8 @@ public class ThreeDPrinter<T extends Material> {  //상속받은 것만으로 �
 
 __자료형 매개 변수 T__
 - type의 의미로 T를 많이 사용 함
-- <T>에서 <>는 다이아몬드 연산자라고 함
-- static 키워드는 Tdp 사용할 수 없음
+- `<T>`에서 `<>`는 다이아몬드 연산자라고 함
+- `static` 키워드는 `T`에 사용할 수 없음
 - 다이아몬드 연산자 내부에서 자료형은 생략 가능  
 ```java
 ArrayList<String> list = new ArrayList<>();

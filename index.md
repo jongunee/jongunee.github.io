@@ -13,9 +13,9 @@ hide_description: false
 
 ## 소개
 ---
-Github pages 블로그를 운영하는 중 💻  
- 💡__개발 공부를 하며 배운 것들을 정리하는 목표로 운영을 시작하게 되었습니다.__ 💡
-
+Github 블로그 운영 중 💻  
+💡__개발 공부를 하며 배운 것들을 정리하는 목표로 운영을 시작하게 되었습니다.__ 💡  
+목표는 1일 1 Commit! 💪
 
 저는 외국계 인증 업체에서 소프트웨어 인증 업무를 전담하다 개발자로 전향했습니다.📜
 
@@ -29,7 +29,7 @@ Github pages 블로그를 운영하는 중 💻
 
 📚**기술 스택**
 
-> 📝 C, JAVA, Spring, Maria DB  
+> 📝 C, JAVA, Spring, Maria DB, OPC UA
 
 저에게 조금 관심이 생기셨다면 [CV](/assets/CV_PJW.pdf)를 확인해주시면 감사하겠습니다! 😃
 

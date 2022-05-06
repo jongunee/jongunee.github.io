@@ -161,7 +161,7 @@ __String 선언__
 String str1 = new String("abc");  //힘 메모리에 생성
 String str2 = "test"; //상수 풀에 생성
 ```
-<mark>`new`로 생성하게 되면 계속해서 힙 메모리에 생성되지만, 상수 풀에 생성하면 동일한 값은 하나만 생성해서 주소를 동시에 가리키게 된다</mark>
+<mark>new로 생성하게 되면 계속해서 힙 메모리에 생성되지만, 상수 풀에 생성하면 동일한 값은 하나만 생성해서 주소를 동시에 가리키게 된다</mark>
 
 ```java
 String str1 = new String("abc");
