@@ -10,7 +10,7 @@ categories:
   - java
 ---
 
-## 자료 구조
+## 배열, 링크드리스트, 스택, 큐, 트리, 해싱
 
 * toc
 {:toc .large-only}
