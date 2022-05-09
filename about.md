@@ -32,7 +32,7 @@ hide_description: true
 
 ---
 + 임베디드 시스템
-+ 해외 인증
++ 국제 인증
 + OPC UA
 + SQA
 + 사이버 보안
@@ -44,7 +44,7 @@ hide_description: true
 -2020. 02 ~ 2022. 05<br>
 **TUV SUD Korea - 스마트 팩토리 엔지니어**
 
-+ IEC 62541, IEC 62443, SQA 인증 담당
++ OPC UA, OT 사이버 보안, SQA 인증 담당
 + IEC 62541 (OPC UA) 상호운용성 인증 프로세스 개발
 + 자동화 테스트 프로그램, 테스트 케이스 개발
 + IEC 62541 인증 프로젝트 핸들러 - KETI 산업용 Embedded 보드

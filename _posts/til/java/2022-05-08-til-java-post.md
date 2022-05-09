@@ -60,6 +60,8 @@ OutClass outClass = new OutClass();
 outClass.usingInTest();
 ```
 
+---
+
 __정적 내부 클래스__
 
 ```java
@@ -96,6 +98,8 @@ sInClass.inTest();
 OutClass.InStaticClass.sTest();
 ```
 
+---
+
 __지역 내부 클래스__
 ```java
 class Outer{
@@ -129,6 +133,8 @@ Runnable runnable = outer.getRunable(20);
 runnable.run();
 ```
 
+---
+
 __익명 내부 클래스__
 ```java
 class Outer{
@@ -149,3 +155,5 @@ __main 문__
 ```java
 outer.runnable.run();
 ```
+
+끝!
