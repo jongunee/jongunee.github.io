@@ -36,19 +36,26 @@ __스트림 연산 - 중간 연산__
 - 중간 연산 - `filter()`, `map()`  
   중간에 맞는 요소를 추출(`filter()`)하거나 요소를 변환 함(`map()`)
 - 문자열의 길이가 5 이상인 요소만 출력하기
+
 ```java
 sList.stream().filter(s -> s.length() >= 5).forEach(s -> System.out.println(s));
 ```
+
 - 고객 클래스에서 고객 이름만 가져오기
+
 ```java
 customerList.stream().map(c -> c.getName()).forEach(s -> System.out.println(s));
 ```
+
 - 배열 숫자 총합 구하기
+
 ```java
 int[] arr = {1, 2, 3, 4, 5};
 System.out.println(Arrays.stream(arr).sum());
 ```
+
 - 배열 Sorting 후에 ArrayList 출력하기
+
 ```java
 List<String> sList = new ArrayList<String>();
 sList.add("Tomas");
@@ -66,11 +73,14 @@ sList.stream().sorted().forEach(s -> System.out.println(s));
 - 최종 연산으로 스트림의 요소를 소모하며 연산 수행
 - 모든 스트림 요소를 처리해서 값으로 도출
 - 배열의 모든 요소의 합을 구하는 `reduce()` 연산
+
 ```java
 Arrays.stream(arr).reduce(0, (a, b) -> a + b);  //0은 초기값
 ```
+
 - 두 번째 요소로 전달되는 람다식에 따라 다양한 기능을 수행
 - 배열의 가장 긴 문자열 출력
+
 ```java
 String[] greetings = {"안녕하세요~~~", "Hello", "Good Morning", "반갑습니다"};
 		
@@ -82,7 +92,9 @@ System.out.println(Arrays.stream(greetings).reduce("", (s1, s2) -> {
   }
 ));
 ```
+
 또는
+
 ```java
 class CompareString implements BinaryOperator<String>{
 	@Override
