@@ -245,7 +245,7 @@ __flush()와 close() 메서드__
 | 메서드 | 설명 |
 | --- | --- |
 | `int read()` | 파일로부터 한 문자를 읽고 읽은 값 반환 |
-| `int read(char[] buf)` | 파일로부터 buf 배열에 문자를 읽음 |
+| `int read(char[] buf)` | 파일로부터 `buf` 배열에 문자를 읽음 |
 | `int read(char[] buf, int off, int len)` | 파일로부터 `buf` 배열의 `off` 위치에서부터 `len` 개수만큼 문자를 읽음 |
 | `void close()` | 스트림과 연결된 파일 리소스를 닫음 |
 
@@ -266,6 +266,7 @@ try(FileWriter fw = new FileWriter("writer.txt")){
 ```
 
 ## 기반 스트림 / 보조 스트림
+
 - 기반 스트림: 대상에 직접 자료를 읽고 쓰는 기능의 스트림
 - 보조 스트림: 직접 읽고 쓰는 기능은 없이 추가적인 기능을 더해주는 스트림
 - 보조 스트림은 직접 읽고 쓰는 기능은 없기 떄문에 항상 기반 스트림이나 또 다른 보조 스트림을 생성자 매개 변수로 포함
@@ -276,5 +277,97 @@ try(FileWriter fw = new FileWriter("writer.txt")){
 | 기반 스트림 | `FileInputStream`, `FileOutputStream`, `FileReader`, `FileWriter` 등 |
 | 보조 스트림 | `InputStreamReader`, `OutputStreamWriter`, `BufferedInputStrean`, `BufferedOutputStream` 등 |
 
+### 보조 스트림
 
+- 실제 읽고 쓰는 스트림이 아닌 보조적인 기능을 추가하는 스트림
+- 데코레이터 패턴
+- `FileInputStream`과 `FilterOutputStream`이 보조스트림의 상위 클래스
+- 생성자의 매개 변수로 또 다른 스트림을 가짐
+
+| 생성자 | 설명 |
+| --- | --- |
+| `Protected FilterInputStream(InputStream in)` | 생성자의 매개변수로 `inputStrean`을 받음 |
+| `public FilterOutputStream(OutputStream out)` | 생성자의 매개변수로 `OutputStream` 을 받음 |
+
+### InputStreamReader와 OutputStreamWriter
+
+- 바이트 단위로 읽거나 쓰는 자료를 문자로 변환해주는 보조 스트림
+- FileInputStream(바이트 스트림)으로 읽은 자료를 문자와 변환하는 예
+
+
+__예시__
+
+```java
+try(InputStreamReader irs = new InputStreamReader( new FileInputStream("reader.txt"))){ //문자로 변환
+  int i = 0;
+  while(((i = irs.read()) != -1)) {
+    System.out.print((char)i);
+  }
+}catch(IOException e) {
+  System.out.println(e);
+}
+```
+
+### Buffered 스트림
+- 내부적으로 8192 바이트 배열을 가지고 읽거나 쓰기 기능을 제공하여 속도가 빨라짐
+
+| 스트림 클래스 | 설명 |
+| --- | --- |
+| `BufferedInputStream` | 바이트 단위로 읽는 스트림에 버퍼링 기능을 제공 |
+| `BufferedOutputStream` | 바이트 단위로 출력하는 스트림에 버퍼링 기능을 제공 |
+| `BufferedReader` | 문자 단위로 읽는 스트림에 버퍼링 기능을 제공 |
+| `BufferedWriter` | 문자 단위로 출력하는 스트림에 버퍼링 기능을 제공 |
+
+```java
+long milliseconds = 0;
+int len = 0;
+
+try(FileInputStream fis = new FileInputStream("a.exe");
+    FileOutputStream fos = new FileOutputStream("b.exe");
+    BufferedInputStream bis = new BufferedInputStream(fis); //fis 버퍼링
+    BufferedOutputStream bos = new BufferedOutputStream(fos)){  // fos 버퍼링
+  milliseconds = System.currentTimeMillis();  //시간 체크
+  int i;
+  while((i = fis.read()) != -1) {
+    bos.write(i);
+    len++;
+  }
+  milliseconds = System.currentTimeMillis() - milliseconds; //시간 체크
+  
+}catch(IOException e) {
+  System.out.println(e);
+}
+System.out.println(len);  //길이 출력
+System.out.println(milliseconds); //시간 출력
+```
+
+### DataInputStream과 DataOutputStream
+- 자료가 메모리에 저장된 0, 1 상태 그대로 읽거나 쓰는 스트림
+- 읽는 메서드
+
+| 메서드 | 설명 |
+| --- | --- |
+| `byte readByte()` | 1바이트를 읽어 반환 |
+| `boolean readBoolean()` | 읽은 자료가 0이 아니면 `true`, 0이면 `false` 반환 |
+| `char readChar()` | 한 문자를 읽어 반환 |
+| `short readShort()` | 2바이트를 읽어 정수 값 반환 |
+| `int readInt()` | 4바이트를 읽어 정수 값 반환 |
+| `long readLong()` | 8바이트를 읽어 정수 값 반환 |
+| `float readFloat()` | 4바이트를 읽어 실수 값 반환 |
+| `double readDouble()` | 4바이트를 읽어 실수 값 반환 |
+| `String readUTF()` | 수정된 UTF-8 인코딩 기반으로 문자열을 읽어 반환 |
+
+- 쓰는 메서드
+
+| 메서드 | 설명 |
+| --- | --- |
+| `void writeByte(int v)` | 1바이트의 자료 출력 |
+| `void writeBoolean(boolean v)` | 1바이트 값 출력 |
+| `void writeChar(char v)` | 2바이트 출력 |
+| `void writeShort(short v)` | 2바이트 출력 |
+| `void writeInt(int v)` | 4바이트 출력 |
+| `void writeLong(long v)` | 8바이트 출력 |
+| `void writeFloat(float v)` | 4바이트 출력 |
+| `void writeDouble(double v)` | 8바이트 출력 |
+| `void writeUTF(String str)` | 수정된 UTF-8 인코딩 기반으로 문자열 출력 |
 
