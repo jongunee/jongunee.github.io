@@ -371,3 +371,93 @@ System.out.println(milliseconds); //시간 출력
 | `void writeDouble(double v)` | 8바이트 출력 |
 | `void writeUTF(String str)` | 수정된 UTF-8 인코딩 기반으로 문자열 출력 |
 
+### 직렬화(serialization)
+
+- 인스턴스의 상태를 그대로 저장하거나(serialization) 다시 복원하는(deserialization) 방식
+- 파일에 쓰거나 네트워크로 전송
+- `ObjectInputStream`과 `OutputStream` 사용
+
+| 생성자 | 설명 |
+| --- | --- |
+| `ObjectInputStream(InputStream in)` | `InputStream`을 생성자의 매개변수로 받아 `ObjectInputStream`을 생성 |
+| `ObjectOutputStream(OutputStream out)` | `OutputStream`을 생성자의 매개변수로 받아 `ObjectOuotputStream`을 생성 |
+
+__Serializable 인터페이스__
+- 직렬화는 인스턴스 내용이 외부로 유출되는 것이므로 프로그래머가 직렬화 의도를 표시해야 함
+- 구현코드가 없는 maker interface
+```java
+class Person implements Serializable{
+  ...
+  String name;
+  String job;
+  ...
+}
+```
+
+__직렬화 예시__
+
+```java
+Person personLee = new Person("Lee", "Manager");
+try(FileOutputStream fos = new FileOutputStream("serial.dat");
+    ObjectOutputStream oos = new ObjectOutputStream(fos)){
+  oos.writeObject(personLee);
+}catch(IOException e) {
+  System.out.println(e);
+}
+
+try(FileInputStream fis = new FileInputStream("serial.dat");
+    ObjectInputStream ois = new ObjectInputStream(fis)){
+  Object obj = ois.readObject();
+  if(obj instanceof Person) {
+    Person p = (Person)obj;
+    System.out.println(p);
+  }
+}catch(IOException e) {
+  System.out.println(e);
+}
+```
+
+__Externalizable 인터페이스__
+- 프로그래머가 자료를 읽고 쓰는 방식을 직접 구현 함
+```java
+@Override
+public void writeExternal(ObjectOutput out) throws IOException {
+  out.writeUTF(name);  
+}
+@Override
+public void readExternal(ObjectInput in) throws IOException, ClassNotFoundException {
+  name = in.readUTF();  
+}
+```
+
+__그 외 입출력 클래스__
+- `FIle` 클래스  
+  - 파일 개념을 추상화한 클래스
+  - 입출력 기능은 없고 파일의 속성, 경로, 이름 등을 알 수 있음
+- `RandomAccessFile` 클래스
+  - 입출력 클래스 중 유일하게 파일 입출력을 동시에 할 수 있는 클래스
+  - 파일 포인터가 있어서 읽고 쓰는 위치의 이동이 가능
+  - 다양한 자료형에 대한 메서드가 제공
+
+  __예시__
+
+  ```java
+  RandomAccessFile rf = new RandomAccessFile("random.txt", "rw");
+  rf.writeInt(100);	//4
+  System.out.println(rf.getFilePointer());
+  rf.writeDouble(3.14);	//8
+  System.out.println(rf.getFilePointer());
+  rf.writeUTF("안녕하세요");	//3 * 5 + 2(Null char) = 17
+  System.out.println(rf.getFilePointer());
+  
+  rf.seek(0);	//파일포인터 위치 이동
+  int i = rf.readInt();
+  double d = rf.readDouble();
+  String str = rf.readUTF();
+  
+  System.out.println(i);
+  System.out.println(d);
+  System.out.println(str);
+  ```
+
+  끝!
