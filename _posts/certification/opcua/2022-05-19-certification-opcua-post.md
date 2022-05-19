@@ -27,7 +27,7 @@ __자동화 피라미드 - 퍼듀 모델__
 
 ![그림2](/assets/img/opcua/automation%20pyramid.jpg){: width="500px" height="335px"}
 
-[참조] The Advantech automation system pyramid(2013/12/17) <https://processengineering.co.uk/article/2017704/the-automation-syste>
+<span style="font-size:70%">[참조] The Advantech automation system pyramid<br><https://processengineering.co.uk/article/2017704/the-automation-syste> (2013/12/17)</span>
 
 - Level 0: Field Level
   - 센서 값 측정, 액츄에이터 작동
@@ -49,7 +49,7 @@ __CPS 모델__
 
 ![그림3](/assets/img/opcua/cps.jpg)
 
-[참조] The Advantech automation system pyramid(2013/12/17) <https://cpsiot.at/cps-iot-ecosystem-a-platform-for-research-and-education/193/>
+<span style="font-size:70%">[참조] The Advantech automation system pyramid<br><https://cpsiot.at/cps-iot-ecosystem-a-platform-for-research-and-education/193/> (2013/12/17)</span>
 
 > CPS란? _Cyber Physical Systems의 약자로 우리가 살아가는 물리적 세계와 컴퓨터, 통신, 인터넷과 같은 사이버 세계가 융합된 형태를 말한다._ CPS를 통해 물리적 세계와 사이버 세계가 상호 작용을 하면서 새로운 시스템이 구축될 것이다.
 
