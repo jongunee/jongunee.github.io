@@ -31,7 +31,7 @@ categories:
 
 유저(root)/패스워드로 접속 명령어
 ```SQL
-bin ./mysql-uroot -p
+bin ./mysql -uroot -p
 ```
 root도 유저 중 하나이지만 관리자이기 때문에 모든 권한을 가진다. 루트 권한으로 직접 DB를 다루는 것은 매우 위험하기 때문에 별도 유저를 생성해서 다루는 것이 좋다.
 
