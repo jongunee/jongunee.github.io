@@ -31,7 +31,7 @@ OPC Classic의 취약한 보안을 강화할 것
 
 ---
 
-## Industry 4.0의 요구사항과 OPC UA 솔루션__
+## Industry 4.0의 요구사항과 OPC UA 솔루션
 
 Industry 4.0에서의 몇 가지 요구사항들과 OPC UA가 어떻게 이 요구사항들을 충족하는지 설명한다.
 
@@ -46,7 +46,7 @@ Industry 4.0에서의 몇 가지 요구사항들과 OPC UA가 어떻게 이 요�
 
 ---
 
-## OPC UA 관련 표준__
+## OPC UA 관련 표준
 
 OPC UA Specification은 IEC 규격으로 제정되어 있다.
 - 15개의 규격이 IEC 표준으로 제정  
