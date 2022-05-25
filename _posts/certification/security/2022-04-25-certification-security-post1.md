@@ -2,8 +2,7 @@
 layout: post
 title: ETSI EN 303 645란?
 description: IoT 보안
-
-sitemap: false
+sitemap: true
 hide_last_modified: true
 categories:
   - certification

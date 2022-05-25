@@ -97,6 +97,12 @@ public class System{
 | `double nextDouble()` | `double` 자료형을 읽음 |
 | `String nextLine()` | 문자열 `String`을 읽음 |
 
+- Char형 문자 입력 방법
+```java
+Scanner in = new Scanner(System.in);
+char word = in.next().charAt(0);
+```
+
 __예시__
 ```java
 Scanner scanner = new Scanner(System.in);
