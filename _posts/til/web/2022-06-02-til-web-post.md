@@ -2,7 +2,7 @@
 layout: post
 title: Web 기본, 프로그램 설치
 description: >
-  web 공부
+  스파르타 코딩 클럽 웹개발 종합반 수강 중
 sitemap: false
 categories:
   - til
