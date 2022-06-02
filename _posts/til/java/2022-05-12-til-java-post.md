@@ -103,6 +103,10 @@ Scanner in = new Scanner(System.in);
 char word = in.next().charAt(0);
 ```
 
+- next() VS nextLine()  
+`next()` 메서드는 토큰 개념으로 입력받기 때문에 공백 전까지만 입력받는다.
+따라서 "I am PJW" 같은 문자열 하나의 라인을 입력받기 위해서는 `nexLine()` 메서드를 사용한다. 
+
 __예시__
 ```java
 Scanner scanner = new Scanner(System.in);
