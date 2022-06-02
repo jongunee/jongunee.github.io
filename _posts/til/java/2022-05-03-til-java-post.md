@@ -10,7 +10,7 @@ categories:
   - til
   - java
 ---
-## 인터페이스
+# 인터페이스
 
 * toc
 {:toc .large-only}

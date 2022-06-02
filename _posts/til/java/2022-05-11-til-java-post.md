@@ -10,7 +10,7 @@ categories:
   - java
 ---
 
-## 예외 처리
+# 예외 처리
 
 * toc
 {:toc .large-only}

@@ -9,7 +9,7 @@ categories:
   - til
   - java
 ---
-## 배열, ArrayList
+# 배열, ArrayList
 
 * toc
 {:toc .large-only}

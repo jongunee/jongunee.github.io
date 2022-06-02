@@ -10,7 +10,7 @@ categories:
   - java
 ---
 
-## Java 기본 클래스
+# Java 기본 클래스
 
 * toc
 {:toc .large-only}

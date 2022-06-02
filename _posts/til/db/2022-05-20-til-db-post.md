@@ -10,7 +10,7 @@ categories:
   - db
 ---
 
-## MySQL 스키마 사용
+# MySQL 스키마 사용
 
 * toc
 {:toc .large-only}

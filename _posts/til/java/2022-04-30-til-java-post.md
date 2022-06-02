@@ -10,7 +10,7 @@ categories:
   - til
   - java
 ---
-## 상속
+# 상속
 
 * toc
 {:toc .large-only}

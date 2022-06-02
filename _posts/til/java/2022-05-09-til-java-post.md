@@ -10,7 +10,7 @@ categories:
   - java
 ---
 
-## 람다식(lambda expression)
+# 람다식(lambda expression)
 
 * toc
 {:toc .large-only}

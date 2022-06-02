@@ -10,7 +10,7 @@ categories:
   - java
 ---
 
-## 제네릭(Generic) 프로그래밍
+# 제네릭(Generic) 프로그래밍
 
 * toc
 {:toc .large-only}

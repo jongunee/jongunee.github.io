@@ -10,7 +10,7 @@ categories:
   - java
 ---
 
-## 클래스, 인스턴스
+# 클래스, 인스턴스
 
 * toc
 {:toc .large-only}

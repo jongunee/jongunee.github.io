@@ -10,7 +10,7 @@ categories:
   - db
 ---
 
-## MySQL 설치 및 실행
+# MySQL 설치 및 실행
 
 * toc
 {:toc .large-only}

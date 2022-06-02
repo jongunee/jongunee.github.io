@@ -9,7 +9,7 @@ categories:
   - til
   - java
 ---
-## JAVA 디버깅 방법
+# JAVA 디버깅 방법
 
 1. 디버깅 버튼 클릭
 2. Break point 지정 - 라인 번호 옆에 더블클릭

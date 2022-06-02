@@ -10,7 +10,7 @@ categories:
   - algorithm
 ---
 
-## String \#3. 문장 속 단어
+# String \#3. 문장 속 단어
 
 * toc
 {:toc .large-only}

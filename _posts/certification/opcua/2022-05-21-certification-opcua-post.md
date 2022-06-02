@@ -9,7 +9,7 @@ categories:
   - opcua
 ---
 
-## OPC UA 특성
+# OPC UA 특성
 
 * toc
 {:toc .large-only}

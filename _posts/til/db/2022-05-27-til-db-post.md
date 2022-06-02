@@ -10,7 +10,7 @@ categories:
   - db
 ---
 
-## CRUD
+# CRUD
 
 * toc
 {:toc .large-only}

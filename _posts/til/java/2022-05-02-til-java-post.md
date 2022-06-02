@@ -10,7 +10,7 @@ categories:
   - til
   - java
 ---
-## 추상 클래스
+# 추상 클래스
 
 * toc
 {:toc .large-only}

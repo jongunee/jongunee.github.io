@@ -10,7 +10,7 @@ categories:
   - db
 ---
 
-## 관계형 데이터베이스
+# 관계형 데이터베이스
 
 * toc
 {:toc .large-only}

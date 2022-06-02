@@ -10,7 +10,7 @@ categories:
   - java
 ---
 
-## 스트림
+# 스트림
 
 * toc
 {:toc .large-only}

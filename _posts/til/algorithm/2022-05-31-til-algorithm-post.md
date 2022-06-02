@@ -10,7 +10,7 @@ categories:
   - algorithm
 ---
 
-## String \#2. 대소문자 변환
+# String \#2. 대소문자 변환
 
 * toc
 {:toc .large-only}

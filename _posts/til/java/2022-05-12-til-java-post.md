@@ -10,7 +10,7 @@ categories:
   - java
 ---
 
-## 자바 입출력
+# 자바 입출력
 
 * toc
 {:toc .large-only}

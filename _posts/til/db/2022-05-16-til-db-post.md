@@ -10,7 +10,7 @@ categories:
   - db
 ---
 
-## DB(데이터베이스)
+# DB(데이터베이스)
 
 * toc
 {:toc .large-only}

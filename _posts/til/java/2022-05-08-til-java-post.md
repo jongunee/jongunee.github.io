@@ -10,7 +10,7 @@ categories:
   - java
 ---
 
-## 내부 클래스
+# 내부 클래스
 
 * toc
 {:toc .large-only}

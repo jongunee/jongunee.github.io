@@ -10,7 +10,7 @@ categories:
   - db
 ---
 
-## MySQL 클라이언트
+# MySQL 클라이언트
 
 * toc
 {:toc .large-only}

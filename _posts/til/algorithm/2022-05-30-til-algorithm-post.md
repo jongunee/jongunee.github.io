@@ -10,7 +10,7 @@ categories:
   - algorithm
 ---
 
-## String \#1. 문자 찾기
+# String \#1. 문자 찾기
 
 * toc
 {:toc .large-only}

@@ -10,7 +10,7 @@ categories:
   - java
 ---
 
-## Collection, List, Set, Map
+# Collection, List, Set, Map
 
 * toc
 {:toc .large-only}

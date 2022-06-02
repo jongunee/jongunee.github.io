@@ -10,7 +10,7 @@ categories:
   - til
   - java
 ---
-## 오버라이딩, 다형성
+# 오버라이딩, 다형성
 
 * toc
 {:toc .large-only}

@@ -9,7 +9,7 @@ categories:
   - web
 ---
 
-## Web 기본, 프로그램 설치
+# Web 기본, 프로그램 설치
 
 * toc
 {:toc .large-only}
@@ -35,5 +35,5 @@ Web 서비스 기본 요소
 
 ## 필수 프로그램
 
-1. Pycharm Professional 설치
+1. PyCharm Professional 설치
 2. AWS 가입

@@ -10,7 +10,7 @@ categories:
   - db
 ---
 
-## MySQL 구조
+# MySQL 구조
 
 * toc
 {:toc .large-only}

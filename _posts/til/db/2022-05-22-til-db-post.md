@@ -10,7 +10,7 @@ categories:
   - db
 ---
 
-## SQL과 테이블 구조
+# SQL과 테이블 구조
 
 * toc
 {:toc .large-only}
