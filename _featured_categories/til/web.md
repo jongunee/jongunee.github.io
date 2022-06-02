@@ -2,9 +2,9 @@
 layout: list
 category: til
 bigtitle: Spring
-slug: spring
+slug: web
 description: >
-  Spring 공부
+  Web 공부
 
 related_posts:
     - 

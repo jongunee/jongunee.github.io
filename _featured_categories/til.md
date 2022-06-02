@@ -32,11 +32,11 @@ sitemap: false
 * [JAVA]{:.heading.flip-title} --- JAVA Study
 * [DB]{:.heading.flip-title} --- DB Study
 * [Algorithm]{:.heading.flip-title} --- Algorithm 연습
-* [Spring]{:.heading.flip-title} --- Spring Study
+* [Web]{:.heading.flip-title} --- Web Study
 * [Others]{:.heading.flip-title} --- 기타
 
 [JAVA]: /java/
 [DB]: /db/
 [Algorithm]: /algorithm/
-[Spring]: /spring/
+[Web]: /web/
 [Others]: /others/

@@ -71,8 +71,8 @@ menu:
         url:           /db/
       - title:         알고리즘
         url:           /algorithm/
-      - title:         Spring
-        url:           /spring/
+      - title:         Web 기본
+        url:           /web/
       - title:         Others
         url:           /others/
 # Add links to the footer.
