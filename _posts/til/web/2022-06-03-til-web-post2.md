@@ -155,8 +155,8 @@ categories:
               <div class="card-body">
                 <h5 class="card-title">제목</h5>
                 <p class="card-text">내용</p>
-                <p>⭐⭐⭐</p>>
-                <p class="mycomments">코멘트</p>>
+                <p>⭐⭐⭐</p>
+                <p class="mycomments">코멘트</p>
               </div>
             </div>
           </div>
@@ -167,8 +167,8 @@ categories:
               <div class="card-body">
                 <h5 class="card-title">제목</h5>
                 <p class="card-text">내용</p>
-                <p>⭐⭐⭐</p>>
-                <p class="mycomments">코멘트</p>>
+                <p>⭐⭐⭐</p>
+                <p class="mycomments">코멘트</p>
               </div>
             </div>
           </div>
@@ -179,8 +179,8 @@ categories:
               <div class="card-body">
                 <h5 class="card-title">제목</h5>
                 <p class="card-text">내용</p>
-                <p>⭐⭐⭐</p>>
-                <p class="mycomments">코멘트</p>>
+                <p>⭐⭐⭐</p>
+                <p class="mycomments">코멘트</p>
               </div>
             </div>
           </div>
@@ -191,8 +191,8 @@ categories:
               <div class="card-body">
                 <h5 class="card-title">제목</h5>
                 <p class="card-text">내용</p>
-                <p>⭐⭐⭐</p>>
-                <p class="mycomments">코멘트</p>>
+                <p>⭐⭐⭐</p>
+                <p class="mycomments">코멘트</p>
               </div>
             </div>
           </div>
