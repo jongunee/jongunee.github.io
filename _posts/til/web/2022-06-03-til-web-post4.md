@@ -1,6 +1,6 @@
 ---
 layout: post
-title: javascript 기초
+title: Javascript 기초
 description: >
   스파르타 코딩 클럽 웹개발 종합반 수강 중
 sitemap: false
@@ -9,7 +9,7 @@ categories:
   - web
 ---
 
-# javascript 기초
+# Javascript 기초
 
 * toc
 {:toc .large-only}
