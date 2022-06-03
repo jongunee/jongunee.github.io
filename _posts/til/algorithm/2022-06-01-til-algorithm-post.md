@@ -55,6 +55,8 @@ public class Problem3 {
 ## 다른 방법 1 - 향상된 for문
 
 ```java
+인프런 자바(Java) 알고리즘 문제풀이 : 코딩테스트 대비 답 참조
+
 public String solution(String str){
   String ans = "";
   String[] parsed = str.split(" ");

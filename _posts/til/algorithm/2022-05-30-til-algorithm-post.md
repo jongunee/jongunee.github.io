@@ -47,6 +47,8 @@ public class Problem1 {
 ## 개선 코드:
 
 ```java
+인프런 자바(Java) 알고리즘 문제풀이 : 코딩테스트 대비 답 참조
+
 public class Problem1 {
   public int solution(String str, char c){
     int ans = 0;
