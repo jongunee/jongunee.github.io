@@ -42,9 +42,10 @@ categories:
 
 ## HTML 예시
 
-스파르타 코딩 클럽 웹개발 종합반 강의 자료 참조
 
 ```html
+스파르타 코딩 클럽 웹개발 종합반 강의 자료 참조
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
