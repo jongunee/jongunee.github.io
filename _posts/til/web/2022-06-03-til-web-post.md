@@ -18,6 +18,8 @@ categories:
 
 ### body 구현
 ```css
+스파르타 코딩 클럽 웹개발 종합반 강의 자료 참조
+
 <body>
     <div class="mytitle">
         <h1>내 생애 최고의 영화들</h1>
@@ -29,6 +31,8 @@ categories:
 ### head - style 배경 스타일 구현
 
 ```css
+스파르타 코딩 클럽 웹개발 종합반 강의 자료 참조
+
 .mytitle{
     width: 100%;
     height: 250px;
@@ -55,6 +59,8 @@ categories:
 ### head-style 버튼 스타일 구현
 
 ```css
+스파르타 코딩 클럽 웹개발 종합반 강의 자료 참조
+
 .mytitle > button{
     width: 200px;
     height: 50px;
@@ -78,6 +84,8 @@ categories:
 ### head-style 버튼 클릭할 때 스타일 구현
 
 ```css
+스파르타 코딩 클럽 웹개발 종합반 강의 자료 참조
+
 .mytitle > button:hover{
     border: 2px solid white;
 }
@@ -89,6 +97,8 @@ categories:
 ### head-style 폰트 설정
 
 ```css
+스파르타 코딩 클럽 웹개발 종합반 강의 자료 참조
+
 <head>
     ...
 
@@ -114,6 +124,8 @@ categories:
 ### 최종 코드
 
 ```css
+스파르타 코딩 클럽 웹개발 종합반 강의 자료 참조
+
 <!doctype html>
 <html lang="en">
 <head>
