@@ -1,6 +1,6 @@
 ---
 layout: post
-title: CSS 실습
+title: CSS 실습 1
 description: >
   스파르타 코딩 클럽 웹개발 종합반 수강 중
 sitemap: false
@@ -9,7 +9,7 @@ categories:
   - web
 ---
 
-# CSS 실습
+# CSS 실습 1
 
 * toc
 {:toc .large-only}
@@ -188,3 +188,4 @@ categories:
 </html>
 ```
 
+끝!
