@@ -39,7 +39,9 @@ http://www.tipue.com/search
 {
      color: #333;
      max-width: 150px;		/*최대 넓이 줄이고*/
+     width: 95%;
      max-height: 20px;		/*높이 지정*/
+     height: 95%;
      padding: 15px;			/*패딩 줄이기*/
      border: 2px solid #97adfd;	/*굵게, 테두리는 색 바꾸기*/
      border-radius: 0;
