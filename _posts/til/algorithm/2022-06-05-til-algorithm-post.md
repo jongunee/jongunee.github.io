@@ -22,10 +22,6 @@ categories:
 ## 내 코드:
 
 ```java
-package string;
-
-import java.util.Scanner;
-
 public class Problem4 {
   public String solution(String str){
 	String ans = null;
