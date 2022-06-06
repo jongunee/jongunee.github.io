@@ -23,6 +23,8 @@ categories:
 __시작 코드__
 
 ```py
+스파르타 코딩 클럽 웹개발 종합반 강의 자료 참조
+
 from flask import Flask
 app = Flask(__name__)
 
@@ -49,6 +51,8 @@ __Flask 폴더 구조__
 __html 파일 불러오기__
 
 ```py
+스파르타 코딩 클럽 웹개발 종합반 강의 자료 참조
+
 from flask import Flask, render_template
 app = Flask(__name__)
 
@@ -69,6 +73,8 @@ __jQuery 임포트__
 
 __get 요청 확인 Ajax__
 ```html
+스파르타 코딩 클럽 웹개발 종합반 강의 자료 참조
+
 <script>
     function hey() {
         $.ajax({
@@ -85,6 +91,8 @@ __get 요청 확인 Ajax__
 
 __get 요청 API__
 ```py
+스파르타 코딩 클럽 웹개발 종합반 강의 자료 참조
+
 from flask import Flask, render_template, request, jsonify
 
 @app.route('/test', methods=['GET'])
@@ -98,6 +106,8 @@ def test_get():
 __post 요청 확인 Ajax__
 
 ```html
+스파르타 코딩 클럽 웹개발 종합반 강의 자료 참조
+
 <script>
     function hey() {
         $.ajax({
@@ -114,6 +124,8 @@ __post 요청 확인 Ajax__
 
 __post 요청 API__
 ```py
+스파르타 코딩 클럽 웹개발 종합반 강의 자료 참조
+
 @app.route('/test', methods=['POST'])
 def test_post():
    title_receive = request.form['title_give']

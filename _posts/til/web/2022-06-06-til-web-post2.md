@@ -44,6 +44,8 @@ DB는 프로그램과 같은 것이기 때문에 컴퓨터에 설치해서 사�
 ## 초기 시작
 
 ```sql
+스파르타 코딩 클럽 웹개발 종합반 강의 자료 참조
+
 from pymongo import MongoClient
 import certifi
 
@@ -90,6 +92,8 @@ db.users.delete_one({'name':'bobby'})
 ## 실습 - 영화 데이터 db 저장
 
 ```py
+스파르타 코딩 클럽 웹개발 종합반 강의 자료 참조
+
 for movie in movies:
     a_tag = movie.select_one('td.title > div > a')
     if a_tag is not None:
