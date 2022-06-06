@@ -1,6 +1,6 @@
 ---
 layout: post
-title: DB
+title: MongoDB
 description: >
   스파르타 코딩 클럽 웹개발 종합반 수강 중
 sitemap: false
@@ -9,7 +9,7 @@ categories:
   - web
 ---
 
-# DB
+# MongoDB
 
 * toc
 {:toc .large-only}
