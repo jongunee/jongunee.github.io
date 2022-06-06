@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Phytho 기초
+title: Phython 기초
 description: >
   스파르타 코딩 클럽 웹개발 종합반 수강 중
 sitemap: false
