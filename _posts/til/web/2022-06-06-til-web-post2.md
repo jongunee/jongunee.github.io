@@ -129,4 +129,26 @@ for movie in all_movies:
 db.movies.update_one({'title': '가버나움'}, {'$set': {'star': '0'}})
 ```
 
+## 지니뮤직 크롤링 + db 저장
+
+```py
+for song in songs:
+    rank = song.select_one('td.number').text[0:2].rstrip()
+    title = song.select_one('td.info > a.title.ellipsis').text.strip().lstrip("19금").lstrip()
+    artist = song.select_one('td.info > a.artist.ellipsis').text
+    print(rank, title, artist)
+
+    doc = {
+        'rank': rank,
+        'title': title,
+        'artist': artist
+    }
+    db.songs.insert_one(doc)
+```
+- `text[0:2]`: 2 글자만 출력
+- `lstrip()`: 왼쪽 공백 제거
+- `rstrip()`: 오른쪽 공백 제거
+- `strip()`: 양쪽 공백 제거
+
+
 끝!
