@@ -27,7 +27,9 @@ categories:
 - flask 설치
 - pymongo 설치
 - dnspython 설치
-- certifi 설치
+- certifi 설치 - mongodb 오류날 때
+- requests 설치 - 크롤링 할 떄
+- bs4 설치 - 크롤링 할 떄
 
 ### 3. 뼈대 코드
 
