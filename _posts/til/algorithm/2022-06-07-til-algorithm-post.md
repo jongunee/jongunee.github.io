@@ -10,7 +10,7 @@ categories:
   - algorithm
 ---
 
-# String \#3. 문장 속 단어
+# String \#5. 특정 문자 뒤집기
 
 * toc
 {:toc .large-only}
