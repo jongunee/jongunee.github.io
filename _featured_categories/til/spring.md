@@ -1,13 +1,13 @@
 ---
 layout: list
 category: til
-bigtitle: Others
-slug: others
+bigtitle: Spring
+slug: spring
 description: >
-  기타
+  Spring 공부
 
 related_posts:
     - 
 list: true
-order: 6
+order: 5
 ---

@@ -1,7 +1,7 @@
 ---
 layout: list
 category: til
-bigtitle: Spring
+bigtitle: Web
 slug: web
 description: >
   Web 공부

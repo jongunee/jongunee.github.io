@@ -33,10 +33,12 @@ sitemap: false
 * [DB]{:.heading.flip-title} --- DB Study
 * [Algorithm]{:.heading.flip-title} --- Algorithm 연습
 * [Web]{:.heading.flip-title} --- Web Study
+* [Spring]{:.heading.flip-title} --- Spring Study
 * [Others]{:.heading.flip-title} --- 기타
 
 [JAVA]: /java/
 [DB]: /db/
 [Algorithm]: /algorithm/
 [Web]: /web/
+[Spring]: /spring/
 [Others]: /others/
