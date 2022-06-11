@@ -64,7 +64,7 @@ View
 ![그림2](/assets/img/spring/mvc_template_engine.png)
 <span style="font-size:70%">[참조] 인프런 스프링 입문 강의</span>
 
-1. 웹브라우저에서 `localhost:8080/hello-mvc.html` 호출
+1. 웹브라우저에서 `localhost:8080/hello-mvc` 호출
 2. 내장 톰켓 서버가 요청을 받아 스프링부트에 넘김
 3. 스프링부트가 hello-mvc와 매핑되어 있는 컨트롤러 호출 
 4. 컨트롤러가 `model(key: name, value: spring)`와 `hello-template` return
@@ -124,5 +124,15 @@ public class HelloController {
 ![그림3](/assets/img/spring/api_operation.png)
 <span style="font-size:70%">[참조] 인프런 스프링 입문 강의</span>
 
+1. 웹브라우저에서 `localhost:8080/hello-api` 호출
+2. 내장 톰켓 서버가 요청을 받아 스프링부트에 넘김
+3. 스프링부트가 hello-api와 매핑되어 있는 컨트롤러 호출 
+4. @ResponseBody 애너테이션 확인 후 `hello (name: spring)` 객체 넘김
+5. `ViewResolver` 대신에 `HttpMessageConverter`가 동작
+    - 단순 문자열이면 StringHttpMessageConverter가 동작
+    - 객체는 `MappingJackson2HttpMessageConverter` 동작해서 JSON 스타일로 변환
+6. JSON 형태로 변환한 `{name: spring}` 웹 브라우저에 전달
+
+참고로 클라이언트의 HTTP Accept 헤더와 서버의 컨트롤러 반환타입 정보를 조합해서 `HttpMessageConverter`가 선택된다.
 
 끝!
