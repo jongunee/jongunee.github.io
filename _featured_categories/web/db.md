@@ -1,10 +1,10 @@
 ---
 layout: list
-category: til
-bigtitle: Others
-slug: others
+category: web
+bigtitle: DB
+slug: db
 description: >
-  기타
+  DB 공부
 
 related_posts:
     - 

@@ -1,13 +1,13 @@
 ---
 layout: list
-category: til
-bigtitle: Others
-slug: others
+category: web
+bigtitle: JAVA
+slug: java
 description: >
-  기타
+  자바 공부
 
 related_posts:
     - 
 list: true
-order: 2
+order: 1
 ---

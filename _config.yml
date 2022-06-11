@@ -62,19 +62,22 @@ menu:
         url:           /opcua/
       - title:         SQA
         url:           /sqa/
-  - title:             TIL
-    url:               /til/
+  - title:             Web
+    url:               /web/
     submenu:
       - title:         JAVA
         url:           /java/
       - title:         DB
         url:           /db/
-      - title:         알고리즘
-        url:           /algorithm/
       - title:         Web 기본
-        url:           /web/
+        url:           /web_basic/
       - title:         Spring
         url:           /spring/
+  - title:             TIL
+    url:               /til/
+    submenu:
+      - title:         알고리즘
+        url:           /algorithm/
       - title:         Others
         url:           /others/
 # Add links to the footer.
