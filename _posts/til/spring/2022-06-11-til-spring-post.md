@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Spring 기초
+title: 정적 컨텐츠, MVC와 템플릿 엔진, API
 description: >
   스프링 입문 - 코드로 배우는 스프링 부트, 웹 MVC, DB 접근 기술 수강 중
 sitemap: false
@@ -10,7 +10,7 @@ categories:
   - spring
 ---
 
-# Spring 기초
+# 정적 컨텐츠, MVC와 템플릿 엔진, API
 
 * toc
 {:toc .large-only}
