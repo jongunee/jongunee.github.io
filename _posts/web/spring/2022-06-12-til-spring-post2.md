@@ -36,8 +36,11 @@ class MemoryMemberRepositoryTest {
     }
 }
 ```
-- \@AfterEach: 한 번에 여러 테스트를 하면 테스트 결과가 남을 수 있기 때문에 clear 시켜주는 기능이 필요
+- \@AfterEach: 테스트는 메서드의 순서에 상관없이 각자 동작
+- 독립적으로 실행되어야 하고, 테스트 순서에 의존 관계가 있는 것은 좋은 테스트가 아니다.
+- 한 번에 여러 테스트를 하면 테스트 결과가 남을 수 있기 때문에 clear 시켜주는 기능이 필요
 
+__저장 기능 테스트__
 ```java
 @Test
 public void save(){
@@ -50,6 +53,8 @@ public void save(){
     assertThat(member).isEqualTo(result);
 }
 ```
+
+__이름 찾기 기능 테스트__
 
 ```java
 @Test
@@ -66,6 +71,8 @@ public void findByName(){
     assertThat(result).isEqualTo(member1);
 }
 ```
+
+__저장된 멤버 찾기 기능 테스트__
 
 ```java
 @Test

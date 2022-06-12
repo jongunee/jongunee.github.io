@@ -21,13 +21,15 @@ categories:
 | --- | --- |
 | `alt` + `enter` | 자동 import |
 | `ctrl` + `shift` + `enter` | 자동 완성 |
-| `ctrl` + `alt` + `shift` + `enter` | refactoring |
+| `ctrl` + `alt` + `shift` + `t` | refactoring |
 | `alt` + `insert` | generator |
 | `alt` + `insert` | 파일 생성 |
 | `ctrl` + `alt` + `v` | 리턴값을 변수에 할당 |
-| `shift` + `F6` | 이름 일괄 변경 (rename) |
+| `alt` + `shift` + `R` | 이름 변경 |
 | `ctrl` + `shift` + `F6` | 프로젝트 전체에서 find |
 | `ctrl` + `shift` + `t` | class의 테스트 만들기 |
+| `alt` + `shift` + `m` | Method 추출 |
+| `shift` + `F10` | 이전 Test 실행 |
 
 
 끝!
