@@ -98,7 +98,7 @@ __hello.html__
 
 ![그림1](/assets/img/spring/spring_operation.png)
 
-<span style="font-size:70%">[참조] 인프런 스프링 입문 강의</span>
+<span style="font-size:70%">[참조] 인프런 김영한 - 스프링 입문 강의</span>
 
 1. 웹브라우저에서 서버에 `localhost:8080/hello` 전송
 2. 스프링부트이 내장하고 있는 톰켓 서버가 받음

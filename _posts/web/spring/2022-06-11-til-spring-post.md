@@ -25,7 +25,7 @@ categories:
 예를들어 static 폴더에 `hello-static.html` 파일을 올려놓고 작동시키면 `localhost:8080/hello-static.html`에 그대로 올라온 걸 확인 할 수 있다.
 
 ![그림1](/assets/img/spring/static_contents.png)
-<span style="font-size:70%">[참조] 인프런 스프링 입문 강의</span>
+<span style="font-size:70%">[참조] 인프런 김영한 - 스프링 입문 강의</span>
 
 1. 웹브라우저에서 `localhost:8080/hello-static.html` 호출
 2. 내장 톰켓 서버가 요청을 받아 스프링부트에 넘김
@@ -62,7 +62,7 @@ View
 ```
 
 ![그림2](/assets/img/spring/mvc_template_engine.png)
-<span style="font-size:70%">[참조] 인프런 스프링 입문 강의</span>
+<span style="font-size:70%">[참조] 인프런 김영한 - 스프링 입문 강의</span>
 
 1. 웹브라우저에서 `localhost:8080/hello-mvc` 호출
 2. 내장 톰켓 서버가 요청을 받아 스프링부트에 넘김
@@ -122,7 +122,7 @@ public class HelloController {
 ```
 
 ![그림3](/assets/img/spring/api_operation.png)
-<span style="font-size:70%">[참조] 인프런 스프링 입문 강의</span>
+<span style="font-size:70%">[참조] 인프런 김영한 - 스프링 입문 강의</span>
 
 1. 웹브라우저에서 `localhost:8080/hello-api` 호출
 2. 내장 톰켓 서버가 요청을 받아 스프링부트에 넘김
