@@ -1,6 +1,6 @@
 ---
 layout: post
-title: TIL-Others-post
+title: 마크다운 기초 설명
 description: >
   마크다운 설명
 sitemap: false
