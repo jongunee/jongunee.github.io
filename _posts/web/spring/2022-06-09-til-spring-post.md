@@ -2,7 +2,7 @@
 layout: post
 title: Spring 시작
 description: >
-  스프링 입문 - 코드로 배우는 스프링 부트, 웹 MVC, DB 접근 기술 수강 중
+  인프런 스프링 입문 - 코드로 배우는 스프링 부트, 웹 MVC, DB 접근 기술 수강 중
 sitemap: false
 hide_last_modified: true
 categories:
