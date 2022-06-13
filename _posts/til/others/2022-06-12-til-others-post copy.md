@@ -21,7 +21,7 @@ categories:
 | --- | --- |
 | `alt` + `enter` | 자동 import |
 | `ctrl` + `shift` + `enter` | 자동 완성 |
-| `ctrl` + `alt` + `shift` + `t` | refactoring |
+| `ctrl` + `alt` + `shift` + `t` <br> `ctrl` + `t` (내가 수정) | refactoring |
 | `alt` + `insert` | generator |
 | `alt` + `insert` | 파일 생성 |
 | `ctrl` + `alt` + `v` | 리턴값을 변수에 할당 |
