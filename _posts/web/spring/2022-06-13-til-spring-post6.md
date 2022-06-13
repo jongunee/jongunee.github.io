@@ -156,6 +156,7 @@ public interface SpringDataJpaMemberRepository extends JpaRepository<Member, Lon
 __SpringConfig 스프링 설정 변경__
 
 ```java
+인프런 스프링 입문 강의 참조
 
 @Configuration
 public class SpringConfig {
