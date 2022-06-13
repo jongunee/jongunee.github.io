@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 스프링 JPA
+title: 스프링 JPA, 데이터 JPA
 description: >
   스프링 입문 - 코드로 배우는 스프링 부트, 웹 MVC, DB 접근 기술 수강 중
 sitemap: false
@@ -10,7 +10,7 @@ categories:
   - spring
 ---
 
-# 스프링 JPA
+# 스프링 JPA, 데이터 JPA
 
 * toc
 {:toc .large-only}
@@ -117,6 +117,7 @@ public class MemberService {}
 __JpaConfig 스프링 설정__
 
 ```java
+인프런 스프링 입문 강의 참조
 
 @Configuration
 public class SpringConfig {
@@ -138,7 +139,39 @@ public class SpringConfig {
 ```
 - 통합테스트도 동일한 코드로 테스트 가능
 
+## 데이터 JPA
 
+- 레포지터리에 구현 클래스 없이 인터페이스 만으로 개발 가능
+- 반복 개발한 기본 CRUD 기능 제공
+
+__SpringDataMemberRepository__
+```java
+public interface SpringDataJpaMemberRepository extends JpaRepository<Member, Long>, MemberRepository {
+    Optional<Member> findByName(String name);
+}
+```
+- 스프링 데이터 JPA가 `SpringDataMemberRepository`를 스프링 빈으로 자동 등록
+- `findByName()`, `findByEmail()`처럼 메서드 이름만으로 조회 기능 제공
+
+__SpringConfig 스프링 설정 변경__
+
+```java
+
+@Configuration
+public class SpringConfig {
+    private final MemberRepository memberRepository;
+
+    @Autowired
+    public SpringConfig(MemberRepository memberRepository) {
+        this.memberRepository = memberRepository;
+    }
+
+    @Bean
+    public MemberService memberService(){
+        return new MemberService(memberRepository);
+    }
+}
+```
 
 <span style="font-size:70%">[참조] 인프런 김영한 - 스프링 입문 강의</span>
 
