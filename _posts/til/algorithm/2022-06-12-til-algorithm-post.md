@@ -63,12 +63,11 @@ public class Problem10 {
 				}
 			}
 		}
-		
 	}
-	for(int i : ans) {
-		System.out.print(i + " ");
-	}
-  }
+		for(int i : ans) {
+			System.out.print(i + " ");
+		}
+  	}
   
   public static void main(String[] args) {
     Problem10 pb10 = new Problem10();
@@ -79,6 +78,7 @@ public class Problem10 {
     pb10.solution(s, t);
       
     return ;
+  }
 }
 ```
 1. 문자열 s에 문자 t가 존재하는지 확인
