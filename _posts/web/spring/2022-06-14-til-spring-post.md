@@ -10,7 +10,7 @@ categories:
   - spring
 ---
 
-# 스프링의 개념
+# 스프링 개념
 
 * toc
 {:toc .large-only}
