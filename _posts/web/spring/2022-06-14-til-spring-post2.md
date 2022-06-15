@@ -3,7 +3,7 @@ layout: post
 title: JPA 개념
 description: >
   인프런 스프링부트 개념정리(이론) 수강 중
-sitemap: false
+sitemap: true
 hide_last_modified: true
 categories:
   - web

@@ -3,7 +3,7 @@ layout: post
 title: 정적 컨텐츠, MVC와 템플릿 엔진, API
 description: >
   인프런 스프링 입문 - 코드로 배우는 스프링 부트, 웹 MVC, DB 접근 기술 수강 중
-sitemap: false
+sitemap: true
 hide_last_modified: true
 categories:
   - web

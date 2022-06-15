@@ -3,7 +3,7 @@ layout: post
 title: 크롤링, meta 태그
 description: >
   스파르타 코딩 클럽 웹개발 종합반 수강 중
-sitemap: false
+sitemap: true
 categories:
   - web
   - web_basic
