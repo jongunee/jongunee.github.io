@@ -148,7 +148,7 @@ __Bean Factory__
 __톰캣 동작 과정__
 
 ![그림2](/assets/img/spring/tomcat_operation.JPG)
-<span style="font-size:70%">[참조]<_Jbee블로그> https://asfirstalways.tistory.com/334, 2016/11/29</span>
+<span style="font-size:70%">[참조]<\_Jbee블로그> https://asfirstalways.tistory.com/334, 2016/11/29</span>
 
 
 
