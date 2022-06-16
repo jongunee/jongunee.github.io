@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 회원 주문 예제 - 새로운 정책 적용
+title: 회원 주문 예제 - 새로운 정책 구현
 description: >
   인프런 스프링 핵심 원리 - 기본편 수강 중
 sitemap: true
@@ -10,7 +10,7 @@ categories:
   - spring
 ---
 
-# 회원 주문 예제 - 새로운 정책 적용
+# 회원 주문 예제 - 새로운 정책 구현
 
 * toc
 {:toc .large-only}
