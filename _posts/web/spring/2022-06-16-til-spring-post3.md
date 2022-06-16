@@ -188,6 +188,20 @@ public class AppConfig {
 - 레포지토리나 할인 정책이 바뀌면 한 부분만 바꾸면 됨
 - 역할 구현 부분이 한 눈에 보임 
 
+## 정률 할인 정책으로 변경
+
+![그림1](/assets/img/spring/new_discount_policy.png)
+- AppConfig 구현으로 애플리케이션이 사용 영역과 구성 영역으로 분리
+- 변경되어도 사용 영역을 건드릴 필요가 없음
+
+```java
+public DiscountPolicy discountPolicy() {
+    //return new FixDiscountPolicy();
+    return new RateDiscountPolicy();
+}
+```
+
+AppConfig에서 `FixDiscountPolicy`를 `RateDiscountPolicy`로 변경만 하면 끝
 
 
 <span style="font-size:70%">[참조] 인프런 스프링 핵심 원리 - 기본편 - [링크](https://www.inflearn.com/course/%EC%8A%A4%ED%94%84%EB%A7%81-%ED%95%B5%EC%8B%AC-%EC%9B%90%EB%A6%AC-%EA%B8%B0%EB%B3%B8%ED%8E%B8)</span>
