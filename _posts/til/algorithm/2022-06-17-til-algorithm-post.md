@@ -35,7 +35,7 @@ public String solution(String n){
     for(int i = 2; i < nInverse; i ++) {
         if(nInverse % i == 0) return ans;
     }
-    ans = Integer.toString(nInverse) + " ";
+    ans = Integer.toString(nInverse) + " "; 
 
     return ans;
 }
