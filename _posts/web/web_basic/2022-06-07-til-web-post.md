@@ -4,6 +4,7 @@ title: 프로젝트 - 화성땅 공동구매
 description: >
   스파르타 코딩 클럽 웹개발 종합반 수강 중
 sitemap: true
+hide_last_modified: true
 categories:
   - web
   - web_basic
