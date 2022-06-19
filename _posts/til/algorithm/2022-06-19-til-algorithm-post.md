@@ -10,7 +10,7 @@ categories:
   - algorithm
 ---
 
-# Array \#9. 격자판 최대합
+# Array \#9. 격자판 최대합  
 
 * toc
 {:toc .large-only}
