@@ -1,8 +1,8 @@
 ---
 layout: list
 category: web
-bigtitle: Web_basic
-slug: web_basic
+bigtitle: WebBasic
+slug: webBasic
 description: >
   Web 공부
 

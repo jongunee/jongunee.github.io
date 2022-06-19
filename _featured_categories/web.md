@@ -31,10 +31,10 @@ sitemap: false
 
 * [JAVA]{:.heading.flip-title} --- JAVA Study
 * [DB]{:.heading.flip-title} --- DB Study
-* [Web_basic]{:.heading.flip-title} --- Web Study
+* [WebBasic]{:.heading.flip-title} --- Web Study
 * [Spring]{:.heading.flip-title} --- Spring Study
 
 [JAVA]: /java/
 [DB]: /db/
-[Web_basic]: /web_basic/
+[WebBasic]: /webBasic/
 [Spring]: /spring/

@@ -7,7 +7,7 @@ sitemap: true
 hide_last_modified: true
 categories:
   - web
-  - web_basic
+  - webBasic
 ---
 
 # Web 기본, 프로그램 설치

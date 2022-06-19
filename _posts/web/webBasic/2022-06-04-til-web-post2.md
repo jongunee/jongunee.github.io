@@ -7,7 +7,7 @@ sitemap: true
 hide_last_modified: true
 categories:
   - web
-  - web_basic
+  - webBasic
 ---
 
 # Python 기초 문법

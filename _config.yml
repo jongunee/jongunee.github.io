@@ -70,7 +70,7 @@ menu:
       - title:         DB
         url:           /db/
       - title:         Web 기본
-        url:           /web_basic/
+        url:           /webBasic/
       - title:         Spring
         url:           /spring/
   - title:             TIL
