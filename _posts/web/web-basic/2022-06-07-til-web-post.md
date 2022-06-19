@@ -7,7 +7,7 @@ sitemap: true
 hide_last_modified: true
 categories:
   - web
-  - webBasic
+  - web-basic
 ---
 
 # 프로젝트 기본 세팅 - 화성땅 공동구매

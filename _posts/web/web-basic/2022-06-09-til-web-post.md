@@ -7,7 +7,7 @@ sitemap: true
 hide_last_modified: true
 categories:
   - web
-  - webBasic
+  - web-basic
 ---
 
 # 웹서비스 런칭
