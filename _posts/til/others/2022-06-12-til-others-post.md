@@ -30,8 +30,8 @@ categories:
 | `ctrl` + `shift` + `t` | class의 테스트 만들기 |
 | `alt` + `shift` + `m` | Method 추출<br>안되면 refactoring에서 찾기 |
 | `shift` + `F10` | 이전 Test 실행 |
-| `alt` + `emter` | 람다식 변경 |
-| `ctrl` + 'e' | 히스토리 보기 |
+| `alt` + `enter` | 람다식 변경<br>On-demand |
+| `ctrl` + `e` | 히스토리 보기 |
 
 
 끝!
