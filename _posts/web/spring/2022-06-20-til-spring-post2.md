@@ -160,7 +160,7 @@ void findAllBeanByType(){
 }
 ```
 - `getBeansofTyp()`으로 해당 타입 모든 빈 조회 가능
-- 스프링 빈 저장소에 Key - value 관계로 저장되는 것을 알 수 있음
+- 스프링 빈 저장소에 `Key` - `Value` 관계로 저장되는 것을 알 수 있음
 
 ## 스프링 빈 조회 - 상속 관계
 
@@ -197,8 +197,8 @@ public class ApplicationContextExtendsFindTest {
 }
 ```
 - `NoUniqueBeanDefinitionException`: DiscountPolicy 조회시 자식 클래스가 2개 있기 때문에 중복 오류 발생
-  - RateDiscountPolicy()
-  - FixDiscountPolicy()
+  - `RateDiscountPolicy()`
+  - `FixDiscountPolicy()`
 - `assertThrows`로 해당 예외 발생하는지 확인
 
 __부모 타입 조회 테스트 - 이름 지정__
@@ -242,7 +242,7 @@ void findAllBeanByParentType(){
 ```
 - `getBeansofTyp()`으로 해당 타입 모든 빈 조회 가능
 - 하위 타입이 2개가 있기 때문에 2개가 나오는지 테스트
-- 스프링 빈 저장소에 Key - value 관계로 저장되는 것을 알 수 있음
+- 스프링 빈 저장소에 `Key` - `Value` 관계로 저장되는 것을 알 수 있음
 
 
 
