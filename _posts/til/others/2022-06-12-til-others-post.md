@@ -32,6 +32,7 @@ categories:
 | `shift` + `F10` | 이전 Test 실행 |
 | `alt` + `enter` | 람다식 변경<br>On-demand |
 | `ctrl` + `e` | 히스토리 보기 |
+| `ctrl` + `F12` <br> `ctrl + `F3` | File structure 보기 |
 
 
 끝!
