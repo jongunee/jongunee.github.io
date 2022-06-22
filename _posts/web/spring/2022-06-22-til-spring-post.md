@@ -1,6 +1,6 @@
 ---
 layout: post
-title: \@Qualifier, @Primary, 애너테이션 생성
+title: 애너테이션 - Qualifier, Primary, 애너테이션 생성
 description: >
   인프런 스프링 핵심 원리 - 기본편 수강 중
 sitemap: true
@@ -10,7 +10,7 @@ categories:
   - spring
 ---
 
-# \@Qualifier, @Primary, 애너테이션 생성
+# 애너테이션 - Qualifier, Primary, 애너테이션 생성
 
 * toc
 {:toc .large-only}

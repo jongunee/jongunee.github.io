@@ -1,6 +1,6 @@
 ---
 layout: post
-title: @Configuration
+title: Configuration 애너테이션
 description: >
   인프런 스프링 핵심 원리 - 기본편 수강 중
 sitemap: true
@@ -10,12 +10,12 @@ categories:
   - spring
 ---
 
-# @Configuration
+# Configuration 애너테이션
 
 * toc
 {:toc .large-only}
 
-## @Configuration과 싱글톤
+## Configuration 애너테이션과 싱글톤
 
 __AppConfig__
 
