@@ -18,7 +18,7 @@ categories:
 ## 문제: 
 
 > 두 숫자 집합이 주어졌을 때 공통 원소를 추출해서 오름차순 출력  
-> 각 집합의 원소는 중복되지 않음
+> 각 집합의 원소는 중복되지 않음  
 > ※ 집합의 크기는 최대 30000, 시간 제한 1000ms
 
 
@@ -81,9 +81,7 @@ public ArrayList<Integer> solution(int[] arr1, int[] arr2){
 
 
 1. 이중 `for`문 사용
-2. 시간 초과
-- 오히려 더 오래 걸림..
-- 정렬을 너무 많이 쓴 듯 하다
+2. arrList에서 원소를 비교하면 값이 같아도 다르게 인식
   
 ## 내 코드 - 방법 3:
 
@@ -119,11 +117,31 @@ public ArrayList<Integer> solution(int[] arr1, int[] arr2){
 ```java
 인프런 자바(Java) 알고리즘 문제풀이 : 코딩테스트 대비 답 참조
 
+public ArrayList<Integer> solution(int[] arr1, int[] arr2){
+  ArrayList<Integer> ans = new ArrayList<Integer>();
+  int idx1 = 0, idx2 = 0;
 
+  Arrays.sort(arr1);
+  Arrays.sort(arr2);
+  
+  while(idx1 < arr1.length && idx2 < arr2.length) {
+    if(arr1[idx1] == arr2[idx2]) {
+      ans.add(arr1[idx1]);
+      idx1++;
+      idx2++;
+    }
+    else if(arr1[idx1] > arr2[idx2]) idx2++;
+    else idx1++;
+  }
+  
+  return ans;
+}
 ```
-- 
+- 2번 방법과 비슷
+- `Arrays.sort`사용
 
 ## 개선된 점:
-
+- `Arrays.sort`를 알았으면 이렇게 풀었을텐데
+- 기억하자.. `Arrays.sort`
 
 끝!
