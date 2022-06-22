@@ -134,7 +134,7 @@ __결과__
 `resoures\application.properties`에 설정 가능
 ```java
 spring.main.allow-bean-definition-overriding=true //수동 빈 오버라이딩 허용
-spring.main.allow-bean-definition-overriding=flase //수동 빈 오버라이딩 막음
+spring.main.allow-bean-definition-overriding=false //수동 빈 오버라이딩 막음
 ```
 
 

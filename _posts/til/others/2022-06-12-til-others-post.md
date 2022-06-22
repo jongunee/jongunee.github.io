@@ -25,7 +25,7 @@ categories:
 | `alt` + `insert` | generator |
 | `alt` + `insert` | 파일 생성 |
 | `ctrl` + `alt` + `v` | 리턴값을 변수에 할당 |
-| `alt` + `shift` + `R` | 이름 변경 |
+| `alt` + `shift` + `r` | 이름 변경 |
 | `ctrl` + `shift` + `F6` | 프로젝트 전체에서 find |
 | `ctrl` + `shift` + `t` | class의 테스트 만들기 |
 | `alt` + `shift` + `m` | Method 추출<br>안되면 refactoring에서 찾기 |
@@ -33,6 +33,7 @@ categories:
 | `alt` + `enter` | 람다식 변경<br>On-demand |
 | `ctrl` + `e` | 히스토리 보기 |
 | `ctrl` + `F12` <br> `ctrl + `F3` | File structure 보기 |
-
+| `ctrl` + `alt` + `b` | Implementation 보기 |
+| `ctrl` + `n` | 클래스 탐색 |
 
 끝!

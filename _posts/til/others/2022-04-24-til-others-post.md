@@ -486,6 +486,8 @@ $$x + y = 1$$
 <mark>hello</mark>
 
 <under>hello</under>
+
+<span style='background-color: #f5f0ff'>hello </span>
 ~~~
 
 > 🔍 **결과**
@@ -500,6 +502,7 @@ $$x + y = 1$$
 
 <under>hello</under>
 
+<span style='background-color: #f5f0ff'>hello </span>
 
 ### 16. youtube
 

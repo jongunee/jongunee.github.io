@@ -22,7 +22,7 @@ categories:
 - 필드 주입
 - 일반 메서드 주입
 
-## 생정자 주입
+### 생정자 주입
 
 > 생성자 주입이란 이름 그대로 생성자를 통해서 의존 관계를 주입하는 방법
 
@@ -46,7 +46,7 @@ public class OrderServiceImpl implements OrderService{
 - 생성자 생성시 빈 자동 등록 및 주입됨
 - 생성자가 1개라면 `@Autowired` 생략해도 스프링 빈 자동 주입
 
-## 수정자 주입(setter 주입)
+### 수정자 주입(setter 주입)
 
 > 수정자 주입이란 필드 값을 변경하는 `setter` 수정자 메서드를 통해 의존관계 주입하는 방식
 
@@ -78,7 +78,7 @@ public class OrderServiceImpl implements OrderService{
 @Autowired(required = false)
 ```
 
-## 필드 주입
+### 필드 주입
 
 > 필드 주입이란 필드에 바로 주입하는 방식
 
@@ -99,7 +99,7 @@ public class OrderServiceImpl implements OrderService{
 - 스프링 설정을 목적으로 하는 `@Configuration` 같은 곳에서만 특별한 용도로 사용하기도 함
 - 사용하지 말자!
 
-## 일반 메서드 주입
+### 일반 메서드 주입
 
 > 일반 메서드 주입이란 일반 메서드를 통해 주입 받는 것
 
