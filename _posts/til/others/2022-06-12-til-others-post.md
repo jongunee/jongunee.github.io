@@ -35,5 +35,6 @@ categories:
 | `ctrl` + `F12` <br> `ctrl + `F3` | File structure 보기 |
 | `ctrl` + `alt` + `b` | Implementation 보기 |
 | `ctrl` + `n` | 클래스 탐색 |
+| `alt` + `shift` + `i` | inline으로 변수 합치기 |
 
 끝!
