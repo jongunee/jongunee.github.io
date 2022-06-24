@@ -73,6 +73,8 @@ menu:
         url:           /web-basic/
       - title:         Spring
         url:           /spring/
+      - title:         HTTP
+        url:           /http/
   - title:             TIL
     url:               /til/
     submenu:
