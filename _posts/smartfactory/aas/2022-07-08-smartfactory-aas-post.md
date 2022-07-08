@@ -22,7 +22,7 @@ categories:
 2. 상호운용성 이슈
    - 개발한 솔루션이 다른 벤더 시스템과 호환이 될지는 미지수
 3. 다양한 시스템 자산 정보 통합
-   - PLM, ERP, CRM, MES 등
+   - PLM, ERP, CRM, MES 등 
 
 ## Asset
 
