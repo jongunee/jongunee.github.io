@@ -78,6 +78,8 @@ menu:
         url: /spring/
       - title: HTTP
         url: /http/
+      - title: Javascript
+        url: /javascript/
   - title: TIL
     url: /til/
     submenu:

@@ -2,7 +2,7 @@
 layout: post
 title: AAS란?
 description: >
-  test
+  AAS 공부 중
 sitemap: true
 hide_last_modified: true
 categories:

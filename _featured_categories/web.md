@@ -34,9 +34,11 @@ sitemap: false
 * [Web-basic]{:.heading.flip-title} --- Web Study
 * [Spring]{:.heading.flip-title} --- Spring Study
 * [HTTP]{:.heading.flip-title} --- HTTP Study
+* [Javascript]{:.heading.flip-title} --- Javascript Study
 
 [JAVA]: /java/
 [DB]: /db/
 [Web-basic]: /web-basic/
 [Spring]: /spring/
 [HTTP]: /http/
+[Javascript]: /javascript/
