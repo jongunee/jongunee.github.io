@@ -13,7 +13,7 @@ categories:
 # AAS란?
 
 - toc
-  {:toc .large-only}
+{:toc .large-only}
 
 ## AAS 필요성
 
