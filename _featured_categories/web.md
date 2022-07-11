@@ -35,6 +35,7 @@ sitemap: false
 * [Spring]{:.heading.flip-title} --- Spring Study
 * [HTTP]{:.heading.flip-title} --- HTTP Study
 * [Javascript]{:.heading.flip-title} --- Javascript Study
+* [HTML]{:.heading.flip-title} --- HTML Study
 
 [JAVA]: /java/
 [DB]: /db/
@@ -42,3 +43,4 @@ sitemap: false
 [Spring]: /spring/
 [HTTP]: /http/
 [Javascript]: /javascript/
+[HTML]: /html/

@@ -80,6 +80,8 @@ menu:
         url: /http/
       - title: Javascript
         url: /javascript/
+      - title: HTML
+        url: /html/
   - title: TIL
     url: /til/
     submenu:
