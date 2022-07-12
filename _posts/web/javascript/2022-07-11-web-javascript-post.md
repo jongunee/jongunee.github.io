@@ -1,8 +1,8 @@
 ---
 layout: post
-title: 자바스크립트 시작
+title: 자바스크립트 시작, 변수
 description: >
-  생활코딩 - 자바스크립트(JavaScript) 기본 수강 중
+  스파르타코딩클럽 JavaScript 문법 뽀개기 수강 중
 sitemap: true
 hide_last_modified: true
 categories:
@@ -56,13 +56,30 @@ __주석 표기:__
 자바스크립트 변수 선언 방법
 ```js
 let <변수이름> = <값>
+const <변수이름> = <값>
 ```
+- `const`는 변수가 고정된 값을 계속 갖고 있어 값을 재할당할 필요 없을 경우 사용
 - Javascript는 세미콜론(;) 생략 가능
 
+```js
+const myAge = 28
+const yourAge = 45
+const firstName = 'Jongwon'
+const lastName = 'Park'
+const isMan = true
+const isWoman = false
+```
+
+```js
+let name1 = null
+console.log(name) // null 출력
+let name2
+console.log(name2) // undefined 출력
+```
+- `null`은 비어있는 값 의미
+- `undefined`는 변수 선언만 하고 값 할당되지 않은 것
 
 
-
-
-<span style="font-size:70%">[참조] 생활코딩 - 자바스크립트(JavaScript) 기본
+<span style="font-size:70%">[참조] 스파르타코딩클럽 JavaScript 문법 뽀개기
 
 끝!
