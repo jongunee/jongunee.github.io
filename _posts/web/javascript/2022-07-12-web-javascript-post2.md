@@ -66,6 +66,34 @@ const computer = {
 ```
 - 객체 리터럴을 활용해서 빠르게 객체를 만들 수 있음
 
+## 배열
+
+__배열 선언__
+
+```js
+const arr1 = new Array(1, 2, 3, 4, 5)
+const arr2 = [1, 2, 3, 4, 5]
+```
+
+1. `Array` 클래스를 활용한 객체 생성
+2. 배열 바로 생성
+
+```js
+const rainbowColors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet']
+console.log(rainbowColors[0])
+console.log(rainbowColors.length)
+```
+- 인덱스를 통해 데이터 접근 가능
+- length 속성을 통해 배열 길이 확인
+
+__요소 추가/삭제__
+
+```js
+const rainbowColors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet']
+rainbowColors.push('ultraviolet')
+rainbowColors.pop()
+```
+
 <span style="font-size:70%">[참조] 스파르타코딩클럽 JavaScript 문법 뽀개기
 
 끝!
