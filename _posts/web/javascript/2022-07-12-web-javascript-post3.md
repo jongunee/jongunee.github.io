@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 타입스크립트 시작
+title: 타입스크립트 기본 타입
 description: >
   인프런 타입스크립트 시작하기 수강 중
 sitemap: true
@@ -51,6 +51,135 @@ const a = 123;
 const b = 'abc';
 ```
 
+## 기본 타입
+
+```ts
+const size: number = 123;
+const isBig: boolean = size >= 100;
+const msg: string = isBig ? "크다" : "작다";
+
+const values: number[] = [1, 2, 3];
+const values2: Array<number> = [1, 2, 3];
+values.push("a"); //문자기 때문에 에러 발생
+
+const data: [string, number] = [msg, size];
+data[0].substr(1);
+data[1].substr(1);  //number에는 substr 메서드가 없어 에러 발생
+
+console.log("typeof 123 =>", typeof 123);
+console.log('typeof "abc" =>', typeof "abc");
+console.log("typeof [1, 2, 3] =>", typeof [1, 2, 3]);
+```
+
+```js
+let v1: undefined = undefined;
+let v2: null = null;
+v1 = 123; //v1은 undefined만 가능한 타입이기 때문에 에러 발생
+
+let v3: number | undefined = undefined; //다른 타입과 함께 사용 가능
+v3 = 123;
+
+console.log("typeof undefined =>", typeof undefined);
+console.log("typeof null =>", typeof null);
+```
+
+__리터럴 타입__
+
+```js
+let v1: 10 | 20 | 30;
+v1 = 10;
+v1 = 15;  //15는 없기 때문에 에러 발생
+
+let v2: "경찰관" | "소방관";
+v2 = "의사";  //"의사"가 없기 때문에 에러 발생
+```
+
+```js
+let value: any;
+value = 123;
+value = "456";
+value = () => {};
+```
+- `any` 타입은 함수를 포함안 모든 타입의 값을 넣어줄 수 있음
+- javascript에서 typescript로 포팅하는 경우 유용
+
+__함수 반환 타입__
+
+```js
+function f1(): void {
+  console.log("hello");
+}
+function f2(): never {
+  throw new Error("some error");
+}
+function f3(): never {
+  while (true) {
+    // ...
+  }
+}
+```
+- 무한루프 때문에 종료되지 않는 함수 반환 타입은 `never` 타입으로 정의
+- 자주쓰지는 않음
+
+__객체 타입__
+
+```js
+let v: object;
+v = { name: "abc" };
+console.log(v.prop1); //객체 속성정보가 없기 때문에 에러 발생
+```
+
+__union, intersection 타입__
+
+```js
+let v1: (1 | 3 | 5) & (3 | 5 | 7);
+v1 = 3;
+v1 = 1; //3, 5만 가능하기 때문에 에러 발생
+```
+
+__타입 별칭__
+
+```js
+type Width = number | string;
+let width: Width;
+width = 100;
+width = "100px";
+```
+
+__enum 타입__
+
+```js
+enum Fruit {
+  Apple,  //0
+  Banana = 5, //5
+  Orange  //6
+}
+const v1: Fruit = Fruit.Apple;
+const v2: Fruit.Apple | Fruit.Banana = Fruit.Banana;
+```
+
+- 번호 따로 지정해주지 않으면 자동 0으로 설정
+- 번호를 지정해주면 그 다음 요소는 +1 해서 할당됨 
+
+```js
+enum Fruit {
+  Apple,
+  Banana = 5,
+  Orange,
+}
+console.log(Fruit.Banana);  //5
+console.log(Fruit['Banana']); //5
+console.log(Fruit[5]);  //Banana
+```
+양뱡향 매핑인 것을 확인할 수 있다
+
+```js
+enum Language {
+  Korean = "ko",
+  English = "en",
+  Japanese = "jp"
+}
+```
 
 <span style="font-size:70%">[참조] 인프런 타입스크립트 시작하기
 
