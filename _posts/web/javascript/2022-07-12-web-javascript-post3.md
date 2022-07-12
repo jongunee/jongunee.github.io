@@ -146,41 +146,6 @@ width = 100;
 width = "100px";
 ```
 
-__enum 타입__
-
-```js
-enum Fruit {
-  Apple,  //0
-  Banana = 5, //5
-  Orange  //6
-}
-const v1: Fruit = Fruit.Apple;
-const v2: Fruit.Apple | Fruit.Banana = Fruit.Banana;
-```
-
-- 번호 따로 지정해주지 않으면 자동 0으로 설정
-- 번호를 지정해주면 그 다음 요소는 +1 해서 할당됨 
-
-```js
-enum Fruit {
-  Apple,
-  Banana = 5,
-  Orange,
-}
-console.log(Fruit.Banana);  //5
-console.log(Fruit['Banana']); //5
-console.log(Fruit[5]);  //Banana
-```
-양뱡향 매핑인 것을 확인할 수 있다
-
-```js
-enum Language {
-  Korean = "ko",
-  English = "en",
-  Japanese = "jp"
-}
-```
-
 <span style="font-size:70%">[참조] 인프런 타입스크립트 시작하기
 
 끝!
