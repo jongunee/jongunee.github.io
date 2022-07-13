@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 타입스크립트 기본 타입
+title: 타입스크립트 enum 타입
 description: >
   인프런 타입스크립트 시작하기 수강 중
 sitemap: true
@@ -10,12 +10,12 @@ categories:
   - javascript
 ---
 
-# Typescript
+# enum 타입
 
 * toc
 {:toc .large-only}
 
-__enum 타입__
+## enum 타입
 
 ```js
 enum Fruit {
@@ -74,6 +74,8 @@ const enum Fruit {
 ```
 - 컴파일 결과에 `enum` 객체를 남기지 않음
 - 불필요하게 파일이 커지는 것을 막음
+
+
 
 <span style="font-size:70%">[참조] 인프런 타입스크립트 시작하기
 
