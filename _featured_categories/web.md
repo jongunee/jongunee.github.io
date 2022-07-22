@@ -34,7 +34,7 @@ sitemap: false
 - [HTTP]{:.heading.flip-title} --- HTTP Study
 - [Javascript]{:.heading.flip-title} --- Javascript Study
 - [HTML]{:.heading.flip-title} --- HTML Study
-- [docker]{:.heading.flip-title} --- Docker & Kubernetes Study
+- [Docker]{:.heading.flip-title} --- Docker & Kubernetes Study
 
 [java]: /java/
 [db]: /db/
