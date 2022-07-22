@@ -114,8 +114,8 @@ paginate_path: /:num/
 # Theme
 # ---------------------------------------------------------------------------------------
 
-#theme: jekyll-theme-hydejack # 로컬 환경 (127.0.0.1:4000)에서 확인시 주석 해제
-remote_theme: hydecorp/hydejack@v9 # Git에 올릴 때 주석 해제
+theme: jekyll-theme-hydejack # 로컬 환경 (127.0.0.1:4000)에서 확인시 주석 해제
+#remote_theme: hydecorp/hydejack@v9 # Git에 올릴 때 주석 해제
 #remote_theme: hydecorp/hydejack@v9.1.5
 #remote_theme: hydecorp/hydejack@v9.0.0-rc.6
 
