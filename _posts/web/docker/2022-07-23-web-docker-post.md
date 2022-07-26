@@ -180,7 +180,7 @@ docker run -d -p 8080:80 \
 wordpress
 ```
 
-### vllume mount (-v) 명령어
+### volume mount (-v) 명령어
 
 ```bash
 -v /my/own/datadir:/var/lib/mysql
