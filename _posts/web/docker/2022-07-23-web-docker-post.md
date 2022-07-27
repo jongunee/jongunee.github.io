@@ -27,7 +27,7 @@ __우분트 환경에서 설치하기__
 curl -s https://get.docker.com/ | sudo sh
 ```
 
-ubuntu 유저 권한 추가하기
+__ubuntu 유저 권한 추가하기__
 
 ```bash
 sudo usermod -aG docker ubuntu
@@ -36,6 +36,23 @@ permission denied 오류나면
 ```bash
 sudo chmod 666 /var/run/docker.sock
 ```
+
+__experimental true로 설정하기__
+
+```bash
+sudo nano /etc/docker/daemon.json
+```
+코드 추가
+```
+{
+  "experimental": true
+}
+```
+도커 엔진 재시작
+```bash
+sudo systemctl restart docker
+```
+
 
 도커 클라이언트는 도커 호스트에 명령을 전달하고 결과를 받아서 출력하는 구조이다
 
