@@ -77,6 +77,8 @@ RUN apt-get install -y git
 
 ## 웹서버 이미지 생성하기
 
+__서버__
+
 app.js에 서버 코드 작성
 
 ```js
@@ -121,7 +123,7 @@ EXPOSE 3000
 CMD    node app.js
 ```
 
-__최적화__
+__도커 파일 - 최적화__
 ```dockerfile
 # 1. node 이미지 사용
 FROM    node:16-alpine
@@ -139,6 +141,13 @@ EXPOSE 3000
 CMD    node app.js
 ```
 node:16-alpine ➡️우분투 이미지를 가져와 node를 설치할 수도 있지만 불필요한 것들을 제외하고 node만 설치되어 있는 이미지를 가져와 메모리를 줄일 수 있다
+
+__.dockerignore__
+
+```docker
+node_modules/*
+```
+node_modules 파일까지 올릴 필요는 없기 때문에 이미지 생성에서 제외한다
 
 __빌드 및 실행__
 
@@ -202,16 +211,22 @@ CMD command param1 param2
 docker login
 ```
 
+태그 생성
+
+```docker
+docker tag {이미지명} {id}/{이미지명}:{tag명}
+```
+
 이미지 업로드
 
 ```docker
-docker push {ID}/example
+docker push {id}/{이미지명}:{tag명}
 ```
 
 이미지 가져오기
 
 ```docker
-docker pull {ID}/example
+docker pull {id}/{이미지명}:{tag명}
 ```
 
 ## 이미지 배포
