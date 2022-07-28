@@ -50,7 +50,7 @@ __Dockerfile 명령어__
 
 | __명령어__ | __설명__ |
 | --- | --- |
-| __FROM__ | 기본 이미지 |
+| __FROM__ | 베이스 이미지 지정 |
 | __RUN__ | 쉘 명령어 실행 |
 | __CMD__ | 컨테이너 기본 실행 명령어 (Entrypoint) |
 | __EXPOSE__ | 오픈되는 포트 정보 |
@@ -192,7 +192,7 @@ WORKDIR /path/to/workdir
 - 컨테이너에서 사용하는 포트 정보
 
 ```docker
-WORKDIR /path/to/workdir
+EXPOSE <PORT>
 ```
 
 ### CMD
@@ -205,7 +205,7 @@ CMD command param1 param2
 
 ## 이미지 저장
 
-도커 로그인
+도커 허브 로그인
 
 ```docker
 docker login
