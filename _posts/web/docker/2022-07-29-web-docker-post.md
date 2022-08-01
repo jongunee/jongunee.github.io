@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 쿠버네티스
+title: 쿠버네티스 애플리케이션 배포
 description: >
   인프런 - 쉽게 시작하는 쿠버네티스(v1.20) 수강 중
 sitemap: true
