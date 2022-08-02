@@ -1,0 +1,99 @@
+---
+layout: post
+title: 쿠버네티스 오브젝트
+description: >
+  인프런 - 쉽게 시작하는 쿠버네티스(v1.20) 수강 중
+sitemap: true
+hide_last_modified: true
+categories:
+  - web
+  - docker
+---
+
+# 쿠버네티스 오브젝트
+
+* toc
+{:toc .large-only}
+
+## 쿠버네티스 오브젝트란?
+
+> 쿠버네티스 오브젝트란 추구하는 상태를 기술해 둔 것으로 <span style='background-color: #f5f0ff'>의도를 담은 레코드</span>라고 표현한다
+
+다음과 같은 라이프 사이클을 가지며
+
+- 감시
+- 차이 발견
+- 상태 변경
+
+실제 오브젝트가 선언되어 있는 상태가 오브젝트 상태이며 추구하는 상태와 현재 상태를 맞추는 것이 오브젝트가 원하는 상태이다
+
+예를 들면 오브젝트를 바꾸기 위해
+
+```cmd
+kubectl edit deployment del-deploy
+```
+들어가서
+
+```yml
+spec:
+  replicas: 6
+```
+이와 같이 추구하도록 기술되어 있는 값을 변경해주면
+
+현 상태도 
+
+```yml
+status:
+  replicas: 6
+```
+동일하게 맞추게 된다
+
+## 쿠버네티스 기본 오브젝트
+
+상태값을 가지고 추구하는 상태를 가진다
+
+1. 파드 
+    - API 서버, etcd, 스케줄러 등등
+
+2. 서비스
+    - 노드포트, 노드밸런서 등
+
+3. 네임스페이스
+    - Default, Kube-system 네임스페이스 등
+
+4. 볼륨
+
+## 볼륨 오브젝트 확인
+
+nfs 시스템을 보유한 파드를 생성하고 
+
+```cmd
+kubectl apply <.yaml 파일>
+```
+
+다음과 같이 생성된 파드에 접속이 가능하며 볼륨으로 연결된 경로에서 로그를 확인 해본다
+
+```cmd
+kubectl exec <파드 이름> -it -- /bin/bash
+```
+
+영속성을 확인하기 위해서 생성된 파드를 제거하고
+
+```cmd
+kubectl delete -f <.yaml 파일>
+```
+
+파드 재생성 후에
+
+```cmd
+kubectl apply <.yaml 파일>
+```
+
+다시 해당 경로에서 로그를 확인 해보면 동일한 것을 알 수 있다
+
+
+
+
+<span style="font-size:70%">[참조] 인프런 - 쉽게 시작하는 쿠버네티스(v1.20)
+
+끝!
