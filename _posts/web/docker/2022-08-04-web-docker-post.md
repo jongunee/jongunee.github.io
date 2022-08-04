@@ -1,6 +1,6 @@
 ---
 layout: post
-title: minikube
+title: minikube 및 기본 명령어
 description: >
   인프런 - 초보를 위한 쿠버네티스 안내서 수강 중
 sitemap: true
@@ -10,7 +10,7 @@ categories:
   - docker
 ---
 
-# minikube
+# minikube 및 기본 명령어
 
 * toc
 {:toc .large-only}
