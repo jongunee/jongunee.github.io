@@ -148,11 +148,11 @@ __자주 사용되는 명령어__
 
 | 이름 | 단축어 | 오브젝트 이름 |
 | --- | --- | --- |
-| nodes | no | Node |
-| namespaces | ns | Namespace |
-| deployments | deploy | Deployment |
-| pods | po | Pod |
-| services | svc | Service |
+| nodes | `no` | Node |
+| namespaces | `ns` | Namespace |
+| deployments | `deploy` | Deployment |
+| pods | `po` | Pod |
+| services | `svc` | Service |
 
 
 <span style="font-size:70%">[참조] 인프런 - 쉽게 시작하는 쿠버네티스(v1.20)

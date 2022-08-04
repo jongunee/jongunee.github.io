@@ -1,0 +1,79 @@
+---
+layout: post
+title: minikube
+description: >
+  인프런 - 초보를 위한 쿠버네티스 안내서 수강 중
+sitemap: true
+hide_last_modified: true
+categories:
+  - web
+  - docker
+---
+
+# minikube
+
+* toc
+{:toc .large-only}
+
+## minikube 명령어
+
+__minikube 상태확인__
+
+```cmd
+minikube status
+```
+
+__minikube 실행__
+
+```cmd
+minikube start
+```
+
+__특정 k8s 버전 실행__
+
+```cmd
+minikube start --kubernetes-version=v1.20.0
+```
+
+__특정 driver 실행__
+
+```cmd
+minikube start --driver=virtualbox --kubernetes-version=v1.20.0
+```
+
+__minikube ip 확인__
+
+```cmd
+minikube start --driver=virtualbox --kubernetes-version=v1.20.0
+```
+
+__minikube 종료__
+
+```cmd
+minikube stop
+```
+
+__특정 driver 실행__
+
+```cmd
+minikube start --driver=virtualbox --kubernetes-version=v1.20.0
+```
+
+## 쿠버네티스 명령어
+
+**기본 명령어**
+
+| 명령어 | 설명 |
+| --- | --- |
+| `apply` | 원하는 상태 적용. 주로 `-f` 옵션으로 파일과 함꼐 사용 |
+| `get` | 리소스 목록을 보여줌 |
+| `describe` | 리소스 상태를 자세히 보여줌 |
+| `delete` | 리소스 제거 |
+| `logs` | 컨테이너 로그 확인 |
+| `exec` | 컨테이너에 명령어 전달. 컨테이너에 접근할 때 줄 사용 |
+| `config` | kubectl 설정 관리 |
+
+
+<span style="font-size:70%">[참조] 인프런 - 초보를 위한 쿠버네티스 안내서
+
+끝!
