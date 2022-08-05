@@ -119,7 +119,7 @@ spec:
 
 **ReplicaSet 동작 과정**
 
-1. `ReplicaSet Controller`가 `API 서버`에 `ReplicaSet` 조건을 계속해서 체크
+1. `ReplicaSet 컨트롤러`가 `API 서버`에 `ReplicaSet` 조건을 계속해서 체크
 2. 조건이 맞지 않다면 만족시키기 위해 파드 생성/제거
 3. `스케줄러`가 `API 서버`에 할당되지 않은 `파드`가 있는지 감시
 4. `스케줄러`가 파드를 노드에 할당
