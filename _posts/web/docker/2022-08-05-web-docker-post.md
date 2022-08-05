@@ -1,0 +1,254 @@
+---
+layout: post
+title: 디플로이먼트, 서비스
+description: >
+  인프런 - 초보를 위한 쿠버네티스 안내서 수강 중
+sitemap: true
+hide_last_modified: true
+categories:
+  - web
+  - docker
+---
+
+# 디플로이먼트, 서비스
+
+* toc
+{:toc .large-only}
+
+## 디플로이먼트
+
+**설정 yml 파일**
+
+```yml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: echo-deploy
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: echo
+      tier: app
+  template:
+    metadata:
+      labels:
+        app: echo
+        tier: app
+    spec:
+      containers:
+        - name: echo
+          image: ghcr.io/subicura/echo:v1
+```
+
+- ReplicaSet 설정과 거의 동일
+- 종류와 이름만 바뀜
+- 업데이트를 하게 되면 다 종료하고 다시 파드를 생성하는 것이 아니라 하나씩 종료 하고 새로운 파드를 생성하면서 ReplicaSet 개수를 유지한다
+
+**디플로이먼트 배포 과정**
+
+1. `디플로이먼트`가 `API 서버`에 원하는 배포 상태 체크
+2. 조건에 맞는 ReplicaSet 생성
+3. `ReplicaSet Controller`가 `API 서버`에 ReplicaSet 조건 체크
+4. `ReplicaSet Controller`가 조건을 충족시키기 위해 파드 생성/제거
+5. `스케줄러`가 `API 서버`에 할당되지 않은 `파드`가 있는지 감시
+6. `스케줄러`가 파드를 노드에 할당
+
+**버전 관리**
+
+- 히스토리 확인
+```sh
+kubectl rollout history deploy/echo-deploy
+```
+
+- revision 1 히스토리 상세 확인
+```sh
+kubectl rollout history deploy/echo-deploy --revision=1
+```
+
+- 바로 전으로 롤백
+```sh
+kubectl rollout undo deploy/echo-deploy
+```
+
+- 특정 버전으로 롤백
+```sh
+kubectl rollout undo deploy/echo-deploy --to-revision=2
+```
+
+**배포 전략**
+
+```yml
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: echo
+      tier: app
+  minReadySeconds: 5
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 3
+      maxUnavailable: 3
+```
+- 기본적으로 업데이트 할 때 기본적으로 파드의 25%개씩 제거 후 생성하며 업데이트를 하는데 그 수를 직접 지정 가능
+
+## 서비스
+
+> 파드는 자체 IP를 가지고 다른 파드와 통신은 가능하지만 쉽게 생성되고 사라지는 특징 때문에 직접적인 통신보다는 고정된 IP의 <span style='background-color: #f5f0ff'>서비스</span>를 만들어 통신한다
+
+**Redis 설정 파일** 
+
+```yml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis
+spec:
+  selector:
+    matchLabels:
+      app: counter
+      tier: db
+  template:
+    metadata:
+      labels:
+        app: counter
+        tier: db
+    spec:
+      containers:
+        - name: redis
+          image: redis
+          ports:
+            - containerPort: 6379
+              protocol: TCP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis
+spec:
+  ports:
+    - port: 6379
+      protocol: TCP
+  selector:
+    app: counter
+    tier: db
+```
+
+- 서비스에서 설정을 주어 selector 아래 label을 가진 파드가 접속을 한다
+- 서비스 포트 6379로 접속하면 파드 포트 6379 포트로 연결됨
+
+**Redis와 붙는 counter 파일**
+```yml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: counter
+spec:
+  selector:
+    matchLabels:
+      app: counter
+      tier: app
+  template:
+    metadata:
+      labels:
+        app: counter
+        tier: app
+    spec:
+      containers:
+        - name: counter
+          image: ghcr.io/subicura/counter:latest
+          env:
+            - name: REDIS_HOST
+              value: "redis"
+            - name: REDIS_PORT
+              value: "6379"
+```
+
+**서비스 동작 과정**
+
+1. `Endpoint 컨트롤러`가 `API 서버`에 서비스 감시
+2. `Endpoint 컨트롤러`가 해당 파드의 Endpoint 생성
+3. 각 노드에 설치되어 있는 `Kube-Proxy`가 Endpoint 감시
+4. Endpoint가 업데이트 되면 iptables에 설정
+    - Endpoint의 대표 IP에 연결을 하면 자동으로 파드 하나에 접속하도록 설정됨
+5. `CoreDNS`가 서비스를 감시하다가 서비스가 생성되면 서비스 이름으로 도메인 추가
+
+**Node Port**
+
+설정 파일
+```yml
+apiVersion: v1
+kind: Service
+metadata:
+  name: counter-np
+spec:
+  type: NodePort
+  ports:
+    - port: 3000
+      protocol: TCP
+      nodePort: 31000
+  selector:
+    app: counter
+    tier: app
+```
+
+- 기본적으로는 ClusterIP로 외부에서 접근 불가
+- 노드포트는 외부에서 접속할 수 있도록 포트를 열어주기 때문에 접근이 가능
+- 클러스터의 모든 노드에 포트를 열어주기 때문에 아무 노드로 접근을 해도 지정된 파드로 접근이 가능
+- 하지만 노드가 사라졌을 때 자동으로 다른 노드를 통한 접근이 불가능
+
+**LoadBalancer**
+
+설정 파일 
+
+```yml
+apiVersion: v1
+kind: Service
+metadata:
+  name: counter-lb
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 30000
+      targetPort: 3000
+      protocol: TCP
+  selector:
+    app: counter
+    tier: app
+```
+
+- 자동으로 살아있는 노드에 접근 가능
+- 브라우저가 `NodePor`t가 아니라 `LoadBalancer`에 요청하고 `LoadBalancer`가 알아서 살아있는 노드에 접근
+
+**Addon MetalLB**
+
+```cmd
+microk8s enable metallb:10.64.140.43-10.64.140.49
+```
+
+- 특정 노드를 가리키는 Load Balancer가 필요한데 가상 머신이나 로컬 서버에는 존재하지 않음
+- 
+
+ConfigMap
+
+```yml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  namespace: metallb-system
+  name: config
+data:
+  config: |
+    address-pools:
+    - name: default
+      protocol: layer2
+      addresses:
+      - 192.xxx.xxx.xxx
+```
+
+
+<span style="font-size:70%">[참조] 인프런 - 초보를 위한 쿠버네티스 안내서
+
+끝!
