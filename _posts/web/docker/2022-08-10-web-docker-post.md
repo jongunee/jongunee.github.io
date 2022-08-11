@@ -17,10 +17,104 @@ categories:
 
 ## Microk8s 클러스터 구성
 
+물리적 호스트를 사용하지 않고 Microk8s 클러스터를 테스트하기 위해 LXD를 사용한다.
+
+LXD란?
+
+> LXD란 Canonical이 만든 컨테이넌 솔루션으로 컨테이너를 실행하고 관리하는 도구이다.
+
+**LXD 설치**
+
+```cmd
+sudo snap install lxd
+sudo lxd init
+```
+
+**컨테이너 생성**
+
+- 마스터 노드
+```cmd
+lxc launch -p default -p microk8s ubuntu:20.04 mnode
+```
+
+- 워커 노드 (wnode1~3) - 3개 반복
+```cmd
+lxc launch -p default -p microk8s ubuntu:20.04 wnode1
+```
 
 
+**LXD에 Microk8s 설치**
 
+모든 노드(mnode, wnode1~3)에 모두 설치
+```cmd
+lxc exec mnode -- sudo snap install microk8s --classic
+```
 
-<span style="font-size:70%">[참조]:[Canocical Microk8s 공식 문서](https://microk8s.io/docs/lxd)
+**Microk8s Addons 추가 설치**
+
+```cmd
+lxc exec mnode -- microk8s.enable dns storage
+```
+
+**rc.local 활성화**
+
+모든 노드에 rc.local 파일을 생성해서 프로파일을 로드
+
+> `/etc/rc.local` 파일은 시스템이 부팅되고 맨 마지막 실행되는 스크립트이다.
+
+컨테이너 실행
+
+```cmd
+lxc shell mnode
+```
+
+`rc.local` 파일 생성
+```cmd
+cat > /etc/rc.local <<EOF
+#!/bin/bash
+
+apparmor_parser --replace /var/lib/snapd/apparmor/profiles/snap.microk8s.*
+exit 0
+EOF
+```
+
+권한 추가
+
+```cmd
+chmod +x /etc/rc.local
+```
+
+**ip 주소 추가**
+
+모든 노드에 ip 등록
+
+컨테이너 실행
+
+```cmd
+lxc shell mnode
+```
+
+파일 수정
+```cmd
+vim /etc/hosts
+```
+
+ip 추가
+
+```cmd
+<ip 번호> <호스트명>
+```
+
+**마스터 노드에서 생성된 클러스터 확인**
+
+```cmd
+lxc shell mnode
+```
+
+```cmd
+microk8s.kubectl get no
+```
+
+<span style="font-size:70%">[참조]: [Canocical Microk8s 공식 문서](https://microk8s.io/docs/)
 
 끝!
