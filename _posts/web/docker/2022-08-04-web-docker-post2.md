@@ -45,7 +45,7 @@ categories:
 kubectl apply -f <파일명>.yml
 ```
 
-- 파드 생성
+- 파드 목록 조회
 ```cmd
 kubectl get pod
 ```
@@ -63,11 +63,6 @@ kubectl exec -it echo -- sh
 - 파드 제거
 ```cmd
 kubectl delete -f <파일명>.yml
-```
-
-- 파드 생성
-```cmd
-kubectl get pod
 ```
 
 **livenessProbe**
