@@ -228,8 +228,7 @@ spec:
 microk8s enable metallb:10.64.140.43-10.64.140.49
 ```
 
-- 특정 노드를 가리키는 Load Balancer가 필요한데 가상 머신이나 로컬 서버에는 존재하지 않음
-- 
+- 특정 노드를 가리키는 Load Balancer가 필요한데 가상 머신이나 로컬 서버에는 존재하지 않음 
 
 ConfigMap
 
