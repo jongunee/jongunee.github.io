@@ -1,0 +1,124 @@
+---
+layout: post
+title: Kustomize
+description: >
+  [참조]: 패스트 캠퍼스 - 한 번에 끝내는 AWS 인프라 구축과 DevOps 운영 초격차 패키지 Online
+sitemap: true
+hide_last_modified: true
+categories:
+  - web
+  - docker
+---
+
+# Kustomize
+
+* toc
+{:toc .large-only}
+
+## Kustomize란?
+
+> Kustomize란 쿠버네티스 매니페스트 파일을 효율적으로 관리하기 위해 만들어진 오픈소스 도구
+
+원본 `yaml` 파일을 보존한 채로 목적에 따라 변경본을 만들어 사용할 수 있도록 하는 것을 목표
+
+## kustomization
+
+**Kustomization.yml**
+
+> kustomizational.yaml 파일은 Kustomize가 사용하는 `yaml` 매니페스트 파일
+
+**Base Manifests**
+
+> Kustomization에 의해 참조되며 보통 기본 설정으로 구성된 쿠버네티스 매니페스트 묶음을 말함
+
+**Overlay Manifests**
+
+> Base Mnifests에 변형을 가하기 위해 사용되는 Kustomization으로 Overlay도 다른 것들의 Base가 될 수 있음 
+
+## Kustomize 명령어
+
+**생성**
+
+```cmd
+kustomize create
+```
+- 현재 디렉토리에 kustomization.yaml 파일 생성
+
+
+**빌드**
+
+```cmd
+kustomize build .
+```
+- 현재 디렉토리에 kustomization.yml 파일을 해석해서 쿠버네티스 매티페스트 출력
+- 디렉토리 뿐만 아니라 URL을 통해 원격에 위치한 kustomization.yaml 파일 해석도 가능
+
+**클러스트 적용**
+
+```cmd
+kustomize build . | kubectl apply -f -
+```
+
+- kustomization.yaml 파일 내용을 클러스터에 적용
+- 명령어 맨 뒤의 `-`의미는 앞의 명령어의 stdout을 사용하겠다는 뜻
+
+**클러스터에서 삭제**
+
+```cmd
+kustomize build . | kubectl delete -f -
+```
+
+- kustomization.yaml 파일 내용을 클러스터에서 삭제
+- 명령어 맨 뒤의 `-`의미는 앞의 명령어의 stdout을 사용하겠다는 뜻
+
+## Kustomize 명령어 - kubectl 통합
+
+kubernetes 1.14 버전 부터 kubectl 내에서 kustomize를 내장
+
+**빌드**
+
+```cmd
+#kutomize build .
+kubectl kustomize . 
+```
+
+**클러스터 적용**
+
+```cmd
+#kustomize build . | kubectl apply -f -
+kubectl apply -k
+```
+
+**클러스터에서 삭제**
+
+```cmd
+#kustomize build . | kubectl delete -f -
+kubectl delete -k
+```
+
+## 통합
+
+**yaml 파일**
+
+```yml
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+- deployment.yaml
+- service.yaml
+```
+
+- 별 다른 설정 없이 리소스로 쿠버네티스 디플로이먼트, 서비스 포함
+- 수정하지 않았지만 패키지로 묶어 한 번에 배포 가능
+
+```cmd
+#kustomize build . | kubectl apply -f -
+kubectl apply -k
+```
+명령어로 빌드 및 배포 가능
+
+
+<span style="font-size:70%">[참조]: 패스트 캠퍼스 - 한 번에 끝내는 AWS 인프라 구축과 DevOps 운영 초격차 패키지 Online
+
+끝!
