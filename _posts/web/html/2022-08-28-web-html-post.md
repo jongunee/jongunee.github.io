@@ -1,6 +1,6 @@
 ---
 layout: post
-title: HTML, CSS, JS
+title: HTML 태그
 description: >
   노마드코더 코코아톡 클론코딩 수강 중
 sitemap: true
@@ -10,7 +10,7 @@ categories:
   - html
 ---
 
-# HTML, CSS, JS
+# HTML 태그
 
 - toc
 {:toc .large-only}
@@ -27,7 +27,7 @@ categories:
 
 > Javascript란 웹 사이트의 두뇌 역할을 한다. 컨셉은 동적 상호작용성을 부여하여 애니매이션 등 좀 더 동적으로 동작할 수 있도록 해주는 것
 
-## HTML Tag
+## HTML 태그
 
 - HTML을 구성하기 위해서 태그를 사용한다
 - 태그 안의 것들이 Contents
@@ -59,21 +59,85 @@ categories:
 - `<li>` 태그는 list item을 의미하는 태그
 - `<ul>` 태그 대신에 `<ol>` 태그로 설정하면 ordered list로 번호를 주어 순서를 정해줌
 
-**\<a>태그 및 \<img> 태그**
+**기본 \<head>태그 및 \<body> 태그**
 
 ```html
-<a href="http://google.com" target="_blank">Go to google.com</a>
-<img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png" />
+<!DOCTYPE html>
+<html lang="kr">
+  <head>
+    <link
+      rel="shortcut icon"
+      href="https://assets.nflxext.com/us/ffe/siteui/common/icons/nficon2016.png" />
+    <title>Home - My first website.</title>
+    <meta name="description" content="This is my website" />
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <h1>Hello!</h1>
+    <a href="http://google.com" target="_blank">Go to google.com</a>
+    <img
+      src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png" />
+  </body>
+</html>
+
 ```
 
-- `<a>` 태그는 anchor로 링크를 의미하는 태그
-- `href` attribute는 링크로 연결할 URL을 설정 
-- `target`는 기본적으로 `_self`로 설정되어 있어 현재 탭에서 열리지만 `_blank`로 설정해 주면 새 탭에서 열리게 됨 
-- attributes는 특정 태그에서만 동작하며 예를들어 위 attributes는 `<a>` 태그에서는 동작하지만 `<h1>` 태그에서는 동작하지 않음
-- `<img>` 태그는 self-closing 태그이기 떄문에 `<\img>`와 같은 닫아주는 것이 없고 `<img 이미지/>`로 표현
-- `src` attrubute에 이미지 주소를 지정
+- 기본적으로 브라우저에 text 타입이 아니라 html 문서라는 것을 표현
+- \<html> 태그를 통해 contents가 html 코드임을 알림
+- \<head>에 \<title> 태그를 통해 탭에 제목 설정
+- `lang` 속성은 검색 엔진에 어떤 언어로 이루어져 있는 웹페이지인지 알려줌
+- `link` 속성에 이미지 링크를 연결해 탭 아이콘 설정 가능
+- \<head> 태그 안에 있는 \<meta> 태그의 내용들은 non-visible이기 떄문에 보이지 않지만 검색 엔진이 검색 할 떄 사용됨
+- `charset` 속성을 text 속성을 나타내는데 다른 언어로 작성되었을 때 깨질 수 있기 때문에 항상 설정해 주는 것이 좋음
+- 기본적으로 내용들은 \<body> 태그 내부에 작성
+
+**form 태그**
+
+```html
+<body>
+  <form>
+    <label for="profile">Profile Photo</label>
+    <input id="profile" type="file" accept="image/*,.pdf" />
+    <input type="color" />
+    <input required placeholder="User name" type="text" />
+    <input placeholder="Password" minlength="10" type="password" />
+    <input type="submit" value="Create Account" />
+  </form>
+</body>
+```
+
+- `file` 타입으로 파일을 불러올 수 있고 `accept` 속성으로 파일 형식 선택 
+- `color` 타입은 색상 선택기를 오픈
+- `label`을 지정하고 `id`를 동일하게 해주면 Profile Photo 글자를 클릭해도 파일을 불러올 수 있음
+- `placeholder` 속성으로 임시 의미 표시
+- `requred`를 붙이면 반드시 값을 채우도록 검증할 수 있음 
+- `password` 타입은 입력되는 값을 가림
+- `minlength` 속성으로 최소 길이 설정
+- `submit` 버튼 타입
+
+**Semantic 태그**
+
+```html
+<body>
+  <header>
+    <h1>Jongwon Park</h1>
+  </header>
+  <main>hello!</main>
+  <footer>&copy; 2022 J.W</footer>
+</body>
+```
+
+- \<header>, \<main>, \<footer> 태그들 모두 \<div> 태그와 같은 동작을 함
+- \<div> 태그로 모두 작성을 해도 되지만 코드의 가독성을 위해 구분지음
+- 이것들이 바로 Semantic Tags
 
 
+
+
+
+좀 더 상세한 내용은 html web documents에서 확인 가능하다.
+
+링크: https://developer.mozilla.org/ko/docs/Web/HTML
 
 <span style="font-size:70%">[참조] 노마드코더 코코아톡 클론코딩
 
