@@ -12,47 +12,52 @@ categories:
 
 # 도커 설치
 
-* toc
-{:toc .large-only}
+- toc
+  {:toc .large-only}
 
 ## 도커 설치
 
-__Windows환경에서 설치하기__
+**Windows환경에서 설치하기**
 
 도커는 기본적으로 Linux에서 지워하기 때문에 도커 Windows 버전은 가상머신에 설치됨
 
-__우분트 환경에서 설치하기__
+**우분트 환경에서 설치하기**
 
 ```bash
 curl -s https://get.docker.com/ | sudo sh
 ```
 
-__ubuntu 유저 권한 추가하기__
+**ubuntu 유저 권한 추가하기**
 
 ```bash
 sudo usermod -aG docker ubuntu
 ```
+
 permission denied 오류나면
+
 ```bash
 sudo chmod 666 /var/run/docker.sock
 ```
 
-__experimental true로 설정하기__
+**experimental true로 설정하기**
 
 ```bash
 sudo nano /etc/docker/daemon.json
 ```
+
 코드 추가
+
 ```
 {
   "experimental": true
 }
 ```
+
 도커 엔진 재시작
+
 ```bash
 sudo systemctl restart docker
 ```
-
 
 도커 클라이언트는 도커 호스트에 명령을 전달하고 결과를 받아서 출력하는 구조이다
 
@@ -63,24 +68,24 @@ sudo systemctl restart docker
 ```bash
 docker run [OPTIONS] IMAGE[:TAG|@DIGEST] [COMMAND] [ARG...]
 ```
+
 컨테이너를 실행한다
 
-| 옵션 | 설명 |
-| --- | --- |
-| -d | detached mode (백그라운드 모드) |
-| -p | 호스트와 컨테이너의 포트 연결 |
-| -v | 호스트와 컨테이너의 디렉토리 연결 |
-| -e | 컨테이너 내에서 사용할 환경변수 설정 |
-| --name | 컨테이너 이름 설정 |
-| --rm | 프로세스 종료시 컨테이너 자동 제거 |
-| -it | -i 와 -를 동시에 사용한 것으로 터미널 입력을 위한 옵션 |
-| --network | 네트워크 연결 |
+| 옵션      | 설명                                                   |
+| --------- | ------------------------------------------------------ |
+| -d        | detached mode (백그라운드 모드)                        |
+| -p        | 호스트와 컨테이너의 포트 연결                          |
+| -v        | 호스트와 컨테이너의 디렉토리 연결                      |
+| -e        | 컨테이너 내에서 사용할 환경변수 설정                   |
+| --name    | 컨테이너 이름 설정                                     |
+| --rm      | 프로세스 종료시 컨테이너 자동 제거                     |
+| -it       | -i 와 -를 동시에 사용한 것으로 터미널 입력을 위한 옵션 |
+| --network | 네트워크 연결                                          |
 
 - run 명령어를 사용하면 사용할 이미지가 저장되어 있는지 먼저 확인
 - 이미지가 없다면 다운로드(pull)하고 컨테이너를 생성(create)하고 시작(start)
 
-
-__도커로 ubuntu 실행__
+**도커로 ubuntu 실행**
 
 도커가 기본적으로 제공하는 이미지로 ubuntu를 실행할 수 있다
 
@@ -96,7 +101,7 @@ docker run --rm -it ubuntu:20.04 /bin/sh
 백그라운드에 도커가 실행되고 있지 않다면 상태를 확인하고
 
 ```bash
-$ sudo systemctl status docker 
+$ sudo systemctl status docker
 ```
 
 시작해준다
@@ -107,6 +112,7 @@ $ sudo systemctl enable docker
 ```
 
 또는
+
 ```bash
 sudo service docker start
 ```
@@ -142,6 +148,7 @@ docker logs [OPTIONS] CONTAINER
 ```
 
 컨테이너의 로그를 확인이 가능하다
+
 - `-f` 옵션을 주면 실시간 로그를 확인할 수 있다
 
 ### images 명령어
@@ -183,9 +190,10 @@ docker network create app-network
 docker network connect [OPTIONS] NETWORK CONTAINER
 docker network connect app-network mysql
 ```
+
 기존에 생성된 컨테이너에 네트워크를 추가한다
 
-__예시__
+**예시**
 
 ```bash
 docker run -d -p 8080:80 \
@@ -205,7 +213,7 @@ wordpress
 
 컨테이너를 삭제하면 모두 사라지기 때문에 `-v` 옵션을 주어 삭제되면 안되는 데이터를 보관, 불러올 수 있음
 
-__예시__
+**예시**
 
 ```bash
 docker stop mysql
@@ -217,7 +225,6 @@ docker run -d -p 3306:3306 \
 -v /my/own/datadir:/var/lib/mysql \
 mysql:5.7
 ```
-
 
 <span style="font-size:70%">[참조] 인프런 - 초보를 위한 도커 안내서
 
