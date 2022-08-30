@@ -1,0 +1,220 @@
+---
+layout: post
+title: Kustomize - Patches
+description: >
+  [참조]: 패스트 캠퍼스 - 한 번에 끝내는 AWS 인프라 구축과 DevOps 운영 초격차 패키지 Online
+sitemap: true
+hide_last_modified: true
+categories:
+  - web
+  - docker
+---
+
+# Kustomize - Patches
+
+* toc
+{:toc .large-only}
+
+## Strategic merge patches
+
+**base**
+
+kustomization.yaml 파일
+
+```yml
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+- deployment.yaml
+- service.yaml
+```
+
+- 기본 deployment, service 패키징
+
+deployment.yaml 파일
+
+```yml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: hello
+  template:
+    metadata:
+      name: hello
+      labels:
+        app: hello
+    spec:
+      containers:
+      - name: nginx
+        image: nginxdemos/hello:plain-text
+        ports:
+        - name: http
+          containerPort: 80
+          protocol: TCP
+```
+
+service.yaml 파일
+
+```yml
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello
+  labels:
+    app: hello
+spec:
+  type: ClusterIP
+  ports:
+  - name: http
+    protocol: TCP
+    port: 8080
+    targetPort: 80
+  selector:
+    app: hello
+```
+
+**dev**
+
+kustomization.yaml 파일
+
+```yml
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+- ../base
+
+namePrefix: dev-
+
+patchesStrategicMerge:
+- resources.yaml
+- service.yaml
+```
+
+- resources:
+  - 상위 base 경로의 kustomize 결과를 리소스로 사용
+- namePrefix:
+  - 접두사 dev- 추가
+- patchesStrategicMerge:
+  - 해당 속성을 통해 전략적 merge
+
+resources.yaml 파일
+
+```yml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello
+spec:
+  template:
+    spec:
+      containers:
+      - name: nginx
+        resources:
+          requests:
+            cpu: 100m
+            memory: 64Mi
+```
+
+- 디플로이먼트지만 selector, image 등의 필수 속성들이 부족함 ➡️이 파일이 patch로서 사용되기 떄문
+- 패치는 수정이 필요한 부분만 값을 넣어주면 됨
+- 패치할 target은 `apiversion`, `kind`, `metadata.name`으로 확인
+- 패치할 target을 찾아 아래 spec 값들을 바꾸어 줌
+
+service.yaml 파일
+
+```yml
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello
+spec:
+  type: NodePort
+```
+
+- 이 파일 역시 patch로서 사용되기 떄문에 수정이 필요한 부분만 값을 넣어주면 됨
+- `type`을 `NodePort`로 변경
+
+## json 6902 patches
+
+base는 모두 동일
+
+**dev**
+
+kustomization.yaml 파일
+
+```yaml
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+- ../base
+
+namePrefix: dev-
+
+patchesJson6902:
+- target:
+    version: v1
+    kind: Deployment
+    name: hello
+  path: resources.yaml
+- target:
+    version: v1
+    kind: Service
+    name: hello
+  path: service.yaml
+```
+
+- resources:
+  - 상위 base 경로의 kustomize 결과를 리소스로 사용
+- namePrefix:
+  - 접두사 dev- 추가
+- patchesJson6902:
+  - JsonPatch이며 RFC 6902 의미
+  - json patch는 직접 target을 찾을 수 없기 때문에 따로 `target`에 지정
+
+resources.yaml 파일
+
+```yml
+- op: add
+  path: /spec/template/spec/containers/0/resources
+  value:
+    requests:
+      cpu: 100m
+      memory: 64Mi
+```
+
+- op:
+  - add 오퍼레이터
+- path:
+  - 경로 지정
+- value:
+  - patch value 지정
+- 위 3가지 속성을 종합하면 `base/deployment.yaml` 파일에서 `path` 경로에 `value` 값을 `add` 하는 것 
+
+service.yaml 파일
+
+```yml
+- op: replace
+  path: /spec/type
+  value: NodePort
+```
+
+- op:
+  - replace 오퍼레이터
+- path:
+  - 경로 지정
+- value:
+  - patch value 지정
+- 위 3가지 속성을 종합하면 `base/service.yaml` 파일에서 `path` 경로에 있는 값을 `value` 값으로 `replace` 하는 것
+
+
+<span style="font-size:70%">[참조]: 패스트 캠퍼스 - 한 번에 끝내는 AWS 인프라 구축과 DevOps 운영 초격차 패키지 Online
+
+끝!
