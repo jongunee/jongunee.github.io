@@ -1,0 +1,198 @@
+---
+layout: post
+title: Helm
+description: >
+  [참조]: 인프런 - 대세는 쿠버네티스 [Helm편]
+sitemap: true
+hide_last_modified: true
+categories:
+  - web
+  - docker
+---
+
+# Helm
+
+* toc
+{:toc .large-only}
+
+## Helm이란?
+
+> Helm이란 쿠버네티스용 패키지 매니저로서 yaml 파일의 모음이라고 할 수 있다.
+
+```cmd
+helm install -f myvalues.yaml myredis ./redis
+```
+
+명령어 필요한 쿠버네티스 리소스를 한 번에 설치 가능하다.
+
+**Helm 도입 배경**
+
+- `Kubectl` 명령을 통해 App(yaml 파일) 생성 및 배포
+- 각각의 App마다 `yaml` 파일 생성
+- 각각의 배포 환경마다 `yaml` 파일 생성
+- `yaml` 파일은 정적 파일이기 떄문에 리소스별로 `yaml` 파일을 만들어야 함
+- 수 많은 리소스를 관라리하게 될 때 `yaml` 파일에 대한 유지보수가 어려움
+- 하나의 Template을 통해 yaml 파일을 동적으로 생성하게 해주는 Tool인 Helm이 등장하게 됨
+
+## Helm 구조
+
+**Helm 컴포넌트**
+
+- Helm CLI: 외부의 요청 수행
+- Helm Library: CLI를 통해 들어온 요청 수행
+- 개발 언어: Golang
+- 데이터베이스: kubernetes secret
+
+**Helm Chart**
+
+- 쿠버네티스 어플리케이션을 만들기 위한 모든 정보를 묶어 놓은 단위
+- ex) nginx chart, mariadb chart 등
+
+**Helm Chart Repository**
+
+- 원격 저장소  
+ex) ArtifactHUB, bitnami 등
+- 로컬 저장소  
+ex) Chartmuseum 등
+
+## Helm 설치
+
+공식 다운로드 링크: https://helm.sh/ko/docs/intro/install/
+
+**릴리즈별 다운로드**
+
+리눅스 amd64
+
+```cmd
+curl -O https://get.helm.sh/helm-v3.9.4-linux-amd64.tar.gz
+tar -zxvf helm-v3.9.4-linux-amd64.tar.gz
+mv linux-amd64/helm /usr/local/bin/helm
+```
+
+다른 OS 링크 확인: https://github.com/helm/helm/releases/
+
+**키워드 자동 완성 등록**
+
+```cmd
+helm completion bash > /etc/bash_completion.d/helm 
+```
+
+**버전 확인 명령어**
+
+```cmd
+helm version
+```
+
+**쿠버네티스 config 파일 확인**
+
+```cmd
+cd ~/.kube/
+```
+
+만약 microk8s를 사용해서 config 파일이 없을 경우
+
+```cmd
+microk8s.kubectl config view --raw > ~/.kube/config
+```
+
+## 차트 레포지토리 등록
+
+Artifact Hub 링크: https://artifacthub.io/
+
+위 링크에서 패키지 조회 및 설치 가이드 확인
+
+**레포지토리 등록**
+
+```cmd
+helm repo add bitnami https://charts.bitnami.com/bitnami
+```
+
+**레포지토리 조회**
+
+```cmd
+helm repo list
+```
+
+**Chart 조회**
+
+```cmd
+helm search repo bitnami | grep tomcat
+```
+
+**레포지토리 업데이트**
+
+```cmd
+helm repo update
+```
+
+**레포지토리 삭제**
+
+```cmd
+helm repo remove bitnami
+```
+
+## Tomcat 배포
+
+```cmd
+helm install my-tomcat bitnami/tomcat --version 10.4.3 --set persistence.enabled=false,tomcatAllowRemoteManagement=1
+```
+
+**노트 포트 확인 및 접속**
+
+```cmd
+kubectl get svc my-tomcat
+```
+
+**배포 리스트 조회**
+
+```cmd
+helm list
+```
+
+**배포 상태확인**
+
+```cmd
+helm status my-tomcat
+```
+
+**Tomcat 삭제**
+
+```cmd
+helm uninstall my-tomcat
+```
+
+**Pod 확인**
+
+```cmd
+kubectl get pods
+```
+
+## Tomcat Chart 다운 및 배포
+
+**다운로드**
+
+```cmd
+helm pull bitnami/tomcat --version 7.1.2
+```
+**압축풀기**
+
+```cmd
+tar -xf ./tomcat-7.1.2.tgz
+```
+
+**Tomcat 배포**
+
+```cmd
+helm install my-tomcat . -f values.yaml
+```
+
+**NodePort 확인 및 접속**
+
+```cmd
+kubectl get svc my-tomcat
+http://<ip 주소>:<nodeport>/
+```
+
+<span style="font-size:70%">[참조]: 인프런 - 대세는 쿠버네티스 [Helm편]
+
+끝!
