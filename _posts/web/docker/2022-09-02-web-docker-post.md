@@ -39,6 +39,7 @@ pipe:
 vim cm1.yaml
 ```
 
+
 ```yml
 apiVersion: v1
 kind: ConfigMap
@@ -46,19 +47,20 @@ metadata:
   name: function-and-pipeline
 data:
   Function_Argument:
-    quote: {{ quote .Values.func.enabled }}     # quote(arg1)
-    include: {{ include "mychart.name" . }}  # include(arg1, arg2)
+    quote: {% raw %}{{ quote .Values.func.enabled }}{% endraw %}     # quote(arg1)
+    include: {% raw %}{{ include "mychart.name" . }}{% endraw %}  # include(arg1, arg2)
 
   Function_Quote:
-    function_case1: {{ .Values.func.enabled }}
-    function_case2: {{ quote .Values.func.enabled }}
-    function_case3: "{{ .Values.func.enabled }}"
+    function_case1: {% raw %}{{ .Values.func.enabled }}{% endraw %}
+    function_case2: {% raw %}{{ quote .Values.func.enabled }}{% endraw %}
+    function_case3: "{% raw %}{{ .Values.func.enabled }}{% endraw %}"
 
   Pipeline:
-    upper: {{ .Values.pipe.log | upper }}
-    upper.repeat: {{ .Values.pipe.log | upper | repeat 2 }}
-    upper.repeat.quote: {{ .Values.pipe.log | upper | repeat 2 | quote }}
+    upper: {% raw %}{{ .Values.pipe.log | upper }}{% endraw %}
+    upper.repeat: {% raw %}{{ .Values.pipe.log | upper | repeat 2 }}{% endraw %}
+    upper.repeat.quote: {% raw %}{{ .Values.pipe.log | upper | repeat 2 | quote }}{% endraw %}
 ```
+
 
 **Template 명령어**
 
@@ -89,6 +91,7 @@ data:
 
 **test-values.yaml**
 
+
 ```yml
 dev:
   env: dev
@@ -108,9 +111,11 @@ data:
   - c
 ```
 
+
 ### if
 
 **if문 false 조건**
+
 
 ```yml
 Number:0
@@ -120,6 +125,7 @@ Object: {}
 Boolean: false
 Null
 ```
+
 
 **if문 함수**
 
@@ -139,6 +145,7 @@ Null
 
 **cm2-2.yaml**
 
+
 ```yml
 apiVersion: v1
 kind: ConfigMap
@@ -146,35 +153,36 @@ metadata:
   name: flow-if
 data:
   dev:
-    env: {{ .Values.dev.env }}
-    {{- if eq .Values.dev.env "dev" }}
+    env: {% raw %}{{ .Values.dev.env }}{% endraw %}
+    {% raw %}{{- if eq .Values.dev.env "dev" }}{% endraw %}
     log: debug
-    {{- else if .Values.dev.log }}
-    log: {{ .Values.dev.log }}
-    {{- else }}
+    {% raw %}{{- else if .Values.dev.log }}{% endraw %}
+    log: {% raw %}{{ .Values.dev.log }}{% endraw %}
+    {% raw %}{{- else }}{% endraw %}
     log: error
-    {{ end }}
+    {% raw %}{{ end }}{% endraw %}
 
   qa:
-    env: {{ .Values.qa.env }}
-    {{- if eq .Values.qa.env "dev" }}
+    env: {% raw %}{{ .Values.qa.env }}{% endraw %}
+    {% raw %}{{- if eq .Values.qa.env "dev" }}{% endraw %}
     log: debug
-    {{- else if .Values.qa.log }}
-    log: {{ .Values.qa.log }}
-    {{- else }}
+    {% raw %}{{- else if .Values.qa.log }}{% endraw %}
+    log: {% raw %}{{ .Values.qa.log }}{% endraw %}
+    {% raw %}{{- else }}{% endraw %}
     log: error
-    {{- end }}
+    {% raw %}{{- end }}{% endraw %}
 
   prod:
-    env: {{ .Values.prod.env }}
-    {{ if eq .Values.prod.env "dev" }}
+    env: {% raw %}{{ .Values.prod.env }}{% endraw %}
+    {% raw %}{{ if eq .Values.prod.env "dev" }}{% endraw %}
     log: debug
-    {{ else if .Values.prod.log }}
-    log: {{ .Values.prod.log }}
-    {{ else }}
+    {% raw %}{{ else if .Values.prod.log }}{% endraw %}
+    log: {% raw %}{{ .Values.prod.log }}{% endraw %}
+    {% raw %}{{ else }}{% endraw %}
     log: error
-    {{ end }}
+    {% raw %}{{ end }}{% endraw %}
 ```
+
 
 **data 출력 결과**
 
@@ -194,11 +202,13 @@ data:
     log: error
 ```
 
+
 - prod에서 공백이 생긴 이유는 위 yaml 파일에서 괄호 바로 뒤에 하이픈(-) 입력을 안해줬기 때문
 
 ### With
 
 **cm2-3.yaml**
+
 
 ```yml
 apiVersion: v1
@@ -207,25 +217,27 @@ metadata:
   name: flow-with
 data:
   dev:
-  {{- with .Values.dev }}
-    env: {{ .env }}
-    log: {{ .log }}
-  {{- end }}
+  {% raw %}{{- with .Values.dev }}{% endraw %}
+    env: {% raw %}{{ .env }}{% endraw %}
+    log: {% raw %}{{ .log }}{% endraw %}
+  {% raw %}{{- end }}{% endraw %}
 
   qa:
-  {{- with .Values.qa }}
-    env: {{ .env }}
-    log: {{ .log }}
-  {{- end }}
+  {% raw %}{{- with .Values.qa }}{% endraw %}
+    env: {% raw %}{{ .env }}{% endraw %}
+    log: {% raw %}{{ .log }}{% endraw %}
+  {% raw %}{{- end }}{% endraw %}
   
   prod:
-  {{- with .Values.prod }}
-    env: {{ .env }}
-    log: {{ .log }}
-  {{- end }}
+  {% raw %}{{- with .Values.prod }}{% endraw %}
+    env: {% raw %}{{ .env }}{% endraw %}
+    log: {% raw %}{{ .log }}{% endraw %}
+  {% raw %}{{- end }}{% endraw %}
 ```
 
+
 **data 출력 결과**
+
 
 ```yml
 data:
@@ -242,9 +254,11 @@ data:
     log:
 ```
 
+
 ### Range
 
 **cm2-4.yaml**
+
 
 ```yml
 apiVersion: v1
@@ -253,25 +267,27 @@ metadata:
   name: flow-range
 data:
   yaml:
-  {{- .Values.data | toYaml | nindent 2 }}
+  {% raw %}{{- .Values.data | toYaml | nindent 2 }}{% endraw %}
 
   range:
-  {{- range .Values.data }}
-  - {{ . }}
-  {{- end }}
+  {% raw %}{{- range .Values.data }}{% endraw %}
+  - {% raw %}{{ . }}{% endraw %}
+  {% raw %}{{- end }}{% endraw %}
 
   range-quote:
-  {{- range .Values.data }}
-  - {{ . | quote }}
-  {{- end }}
+  {% raw %}{{- range .Values.data }}{% endraw %}
+  - {% raw %}{{ . | quote }}{% endraw %}
+  {% raw %}{{- end }}{% endraw %}
 
   range-upper-quote:
-  {{- range .Values.data }}
-  - {{ . | upper | quote }}
-  {{- end }}
+  {% raw %}{{- range .Values.data }}{% endraw %}
+  - {% raw %}{{ . | upper | quote }}{% endraw %}
+  {% raw %}{{- end }}{% endraw %}
 ```
 
+
 **data 출력 결과**
+
 
 ```yml
 data:
@@ -296,11 +312,13 @@ data:
   - "C"
 ```
 
+
 ## 여러 함수
 
 - helm의 템플릿 파일은 Golang 문법을 따름
 
 **test-values.yaml**
+
 
 ```yml
 print:
@@ -320,7 +338,9 @@ default:
   boolean: false
 ```
 
+
 **cm3.yaml**
+
 
 ```yaml
 apiVersion: v1
@@ -329,46 +349,48 @@ metadata:
   name: string-func
 data:
   print:
-    print:  {{ print "Hard Cording" }}
-    printf: {{ printf "%s-%s" .Values.print.a .Values.print.b }}
+    print:  {% raw %}{{ print "Hard Cording" }}{% endraw %}
+    printf: {% raw %}{{ printf "%s-%s" .Values.print.a .Values.print.b }}{% endraw %}
 
   ternary:
-    case1: {{ .Values.ternary.case1 | ternary "1" "2" }}
-    case2: {{ .Values.ternary.case2 | ternary "1" "2" }}
+    case1: {% raw %}{{ .Values.ternary.case1 | ternary "1" "2" }}{% endraw %}
+    case2: {% raw %}{{ .Values.ternary.case2 | ternary "1" "2" }}{% endraw %}
 
   indent:
     indent: 
-{{ .Values.data | toYaml | indent 4 }}
-    nindent1: {{ .Values.data | toYaml | nindent 4 }}
+{% raw %}{{ .Values.data | toYaml | indent 4 }}{% endraw %}
+    nindent1: {% raw %}{{ .Values.data | toYaml | nindent 4 }}{% endraw %}
     nindent2:
-    {{- .Values.data | toYaml | nindent 4 }}
+    {% raw %}{{- .Values.data | toYaml | nindent 4 }}{% endraw %}
           
   default: # Number:0, String: "", List: [], Object: {}, Boolean: false, Null
-    nil:     {{ .Values.default.nil     | default "default" }}
-    list:    {{ .Values.default.list    | default (list "default1" "default2") | toYaml | nindent 6}}
-    object:  {{ .Values.default.object  | default "default:1" | toYaml | nindent 6 }}
-    number:  {{ .Values.default.number  | default 1 }}
-    string:  {{ .Values.default.string  | default "default" }}
-    boolean: {{ .Values.default.boolean | default true }}
+    nil:     {% raw %}{{ .Values.default.nil     | default "default" }}{% endraw %}
+    list:    {% raw %}{{ .Values.default.list    | default (list "default1" "default2") | toYaml | nindent 6}}{% endraw %}
+    object:  {% raw %}{{ .Values.default.object  | default "default:1" | toYaml | nindent 6 }}{% endraw %}
+    number:  {% raw %}{{ .Values.default.number  | default 1 }}{% endraw %}
+    string:  {% raw %}{{ .Values.default.string  | default "default" }}{% endraw %}
+    boolean: {% raw %}{{ .Values.default.boolean | default true }}{% endraw %}
 
   trim:
-    trim:       {{ trim "  hello " }}
-    trimPrefix: {{ trimPrefix "-" "-hello" }}
-    trimSuffix: {{ trimSuffix "-" "hello-" }}
+    trim:       {% raw %}{{ trim "  hello " }}{% endraw %}
+    trimPrefix: {% raw %}{{ trimPrefix "-" "-hello" }}{% endraw %}
+    trimSuffix: {% raw %}{{ trimSuffix "-" "hello-" }}{% endraw %}
 
   random:
-    randAlphaNum: {{ randAlphaNum 5 }}   # 0-9a-zA-Z
-    randAlpha:    {{ randAlpha 5 }}      # a-zA-Z
-    randNumeric:  {{ randNumeric 5 }}    # 0-9
-    randAscii:    {{ randAscii 5 }}      # ASCII characters
+    randAlphaNum: {% raw %}{{ randAlphaNum 5 }}{% endraw %}   # 0-9a-zA-Z
+    randAlpha:    {% raw %}{{ randAlpha 5 }}{% endraw %}      # a-zA-Z
+    randNumeric:  {% raw %}{{ randNumeric 5 }}{% endraw %}    # 0-9
+    randAscii:    {% raw %}{{ randAscii 5 }}{% endraw %}      # ASCII characters
 
-  trunc:    {{ trunc 5 "hello world" }}
-  replace:  {{ "hello world" | replace " " "-" }}
-  contains: {{ contains "cat" "catch" }}
-  b64enc:   {{ b64enc "hello" }}
+  trunc:    {% raw %}{{ trunc 5 "hello world" }}{% endraw %}
+  replace:  {% raw %}{{ "hello world" | replace " " "-" }}{% endraw %}
+  contains: {% raw %}{{ contains "cat" "catch" }}{% endraw %}
+  b64enc:   {% raw %}{{ b64enc "hello" }}{% endraw %}
 ```
 
+
 **data 출력 결과**
+
 
 ```yaml
 data:
@@ -422,6 +444,7 @@ data:
   b64enc:   aGVsbG8=
 ```
 
+
 ## 지역변수
 
 **cm4-1.yaml**
@@ -433,27 +456,31 @@ metadata:
   name: variables-with
 data:
   dev:
-  {{- $relname := .Release.Name -}}
-  {{- with .Values.dev }}
-    env: {{ .env }}
-    release: {{ $relname }}
-    log: {{ .log }}
-  {{- end }}
+  {% raw %}{{- $relname := .Release.Name -}}{% endraw %}
+  {% raw %}{{- with .Values.dev }}{% endraw %}
+    env: {% raw %}{{ .env }}{% endraw %}
+    release: {% raw %}{{ $relname }}{% endraw %}
+    log: {% raw %}{{ .log }}{% endraw %}
+  {% raw %}{{- end }}{% endraw %}
 ```
 
+
 - relname 지역변수에 Release.Name을 저장하는데 변수를 지정하지 않고 다음과 같이 작성하면 에러 발생
+
 
 ```yml
 data:
   dev:
-  {{- with .Values.dev }}
-    release: {{ .Release.Name }}
-  {{- end }}
+  {% raw %}{{- with .Values.dev }}{% endraw %}
+    release: {% raw %}{{ .Release.Name }}{% endraw %}
+  {% raw %}{{- end }}{% endraw %}
 ```
+
 
 - 이유는 with를 쓰게 되면 with 안에서만 찾기 때문에 Release.Name을 찾을 수 없음
 
 **data 출력 결과**
+
 
 ```yml
 data:
@@ -463,9 +490,11 @@ data:
     log: info
 ```
 
+
 ## Range
 
 **cm4-2.yaml**
+
 
 ```yml
 apiVersion: v1
@@ -475,16 +504,18 @@ metadata:
 data:
   # for (int i ; i=list.length ; i++) { printf "i : list[i]" };
   index:
-  {{- range $index, $value := .Values.data }}
-    {{ $index }}: {{ $value }}
-  {{- end }}
+  {% raw %}{{- range $index, $value := .Values.data }}{% endraw %}
+    {% raw %}{{ $index }}{% endraw %}: {% raw %}{{ $value }}{% endraw %}
+  {% raw %}{{- end }}{% endraw %}
 
   # for (Map<key, value> map : list) { printf "map.key() : map.value()" };
   key-value:
-  {{- range $key, $value := .Values.dev }}
-    {{ $key }}: {{ $value | quote }}
-  {{- end }}
+  {% raw %}{{- range $key, $value := .Values.dev }}{% endraw %}
+    {% raw %}{{ $key }}{% endraw %}: {% raw %}{{ $value | quote }}{% endraw %}
+  {% raw %}{{- end }}{% endraw %}
 ```
+
+
 **data 출력 결과**
 
 ```yml

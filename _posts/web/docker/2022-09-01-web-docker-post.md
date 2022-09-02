@@ -19,6 +19,7 @@ categories:
 
 create 명령어를 통해 생성 된 기본 구조 
 
+
 ```cmd
 jw@jw-pc:~/k8s/helm/mychart$ tree
 .
@@ -37,6 +38,7 @@ jw@jw-pc:~/k8s/helm/mychart$ tree
 └── values.yaml  
 ```
 
+
 | 파일 및 폴더명 | 설명 |
 | --- | --- |
 | Chart.yaml | 차트에 대한 이름, 버전, 설명 등 차트 정보 파일 |
@@ -49,11 +51,14 @@ jw@jw-pc:~/k8s/helm/mychart$ tree
 
 **Chart Template 생성**
 
+
 ```cmd
 helm create mychart
 ```
 
+
 **Show 명령어**
+
 
 ```
 helm show values .
@@ -61,13 +66,17 @@ helm show chart .
 helm show readme .
 helm show all .
 ```
+
+
 yaml 파일에서 주석을 제외한 코드를 보여준다
 
 README 파일 생성
 
+
 ```cmd
 vim README.md
 ```
+
 
 **Template 명령어**
 
@@ -115,34 +124,34 @@ helm install mychart . --set replicaCount=3
 vim templates/cm-object.yaml
 ```
 
-```cmd
+```yml
 apiVersion: v1
 kind: ConfigMap
 metadata:
   name: built-in-object
 data:
   .Release: ______________________________________
-  .Release.Name: {{ .Release.Name }}
-  .Release.Namespace: {{ .Release.Namespace }}
-  .Release.IsUpgrade: "{{ .Release.IsUpgrade }}"
-  .Release.IsInstall: "{{ .Release.IsInstall }}"
-  .Release.Revision: "{{ .Release.Revision }}"
-  .Release.Service: {{ .Release.Service }}
+  .Release.Name: {% raw %}{{ .Release.Name }}{% endraw %}
+  .Release.Namespace: {% raw %}{{ .Release.Namespace }}{% endraw %}
+  .Release.IsUpgrade: "{% raw %}{{ .Release.IsUpgrade }}{% endraw %}"
+  .Release.IsInstall: "{% raw %}{{ .Release.IsInstall }}{% endraw %}"
+  .Release.Revision: "{% raw %}{{ .Release.Revision }}{% endraw %}"
+  .Release.Service: {% raw %}{{ .Release.Service }}{% endraw %}
   .Values: ______________________________________
-  .Values.replicaCount: "{{ .Values.replicaCount }}"
-  .Values.image.repository: {{ .Values.image.repository }}
-  .Values.image.pullPolicy: {{ .Values.image.pullPolicy }}
-  .Values.service.type: {{ .Values.service.type }}
-  .Values.service.port: "{{ .Values.service.port }}"
+  .Values.replicaCount: "{% raw %}{{ .Values.replicaCount }}{% endraw %}"
+  .Values.image.repository: {% raw %}{{ .Values.image.repository }}{% endraw %}
+  .Values.image.pullPolicy: {% raw %}{{ .Values.image.pullPolicy }}{% endraw %}
+  .Values.service.type: {% raw %}{{ .Values.service.type }}{% endraw %}
+  .Values.service.port: "{% raw %}{{ .Values.service.port }}{% endraw %}"
   .Chart: ______________________________________
-  .Chart.Name: {{ .Chart.Name }}
-  .Chart.Description: {{ .Chart.Description }}
-  .Chart.Type: {{ .Chart.Type }}
-  .Chart.Version: {{ .Chart.Version }}
-  .Chart.AppVersion: {{ .Chart.AppVersion }}
+  .Chart.Name: {% raw %}{{ .Chart.Name }}{% endraw %}
+  .Chart.Description: {% raw %}{{ .Chart.Description }}{% endraw %}
+  .Chart.Type: {% raw %}{{ .Chart.Type }}{% endraw %}
+  .Chart.Version: {% raw %}{{ .Chart.Version }}{% endraw %}
+  .Chart.AppVersion: {% raw %}{{ .Chart.AppVersion }}{% endraw %}
   .Template: ______________________________________
-  .Template.BasePath: {{ .Template.BasePath }}
-  .Template.Name: {{ .Template.Name }}
+  .Template.BasePath: {% raw %}{{ .Template.BasePath }}{% endraw %}
+  .Template.Name: {% raw %}{{ .Template.Name }}{% endraw %}
 ```
 
 **install 배포**
@@ -154,7 +163,7 @@ helm get manifest mychart
 
 확인해보면
 
-```yaml
+```yml
 .Release.IsUpgrade: "false"
 .Release.IsInstall: "true"
 .Release.Revision: "1"
@@ -177,7 +186,7 @@ helm upgrade mychart . -n default
 
 확인해보면
 
-```yaml
+```yml
 .Release.IsUpgrade: "true"
 .Release.IsInstall: "false"
 .Release.Revision: "2"
@@ -199,7 +208,7 @@ vim templates/cm-vaules.yaml
 
 **`values.yaml` 파일에 속성 추가**
 
-```yaml
+```yml
 configMapData:
   env: dev
   log: debug
@@ -211,7 +220,8 @@ configMapData:
 ```cmd
 helm template mychart .
 ```
-```yaml
+
+```yml
 data:
   env: dev
   log: debug
@@ -226,7 +236,7 @@ data:
 vim values_prod.yaml
 ```
 
-```yaml
+```yml
 configMapData:
   env: prod
   log: info
@@ -238,7 +248,7 @@ configMapData:
 helm template mychart . -f ./values_prod.yaml
 ```
 
-```yaml
+```yml
 data:
   env: prod
   log: info
@@ -253,7 +263,7 @@ data:
 helm template mychart . -f ./values_prod.yaml --set configMapData.log=debug
 ```
 
-```yaml
+```yml
 data:
   env: prod
   log: debug
