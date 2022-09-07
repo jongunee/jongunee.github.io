@@ -17,6 +17,14 @@ categories:
 
 ## spec.ts 기본
 
+**기본 Unit Testing 명령어**
+
+```cmd
+npm run test
+npm run test:watch
+npm run test:cov
+```
+
 **describe**
 
 ```ts
@@ -45,9 +53,9 @@ it('should be 4', () => {
 });
 ```
 
-- 테스트하는 함수가 입력되는 부분
+- 테스트하는 메서드가 입력되는 부분
 
-## getAll 함수 Unit Testing
+## getAll 메서드 Unit Testing
 
 ```ts
 describe('getAll', () => {
@@ -59,9 +67,9 @@ describe('getAll', () => {
 });
 ```
 
-- getAll 함수 호출시 배열이 return 되는지 테스트
+- getAll 메서드 호출시 배열이 return 되는지 테스트
 
-## getOne 함수 Unit Testing
+## getOne 메서드 Unit Testing
 
 ```ts
 it('should return a movie', () => {
@@ -95,7 +103,7 @@ it('should throw 404 error', () => {
 - 첫 Movie 등록시 id는 1이기 때문에 id 999를 get 요청했을 때 `NotFoundException` 에러가 발생하는지 확인
 - 에러 메시지 제대로 출력되는지 확인
 
-## deleteOne 함수 Unit Testing
+## deleteOne 메서드 Unit Testing
 
 ```ts
 it('deletes a movie', () => {
@@ -128,7 +136,7 @@ it('should return a 404', () => {
 - 등록되어 있지않는 id 999를 get 요청했을 때 `NotFoundException` 에러가 발생하는지 확인
 
 
-## create 함수 Unit Testing
+## create 메서드 Unit Testing
 
 ```ts
 it('should create a movie', () => {
@@ -146,7 +154,7 @@ it('should create a movie', () => {
 - Test Movie 생성
 - 생성 전 Movie 개수와 생성 후 Movie 개수 비교
 
-## update 함수 Unit Testing
+## update 메서드 Unit Testing
 
 ```ts
 it('should update a movie', () => {
