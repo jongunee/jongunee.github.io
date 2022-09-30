@@ -10,12 +10,12 @@ categories:
   - html
 ---
 
-# css 꾸미기
+# css - 스타일 바꾸기
 
 - toc
 {:toc .large-only}
 
-## css
+## css - 스타일 바꾸기
 
 ### display
 

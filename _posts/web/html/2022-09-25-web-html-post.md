@@ -10,7 +10,7 @@ categories:
   - html
 ---
 
-# css
+# css - 기본
 
 - toc
 {:toc .large-only}
