@@ -2,7 +2,7 @@
 layout: post
 title: aws
 description: >
-  마크다운 설명
+  aws 기본
 sitemap: false
 hide_last_modified: true
 categories:
