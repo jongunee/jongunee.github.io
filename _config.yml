@@ -82,10 +82,17 @@ menu:
         url: /javascript/
       - title: HTML
         url: /html/
-      - title: 도커/쿠버네티스
-        url: /docker/
       - title: NestJS
         url: /nestjs/
+  - title: Devops
+    url: /devops/
+    submenu:
+      - title: Docker
+        url: /docker/
+      - title: 쿠버네티스
+        url: /k8s/
+      - title: CI/CD
+        url: /cicd/
   - title: TIL
     url: /til/
     submenu:
