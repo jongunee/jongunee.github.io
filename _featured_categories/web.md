@@ -34,7 +34,6 @@ sitemap: false
 - [HTTP]{:.heading.flip-title} --- HTTP Study
 - [Javascript]{:.heading.flip-title} --- Javascript Study
 - [HTML]{:.heading.flip-title} --- HTML Study
-- [Docker]{:.heading.flip-title} --- Docker & Kubernetes Study
 - [NestJS]{:.heading.flip-title} --- NestJS Study
 
 [java]: /java/
@@ -44,5 +43,4 @@ sitemap: false
 [http]: /http/
 [javascript]: /javascript/
 [html]: /html/
-[docker]: /docker/
 [nestjs]: /nestjss/

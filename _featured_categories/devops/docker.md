@@ -1,13 +1,13 @@
 ---
 layout: list
-category: web
+category: devops
 bigtitle: Docker
 slug: docker
 description: >
-  도커, 쿠버네티스 공부
+  도커 공부
 
 related_posts:
   -
 list: true
-order: 8
+order: 1
 ---

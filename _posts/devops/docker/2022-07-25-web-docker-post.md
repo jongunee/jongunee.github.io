@@ -6,7 +6,7 @@ description: >
 sitemap: true
 hide_last_modified: true
 categories:
-  - web
+  - devops
   - docker
 ---
 
