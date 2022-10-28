@@ -3,7 +3,7 @@
 layout: list
 
 # The title of the tag's page.
-title: Devops 공부 중
+title: DevOps 공부 중
 
 # The name of the tag, used in a post's front matter (e.g. tags: [<slug>]).
 slug: web
@@ -13,7 +13,7 @@ submenu: true
 
 # (Optional) Write a short (~150 characters) description of this featured tag.
 description: >
-  Devops 공부하며 배운것들 정리
+  DevOps 공부하며 배운것들 정리
 
 # (Optional) You can disable grouping posts by date.
 # no_groups: true
@@ -23,7 +23,7 @@ description: >
 sitemap: false
 ---
 
-# Devops
+# DevOps
 
 ## 카테고리
 

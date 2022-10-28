@@ -84,7 +84,7 @@ menu:
         url: /html/
       - title: NestJS
         url: /nestjs/
-  - title: Devops
+  - title: DevOps
     url: /devops/
     submenu:
       - title: Docker
