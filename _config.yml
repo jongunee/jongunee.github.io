@@ -93,6 +93,8 @@ menu:
         url: /k8s/
       - title: CI/CD
         url: /cicd/
+      - title: AWS
+        url: /aws/
   - title: TIL
     url: /til/
     submenu:

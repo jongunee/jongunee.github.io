@@ -30,7 +30,9 @@ sitemap: false
 - [Docker]{:.heading.flip-title} --- Docker Study
 - [K8s]{:.heading.flip-title} --- Kubernetes Study
 - [CICD]{:.heading.flip-title} --- CICD Study
+- [AWS]{:.heading.flip-title} --- AWS Study
 
 [docker]: /docker/
 [k8s]: /k8s/
 [cicd]: /cicd/
+[aws]: /aws/
