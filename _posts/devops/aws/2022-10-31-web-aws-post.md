@@ -150,9 +150,46 @@ categories:
 
 > Route table은 트래픽이 어디로 가야 할지 알려주는 테이블
 
+| Destination | Target |
+| --- | --- |
+| 10.0.0.0/16 | Local |
+| 0.0.0.0/0 | igw-id |
+| ::/0 | igw-id |
+
+
 - VPC 생성 시 자동으로 새성
-- 10.0.0.0/16은 로컬
-- 나머지는 IGW (인터넷)
+- 10.0.0.0/16은 로컬에서 통신
+- 나머지는 IGW(인터넷)로 통신
+- 로컬로 통신할지 외부 인터넷으로 통신할지 알려주는 이정표
+
+### NACL(Network Access Control List) / Security Group
+
+- 보안검문소
+- NACL ➡️ Stateless, SG ➡️ Stateful
+- Access Block은 NACL에서만 가능 
+
+### NAT(Network Address Translation) instance/gateway
+
+- Private subnet이 외부 인터넷과 통신하기 위해서는 Public subnet으로 Traffic을 쏴서 통신
+- 이 때 Public Subnet에 있는 매개체가 NAT instance/gateway
+- Private subnet 내에 있는 Private instance가 외부 인터넷과 통신하기 위한 방법
+- NAT Instance는 단일 Instance(EC2)
+- NAT Gateway는 aws에서 제공하는 서비스
+- NAT Instance는 Public Subnet에 있어야 함
+
+**Bastion Host**
+
+> 인터넷에서 Private Subnet으로 접근하기 위한 Host로 NAT instance/gateway와 비슷하게 Public Subnet을 거쳐 접근함
+
+
+### VPC endpoint
+
+- aws의 여러 서비스들과 VPC를 연결시켜주는 중간 매개체
+  - aws에서 VPC 바깥으로 트래픽이 나가지 않고 aws의 여러 서비스를 사용하게끔 만들어주는 서비스
+  - Private subnet 같은 격리된 공간에서도 다양한 aws 서비스 연결을 지원하는 서비스 
+- Interface Endpoint: Private IP를 만들어 서비스로 연결
+- Gateway ENdpoint: 라우팅 테이블에서 경로의 대상으로 지정하여 사용
+
 
 
 <span style="font-size:70%">[참조] 패스트 캠퍼스 - 한 번에 끝내는 AWS 인프라 구축과 DevOps 운영 초격차 패키지 Online.
