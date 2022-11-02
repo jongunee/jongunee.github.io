@@ -78,7 +78,7 @@ Public NACL 선택 후 인바운드 규칙 - 인바운드 규칙 편집 클릭
 
 **VPC Public Subnet 자동 할당 IP 설정**
 
-VPC - 서브에서 Public subnnet 선택 후 작업 - 서브넷 설정 편집 클릭
+VPC - 서브넷에서 Public subnnet 선택 후 작업 - 서브넷 설정 편집 클릭
 
 퍼블릭 IPv4 주소 자동 할당 활성화 체크
 
