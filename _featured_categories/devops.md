@@ -6,7 +6,7 @@ layout: list
 title: DevOps 공부 중
 
 # The name of the tag, used in a post's front matter (e.g. tags: [<slug>]).
-slug: web
+slug: devops
 
 menu: true
 submenu: true
