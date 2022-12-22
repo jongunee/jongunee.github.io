@@ -21,7 +21,7 @@ categories:
 
 ## CSS란?
 
-> Cascading Style Sheet의 약자로 컨셉은 브라우저에게 웹 사이트가 어떻게 보여야하는지에 대해 설명햐주는 것
+> Cascading Style Sheet의 약자로 컨셉은 브라우저에게 웹 사이트가 어떻게 보여야하는지에 대해 설명해주는 것
 
 ## Javascript란?
 
@@ -137,7 +137,7 @@ categories:
 
 좀 더 상세한 내용은 html web documents에서 확인 가능하다.
 
-링크: https://developer.mozilla.org/ko/docs/Web/HTML
+링크: <https://developer.mozilla.org/ko/docs/Web/HTML>
 
 <span style="font-size:70%">[참조] 노마드코더 코코아톡 클론코딩
 

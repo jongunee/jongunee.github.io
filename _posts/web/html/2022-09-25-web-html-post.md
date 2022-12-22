@@ -91,7 +91,7 @@ border 스타일 적용
   }
 </style>
 ```
-- border 속성: `<line-width>` || `<line-style>` || `<color>` 
+- border 속성: `<line-width>` \|| `<line-style>` \|| `<color>` 
 
 
 ```css
