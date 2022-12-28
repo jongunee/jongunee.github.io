@@ -10,7 +10,7 @@ categories:
   - html
 ---
 
-# css - 스타일 바꾸기 2
+# css - 스타일 바꾸기 3
 
 - toc
 {:toc .large-only}
@@ -66,6 +66,7 @@ img {
 ```
 
 - `transform`에 `rotateY(30deg)`를 주면 3d로 y축 기준 30도 회전한 효과
+- `transfrom`은 3D로 다른 층에서 동작하기 때문에 box element를 변형시키지 않음
 - `scaleX()`로 배율 설정하는 등 다양한 옵션 제공
 
 ```css
@@ -84,6 +85,80 @@ img:hover {
 - `transition`과 `transform`을 조합해서 사용 가능
 
 다음 링크에서 다양한 옵션들 확인 가능 ➡️ [링크](https://developer.mozilla.org/ko/docs/Web/CSS/transform)
+
+## 애니메이션
+
+**from-to**
+
+```css
+@keyframes coinFlip{
+  from{
+    transform: rotateY(0);
+  }
+  to{
+    transform: rotateY(360deg);
+  }
+}
+```
+- `transform`을 주어 y축 기준으로 0도에서 360도까지 회전
+- 애니메이션을 만들기 위해서는 `@keyframes` @규칙을 사용
+
+```css
+img {
+...
+  animation: coinFlip 5s ease-in-out;
+}
+```
+- 위에서 생성한 애니메이션을 적용
+
+**0% to 100%**
+
+```css
+@keyframes coinFlip{
+  0%{
+    transform: rotateY(0);
+  }
+  50%{
+    transform: rotateY(180deg) translateY(100px);
+  }
+  100%{
+    transform: rotateY(0deg);
+  }
+}
+```
+- `%`로 수치를 주어 각 단계마다 원하는 애니메이션 설정 가능
+- 앞에 숫자를 바꿔 3단계 뿐만 아니라 더 다양한 애니메이션 설정 가능 
+
+## Media Queries
+
+```css
+div {
+  background-color: teal;
+  width: 200px;
+  height: 200px;
+}
+```
+- 평상시 해당 div의 색상은 teal
+
+```css
+@media screen and (max-width: 600px) {
+  div {
+    background-color: tomato;
+  }
+}
+```
+- 너비가 600px 밑으로 내려가면 색상이 tomato 색상으로 바뀜
+- 반드시 `div`와 같이 element를 지정해주어야 함
+- element 지정 없이 그냥 쓸 수는 없음
+
+```css
+@media screen and (min-width: 700px) and (max-width: 1200px) and (orientation: landscape){
+  ...
+}
+```
+- 너비가 700px과 800px 사이에 있을 경우로 조건을 줄 수도 있음
+- 화면이 landscape 모드(가로 모드)인지 조건도 줄 수 있음
+
 
 <span style="font-size:70%">[참조] 노마드코더 코코아톡 클론코딩
 
