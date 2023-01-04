@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Kokoa talk 클론 코딩 - index.html
+title: Kokoa talk 클론 코딩 - 로그인 페이지
 description: >
   노마드코더 코코아톡 클론코딩 수강 중
 sitemap: true
@@ -10,7 +10,7 @@ categories:
   - html
 ---
 
-# Kokoa talk 클론 코딩
+# Kokoa talk 클론 코딩 - 로그인 페이지
 
 - toc
 {:toc .large-only}
@@ -287,12 +287,14 @@ body {
 }
 ```
 
-- #login-form input:not([type="submit"]): `not`을 이용해 예외 지정이 가능 ➡️ `submit` 타입이라면 해당 스타일을 적용
-- border-color: var(--yellow): 변수로 지정한 색상 사용
+- **#login-form input:not([type="submit"]):** `not`을 이용해 예외 지정이 가능 ➡️ `submit` 타입이 아니라면 해당 스타일을 적용
+- **border-color: var(--yellow):** 변수로 지정한 색상 사용
 
 **결과**
 
 ![그림6](/assets/img/html/status_bar_result.jpg)
+
+
 
 <span style="font-size:70%">[참조] 노마드코더 코코아톡 클론코딩
 
