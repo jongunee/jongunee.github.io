@@ -9,5 +9,5 @@ description: >
 related_posts:
   -
 list: true
-order: 9
+order: 8
 ---

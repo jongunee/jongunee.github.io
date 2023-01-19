@@ -30,7 +30,7 @@ description: >
 tagline: 배운건 정리해보자
 
 # A list of keywords for your blog
-keywords: [git, gitblog, 인증, 백엔드]
+keywords: [git, gitblog, 인증, 백엔드, 도커, 쿠버네티스, Devops]
 
 # A (square) logo for your site.
 # If provided, it will be shown at the top of the sidebar.
@@ -84,6 +84,8 @@ menu:
         url: /html/
       - title: NestJS
         url: /nestjs/
+      - title: React
+        url: /react/
   - title: DevOps
     url: /devops/
     submenu:
