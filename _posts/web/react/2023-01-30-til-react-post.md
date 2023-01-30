@@ -1,6 +1,6 @@
 ---
 layout: post
-title: React State
+title: State
 description: >
   [참조] 노마드 코더 ReactJS로 영화 웹 서비스 만들기
 sitemap: true
@@ -10,7 +10,7 @@ categories:
   - react
 ---
 
-# React State
+# State
 
 * toc
 {:toc .large-only}
