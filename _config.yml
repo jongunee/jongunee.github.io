@@ -104,6 +104,11 @@ menu:
         url: /algorithm/
       - title: Others
         url: /others/
+  - title: 머신러닝
+    url: /machinelearning/
+    submenu:
+      - title: 딥러닝
+        url: /deeplearning/
 # Add links to the footer.
 # Typically you'll want to link to your cookie- or privacy policy (if appliable), etc..
 legal:
