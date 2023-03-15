@@ -93,7 +93,7 @@ $L(\bold{y}, \bold{\hat{y}}) = {1 \over n}\sum_{i=1}^n (\hat{y}_i - y_i)^2 $$
 3. 평균 제곱근 오차(Root Mean Square Error, RMSE)  
 MSE 단위는 제곱된 결과를 주기 때문에 같은 단위로 만들어 주기 위해 제곱근을 씌운 손실 함수
 
-$$L(\bold{y}, \bold{\hat{y}}) = \sqrt{{1 \over n}\sum_{i=1}^n (\hat{y}_i - y_i)^2} $$
+$$L(\bold{y}, \bold{\hat{y}}) = \sqrt{ {1 \over n}\sum_{i=1}^n (\hat{y}_i - y_i)^2} $$
 
 ### 분류(Classification)
 
