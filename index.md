@@ -25,6 +25,7 @@ Github 블로그 운영 중 💻
 > - IoT
 > - OPC UA
 > - AAS
+> - DevOps
 > - Frontend
 > - SQA 인증, OT 보안 인증
 > - 실무자 소프트웨어 교육

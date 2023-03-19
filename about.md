@@ -25,7 +25,7 @@ hide_description: true
 
 ---
 
-> Mar.2013 ~ Feb.2019 광운대학교<br>
+> 2013.03 ~ 2019.02 광운대학교<br>
 > 로봇학부 (Robotics)
 
 ## Research Interest
@@ -34,7 +34,7 @@ hide_description: true
 
 + Frontend
 + Backend
-+ Devops
++ DevOps
 + Machine Learning
 
 ---
