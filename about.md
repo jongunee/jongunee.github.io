@@ -2,7 +2,7 @@
 layout: about
 image: /assets/img/blog/hydejack-9.jpg
 description: >
-  외국계 인증 업체 퇴사 후 백엔드에 대해 공부중입니다.
+  연구원에서 근무하며 여러 IT 기술들에 대해 공부중입니다.
 hide_description: true
 # redirect_from:
 #   - /download/
@@ -19,7 +19,7 @@ hide_description: true
 
 ## Personal Data
 ---
-> 1995.02.24 대한민국 만 27세<br>
+> 1995.02.24 대한민국 만 28세<br>
 > e-mail: jejeoppa@naver.com<br>
 > Github : [https://github.com/jongunee](https://github.com/jongunee)
 
@@ -31,17 +31,26 @@ hide_description: true
 ## Research Interest
 
 ---
-+ 임베디드 시스템
-+ 국제 인증
-+ OPC UA
-+ SQA
-+ 사이버 보안
+
++ Frontend
 + Backend
++ Devops
++ Machine Learning
 
 ---
 ## Work Experiences
 ---
--2020. 02 ~ 2022. 05<br>
+
+\- 2022. 07 ~ <br>
+**KETI(한국전자기술연구원)- 연구원**
+
++ AAS Viewer Frontend 개발
++ 디지털 트윈 리소스 관리를 위한 쿠버네티스 서비스 구축
++ IEC 62541 (OPC UA) 상호운용성 인증 시험 실무자
+
+---
+
+\- 2020. 02 ~ 2022. 05<br>
 **TUV SUD Korea - 스마트 팩토리 엔지니어**
 
 + OPC UA, OT 사이버 보안, SQA 인증 담당
@@ -72,8 +81,8 @@ hide_description: true
 
 ## Skills and Certification
 ---
-+ __Language :__ C/C++, JAVA<br>
-+ __FrameWork:__ JAVA Spring<br>
++ __Language :__ C, JAVA, Javascript, Typescript<br>
++ __Tech Stack:__ React, Docker, Kubernetes, 임베디드 시스템, AWS<br>
 + __Certification :__
   + ISA/IEC 62443 Cybersecurity Funamentals Specialist
   + ISA/IEC 62443 Cybersecurity Risk Assessment Specialist
