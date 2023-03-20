@@ -24,12 +24,15 @@ Github 블로그 운영 중 💻
 > - 리눅스 서버
 > - IoT
 > - OPC UA
+> - AAS
+> - DevOps
+> - Frontend
 > - SQA 인증, OT 보안 인증
 > - 실무자 소프트웨어 교육
 
 📚**기술 스택**
 
-> 📝 C, JAVA, Spring, Maria DB, OPC UA
+> 📝 C, JAVA, React, Docker, Kubernetes, AWS
 
 저에게 조금 관심이 생기셨다면 [CV](/assets/CV_PJW.pdf)와 [포트폴리오](https://jw-portfolio.github.io/)를 확인해주시면 감사하겠습니다! 😃
 
