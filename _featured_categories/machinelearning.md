@@ -29,8 +29,8 @@ sitemap: false
 
 ## 카테고리
 
-- [DeepLearning]{:.heading.flip-title} --- Docker Study
-- [MLOps]{:.heading.flip-title} --- Kubernetes Study
+- [DeepLearning]{:.heading.flip-title} --- Deep Learning Study
+- [MLOps]{:.heading.flip-title} --- MLOps Study
 
 [deeplearning]: /deeplearning/
 [mlops]: /mlops/
