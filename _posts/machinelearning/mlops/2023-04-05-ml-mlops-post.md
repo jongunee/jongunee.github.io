@@ -7,7 +7,7 @@ sitemap: true
 hide_last_modified: true
 categories:
   - machinelearning
-  - deeplearning
+  - mlops
 ---
 
 # test
