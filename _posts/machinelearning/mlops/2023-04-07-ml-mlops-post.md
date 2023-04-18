@@ -102,7 +102,7 @@ cat mlruns/meta.yaml
 ```
 종료 후 기본 경로인 mlruns 경로에 관련 데이터들이 채워진 것을 확인 할 수 있다.
 
-## MLflow 예제 코드
+## MLflow 확인
 
 ```cmd
 wget https://raw.githubusercontent.com/mlflow/mlflow/master/examples/sklearn_elasticnet_diabetes/linux/train_diabetes.py
@@ -121,6 +121,41 @@ python train_diabetes.py  0.05 1.0
 - 여러 파라미터로 테스트를 하더라도 mlflow에 각 metrics와 파라미터에 따라 어떤 결과들이 나왔는지 확인이 가능
 - mlruns에 생성된 여러 데이터들 확인도 가능
 
+## MLflow 서빙
+
+```cmd
+mlflow models serve -m $(pwd)/mlartifacts/0/<run-id>/artifacts/model -p <port>
+```
+
+- 경로: MLModel이 있는 경로
+- run-id: 모델을 실행하고 난 id
+- `localhost:1234` API 서버가 열림
+- `.predict()`함수 사용이 가능
+- `localhost:1234` API 서버에 API 요청을 보내고 `predict()` 결과 확인
+  ```cmd
+  curl -X POST -H "Content-Type:application/json" --data '{"inputs":[[0.038076, 0.050680,  0.061696,  0.021872, -0.044223, -0.034821, -0.043401, -0.002592,  0.019908, -0.017646]]}' http://127.0.0.1:1234/invocations
+  ```
+
+## Automati Logging
+
+```cmd
+wget https://raw.githubusercontent.com/mlflow/mlflow/master/examples/sklearn_autolog/utils.py
+wget https://raw.githubusercontent.com/mlflow/mlflow/master/examples/sklearn_autolog/pipeline.py
+```
+
+- MLflow에서 제공하는 example
+- training 데이터를 가지고 `sklearn`의 `Pipeline`을 사용해 `StandardScaler` 전처리 이후 **LinearRegression**을 수행
+- `autolog`를 통해 모델의 파라미터, metrics, model artifacts 등을 사용자가 명시하지 않아도 자동 로깅
+
+## XGB 모델
+
+```cmd
+wget https://raw.githubusercontent.com/mlflow/mlflow/master/examples/xgboost/train.py
+```
+
+- MLflow에서 제공하는 example
+- iris 데이터를 가지고 **xgboost** 모델로 classification을 수행하는 코드
+- `autolog` 사용
 
 
 
