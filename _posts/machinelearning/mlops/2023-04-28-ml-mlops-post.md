@@ -163,7 +163,7 @@ kustomize build apps/katib/upstream/installs/katib-with-kubeflow | kubectl apply
 ```cmd
 kustomize build apps/centraldashboard/upstream/overlays/istio | kubectl apply -f -
 ```
-
+여기까지
 **Notebooks 설치**
 
 ```cmd
@@ -209,6 +209,13 @@ Tensorboard Controller가 설치된다.
 ```cmd
 kustomize build common/user-namespace/base | kubectl apply -f -
 ```
+
+**kubeflow 접속**
+
+```cmd
+kubectl port-forward svc/istio-ingressgateway -n istio-system 8080:80
+```
+`localhost:8080`으로 접속
 
 
 
