@@ -2,7 +2,7 @@
 layout: post
 title: EKS 클러스터 구축
 description: >
-  [참조] https://aws.amazon.com/ko/blogs/tech/machine-learning-with-kubeflow-on-amazon-eks-with-amazon-efs/
+  [참조] https://github.com/aws-samples/amazon-efs-developer-zone/tree/main/application-integration/container/eks
 sitemap: true
 hide_last_modified: true
 categories:
@@ -341,6 +341,6 @@ kubectl describe configmap -n kube-system aws-auth
 
 
 
-<span style="font-size:70%">https://aws.amazon.com/ko/blogs/tech/machine-learning-with-kubeflow-on-amazon-eks-with-amazon-efs/
+<span style="font-size:70%">https://github.com/aws-samples/amazon-efs-developer-zone/tree/main/application-integration/container/eks
 
 끝!
