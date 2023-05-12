@@ -1,6 +1,6 @@
 ---
 layout: post
-title: EKS를 이용한 Kubeflow 환경 구축
+title: EKS 클러스터 구축
 description: >
   [참조] https://aws.amazon.com/ko/blogs/tech/machine-learning-with-kubeflow-on-amazon-eks-with-amazon-efs/
 sitemap: true
@@ -10,7 +10,7 @@ categories:
   - mlops
 ---
 
-# EKS를 이용한 Kubeflow 환경 구축
+# EKS 클러스터 구축
 
 * toc
 {:toc .large-only}
@@ -79,7 +79,7 @@ df -h
 **kubectl 설치**
 
 ```cmd
-sudo curl --silent --location -o /usr/local/bin/kubectl https://s3.us-west-2.amazonaws.com/amazon-eks/1.24.11/2023-03-17/bin/darwin/amd64/kubectl
+sudo curl --silent --location -o /usr/local/bin/kubectl https://amazon-eks.s3.us-west-2.amazonaws.com/1.24.11/2023-03-17/bin/linux/amd64/kubectl
 ```
 
 **실행파일로 옵션 변경**
@@ -255,7 +255,7 @@ apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
 
 metadata:
-  name: efsworkshop-eksctl
+  name: kpcluster
   region: ${AWS_REGION}
   version: "1.24"
 
@@ -282,7 +282,7 @@ secretsEncryption:
 `${환경변수}` 안에 내용들은 위에 환경변수로 설정한 값들을 넣으면 되고 다음과 같이 하면 바로 yaml 파일이 생성된다.
 
 ```cmd
-cat << EOF > kubeflow_cluster.yaml
+cat << EOF > kpcluster.yaml
 <위 yaml 파일 내용>
 EOF
 ```
@@ -290,9 +290,54 @@ EOF
 **클러스터 생성**
 
 ```cmd
-eksctl create cluster -f kubeflow_cluster.yaml 
+eksctl create cluster -f kpcluster.yaml 
 ```
 
+**클러스터 확인**
+
+```cmd
+kubectl get nodes
+```
+
+**Role 이름 Export**
+
+```cmd
+STACK_NAME=$(eksctl get nodegroup --cluster kpcluster -o json | jq -r '.[].StackName')
+```
+
+```cmd
+ROLE_NAME=$(aws cloudformation describe-stack-resources --stack-name $STACK_NAME | jq -r '.StackResources[] | select(.ResourceType=="AWS::IAM::Role") | .PhysicalResourceId')
+```
+
+```cmd
+echo "export ROLE_NAME=${ROLE_NAME}" | tee -a ~/.bash_profile
+```
+
+**EKS 콘솔 자격증명 가져오기**
+
+```cmd
+c9builder=$(aws cloud9 describe-environment-memberships --environment-id=$C9_PID | jq -r '.memberships[].userArn')
+if echo ${c9builder} | grep -q user; then
+    rolearn=${c9builder}
+        echo Role ARN: ${rolearn}
+elif echo ${c9builder} | grep -q assumed-role; then
+        assumedrolename=$(echo ${c9builder} | awk -F/ '{print $(NF-1)}')
+        rolearn=$(aws iam get-role --role-name ${assumedrolename} --query Role.Arn --output text) 
+        echo Role ARN: ${rolearn}
+fi
+```
+
+**ARN을 사용하여 클러스터 내에 ID 매핑 생성**
+
+```cmd
+eksctl create iamidentitymapping --cluster kpcluster --arn ${rolearn} --group system:masters --username admin
+```
+
+**콘솔 자격 증명 관리자 추가**
+
+```cmd
+kubectl describe configmap -n kube-system aws-auth
+```
 
 
 
