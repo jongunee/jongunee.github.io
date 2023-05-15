@@ -1,6 +1,6 @@
 ---
 layout: post
-title: EKS 클러스터 구축
+title: EKS 클러스터 구축 및 Kubeflow 설치
 description: >
   [참조] https://github.com/aws-samples/amazon-efs-developer-zone/tree/main/application-integration/container/eks
 sitemap: true
@@ -10,7 +10,7 @@ categories:
   - mlops
 ---
 
-# EKS 클러스터 구축
+# EKS 클러스터 구축 및 Kubeflow 설치
 
 * toc
 {:toc .large-only}
@@ -79,7 +79,7 @@ df -h
 **kubectl 설치**
 
 ```cmd
-sudo curl --silent --location -o /usr/local/bin/kubectl https://amazon-eks.s3.us-west-2.amazonaws.com/1.24.11/2023-03-17/bin/linux/amd64/kubectl
+sudo curl --silent --location -o /usr/local/bin/kubectl https://amazon-eks.s3.us-west-2.amazonaws.com/1.22.17/2023-03-17/bin/linux/amd64/kubectl
 ```
 
 **실행파일로 옵션 변경**
@@ -255,18 +255,18 @@ apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
 
 metadata:
-  name: kpcluster
+  name: kfcluster
   region: ${AWS_REGION}
-  version: "1.24"
+  version: "1.22"
 
 availabilityZones: ["${AZS[0]}", "${AZS[1]}"]
 
 managedNodeGroups:
 - name: nodegroup
   minSize: 1
-  desiredCapacity: 3
+  desiredCapacity: 4
   maxSize: 10
-  instanceType: t3.medium
+  instanceType: m5.large
   ssh:
     enableSsm: true
 
@@ -282,7 +282,7 @@ secretsEncryption:
 `${환경변수}` 안에 내용들은 위에 환경변수로 설정한 값들을 넣으면 되고 다음과 같이 하면 바로 yaml 파일이 생성된다.
 
 ```cmd
-cat << EOF > kpcluster.yaml
+cat << EOF > kfcluster.yaml
 <위 yaml 파일 내용>
 EOF
 ```
@@ -290,7 +290,7 @@ EOF
 **클러스터 생성**
 
 ```cmd
-eksctl create cluster -f kpcluster.yaml 
+eksctl create cluster -f kfcluster.yaml 
 ```
 
 **클러스터 확인**
@@ -302,7 +302,7 @@ kubectl get nodes
 **Role 이름 Export**
 
 ```cmd
-STACK_NAME=$(eksctl get nodegroup --cluster kpcluster -o json | jq -r '.[].StackName')
+STACK_NAME=$(eksctl get nodegroup --cluster kfcluster -o json | jq -r '.[].StackName')
 ```
 
 ```cmd
@@ -330,7 +330,7 @@ fi
 **ARN을 사용하여 클러스터 내에 ID 매핑 생성**
 
 ```cmd
-eksctl create iamidentitymapping --cluster kpcluster --arn ${rolearn} --group system:masters --username admin
+eksctl create iamidentitymapping --cluster kfcluster --arn ${rolearn} --group system:masters --username admin
 ```
 
 **콘솔 자격 증명 관리자 추가**
@@ -339,8 +339,94 @@ eksctl create iamidentitymapping --cluster kpcluster --arn ${rolearn} --group sy
 kubectl describe configmap -n kube-system aws-auth
 ```
 
+## Kubeflow 1.6 호환성 확인
+
+**Kubeflow 1.6 컴포넌트 버전**
+
+![그림1](/assets/img/ml/kubeflow_component_versions.png)
 
 
-<span style="font-size:70%">https://github.com/aws-samples/amazon-efs-developer-zone/tree/main/application-integration/container/eks
+**Kubeflow 1.6 Dependency 버전** 
+
+![그림2](/assets/img/ml/kubeflow_dependency_versions.png)
+
+## 클러스터 세팅
+
+**필요 툴 확인**
+
+```cmd
+kubectl version
+aws --version
+jq --version
+yq --version
+```
+
+**클러스터 확인**
+
+```cmd
+kubectl get nodes
+```
+
+## Kubeflow 설치
+
+**Kustomize 설치**
+
+```cmd
+wget https://github.com/kubernetes-sigs/kustomize/releases/download/v3.2.0/kustomize_3.2.0_darwin_amd64
+```
+
+```cmd
+chmod +x kustomize
+sudo mv -v kustomize /usr/local/bin
+```
+
+**Kustomize 실행 확인**
+
+```cmd
+kustomize version
+```
+
+**Kubeflow 설치**
+
+```cmd
+git clone https://github.com/kubeflow/manifests.git
+cd manifests
+git checkout tags/v1.6.1
+```
+
+```cmd
+while ! kustomize build example | kubectl apply --validate=false -f -; do echo "Retrying to apply resources"; sleep 30; done
+```
+
+```cmd
+kubectl get pods -n cert-manager
+kubectl get pods -n istio-system
+kubectl get pods -n auth
+kubectl get pods -n knative-eventing
+kubectl get pods -n knative-serving
+kubectl get pods -n kubeflow
+kubectl get pods -n kubeflow-user-example-com
+```
+
+모든 파드의 상태가 Running인지 확인한다.
+
+## Kubeflow실행
+
+**Nodeport 설정**
+
+```cmd
+kubectl port-forward svc/istio-ingressgateway -n istio-system 8080:80
+```
+
+![그림3](/assets/img/ml/kubeflow_login.png)
+
+**Preview** > **Preview Running Application**을 클릭 후 오른쪽 화살표 그림 (**Pop Out Into New Window**) 버튼을 클릭
+
+이후 다음 Default 정보로 로그인
+- **Email Address:** `user@example.com` 
+- **Password:** `12341234`
+
+
+<span style="font-size:70%">[참조]https://github.com/aws-samples/amazon-efs-developer-zone/tree/main/application-integration/container/eks
 
 끝!
