@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Kubeflow란
+title: Kubeflow란? + minikube 클러스터 Kubeflow 설치
 description: >
   [참조] 패스트캠퍼스 - 머신러닝 서비스 구축을 위한 실전 MLOps
 sitemap: true
@@ -10,7 +10,7 @@ categories:
   - mlops
 ---
 
-# Kubeflow란
+# Kubeflow란? + minikube 클러스터 Kubeflow 설치
 
 * toc
 {:toc .large-only}
@@ -222,6 +222,6 @@ kubectl port-forward svc/istio-ingressgateway -n istio-system 8080:80
 
 
 
-<span style="font-size:70%">패스트캠퍼스 - 머신러닝 서비스 구축을 위한 실전 MLOps
+<span style="font-size:70%">[참조]패스트캠퍼스 - 머신러닝 서비스 구축을 위한 실전 MLOps
 
 끝!
