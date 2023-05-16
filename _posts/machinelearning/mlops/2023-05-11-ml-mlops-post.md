@@ -427,6 +427,6 @@ kubectl port-forward svc/istio-ingressgateway -n istio-system 8080:80
 - **Password:** `12341234`
 
 
-<span style="font-size:70%">[참조]https://github.com/aws-samples/amazon-efs-developer-zone/tree/main/application-integration/container/eks
+<span style="font-size:70%">[참조]https://github.com/aws-samples/amazon-efs-developer-zone/tree/main/application-integration/container/eks</span>
 
 끝!
