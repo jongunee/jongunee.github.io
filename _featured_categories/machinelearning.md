@@ -31,6 +31,8 @@ sitemap: false
 
 - [DeepLearning]{:.heading.flip-title} --- Deep Learning Study
 - [MLOps]{:.heading.flip-title} --- MLOps Study
+- [Da]{:.heading.flip-title} --- Data Analysis Study
 
 [deeplearning]: /deeplearning/
 [mlops]: /mlops/
+[da]: /da/

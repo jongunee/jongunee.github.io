@@ -112,7 +112,7 @@ model = bentoml.sklearn.load_model("iris_clf:latest")
 
 ## 모델 Service 생성
 
-**bentoml/examples/quickstart/service.py**
+**service.py**
 
 ```py
  import numpy as np
