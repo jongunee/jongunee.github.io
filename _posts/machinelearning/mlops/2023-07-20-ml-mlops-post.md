@@ -42,7 +42,7 @@ saved_models = get_saved_models(base_models_dir)
 - 저장된 모델의 모델명, 태그명 전달하여 화면 구성
 - 기본적으로는 bentoml 모델을 저장하게 되면 로컬 PC의 `bentoml` 디렉토리에 모델이 저장되기 때문에 해당 디렉토리에서 모델의 리스트를 확인할 수 있음
 
-**bentoml 서버 서빙**
+**bentoml 서빙**
 
 ```py
 @app.route('/service', methods=['POST'])
@@ -108,7 +108,7 @@ def servers():
 ![그림1](/assets/img/ml/saved_model.JPG)
 
 - 로컬 환경에 저장되어 있는 학습 모델 리스트업
-- `Framework`, `Input Type`, `Output Type` 등을 선택하고 `Run`` 버튼을 통해 모델 서빙 실행
+- `Framework`, `Input Type`, `Output Type` 등을 선택하고 `Run` 버튼을 통해 모델 서빙 실행
 
 **서빙된 서버 리스트 페이지**
 
@@ -119,6 +119,6 @@ def servers():
 
 
 
-<span style="font-size:70%">https://docs.bentoml.com/en/latest/index.html</span>
+<span style="font-size:70%">[참조]https://docs.bentoml.com/en/latest/index.html</span>
 
 끝!
