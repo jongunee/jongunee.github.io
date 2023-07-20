@@ -101,6 +101,19 @@ def servers():
 
 - `/service` POST 요청으로 생성된 서버의 설정 정보를 받아와 페이지 구성
 
+## 결과 화면
+
+**학습 모델 리스트 페이지**
+
+![그림1](/assets/img/ml/saved_model.JPG)
+
+- 로컬 환경에 저장되어 있는 학습 모델 리스트업
+- `Framework`, `Input Type`, `Output Type` 등을 선택하고 `Run`` 버튼을 통해 모델 서빙 실행
+
+![그림2](/assets/img/ml/server_list.JPG)
+
+- 현재 띄워져있는 서빙 서버 리스트업
+- 서빙된 모델의 설정 정보 및 서버 URL 확인 가능
 
 
 
