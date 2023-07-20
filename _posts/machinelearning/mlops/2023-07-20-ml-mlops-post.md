@@ -110,6 +110,8 @@ def servers():
 - 로컬 환경에 저장되어 있는 학습 모델 리스트업
 - `Framework`, `Input Type`, `Output Type` 등을 선택하고 `Run`` 버튼을 통해 모델 서빙 실행
 
+**서빙된 서버 리스트 페이지**
+
 ![그림2](/assets/img/ml/server_list.JPG)
 
 - 현재 띄워져있는 서빙 서버 리스트업
