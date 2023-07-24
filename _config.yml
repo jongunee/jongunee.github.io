@@ -102,6 +102,8 @@ menu:
     submenu:
       - title: 알고리즘
         url: /algorithm/
+      - title: 논문
+        url: /papers/
       - title: Others
         url: /others/
   - title: 머신러닝

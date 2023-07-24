@@ -1,13 +1,13 @@
 ---
 layout: list
 category: til
-bigtitle: Others
-slug: others
+bigtitle: Papers
+slug: papers
 description: >
-  기타
+  논문 정리
 
 related_posts:
     - 
 list: true
-order: 3
+order: 2
 ---

@@ -30,7 +30,9 @@ sitemap: false
 ## 카테고리
 
 * [Algorithm]{:.heading.flip-title} --- Algorithm 연습
+* [Papers]{:.heading.flip-title} --- 논문 정리
 * [Others]{:.heading.flip-title} --- 기타
 
 [Algorithm]: /algorithm/
+[Papers]: /papers/
 [Others]: /others/
