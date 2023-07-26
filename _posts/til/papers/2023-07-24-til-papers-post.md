@@ -57,6 +57,8 @@ SHOW에서는 신체별로 분리된 모델링을 하는데 얼굴 관절은 사
 - **PIXIE:** 부분적 feature의 신뢰도를 추정하는 moderators를 사용해 SMPL-X 파라미터를 직접 회귀하는 방법
 - **PyMAF-X:** spatial alignment attention로 몸과 손의 위치를 정확하게 파악
 
+![그림2](../../../assets/img/papers/reconstruction%20results.png)
+
 ### Speech-to-Motion Datasets
 
 기존 데이터셋은 크게 2가지로 나눌 수 있다.
@@ -80,7 +82,7 @@ SHOW에서는 신체별로 분리된 모델링을 하는데 얼굴 관절은 사
 
 해당 논문에서는 30fps의 3D 전신 mesh와 22K sample rate로 동기화 된 오디오로 구성된 데이터 셋을 사용한다.
 
-## Dataset Description
+### Dataset Description
 
 이 데이터셋은 다양한 화법 스타일을 가진 사람들의 실제 대화 동영상을 기반의 데이터이며 저해상도, 손이 가려지거나 다운로드 링크가 잘못된 경우를 수동으로 필터링되었다.
 
@@ -96,6 +98,96 @@ $T$ 프레임에 따른 p-GT 컴포넌트
 - Jaw pose: $\theta^{jaw}_t \in \mathbb{R}^3$
 - Body pose: $\theta^b_t \in \mathbb{R}^{63}$
 - Hand pose: $\theta^h_t \in \mathbb{R}^{90}$
+
+### Good Practices for Improving p-GT
+
+- 초기화를 통해 SMPLify-X 최적화를 가속화, 안정화 시킬 수 있음
+- SMPL-X 모델에서 추출한 관절 이미지와 OnePose에서 예측한 관절 간 차이를 최적화하여 오차를 최소화
+- 비현실적으로 몸체가 재구성되는 것을 방지하기 위해 정규화가 사용됨
+
+## Method
+
+### Preliminary
+
+$M = \{m\}^T_t$ 은 전체 모션 시퀀스이며 얼굴, 몸, 손 동작을 각각 $M^f$, $M^b$, $M^h$ 라고 나타낸다.
+
+### Face Generator
+
+오디오 신호 $A_{1:T}$가 주어졌을 때 $G_F$ 모델이 실제 유사한 표정을 생성하는 것을 목표로 한다.
+
+![그림3](../../../assets/img/papers/face%20generator.png)
+
+**(A) Face Generator**
+
+- Encoder:
+  - Wav2vec Encoder를 사용하여 입력 오디오 신호를 768차원에서 256차원으로 축소
+- Decoder:
+  - 축소된 차원 음성을 6 레이어의 TCNs(Temporal Convolutional Networks)와 연결
+  - 얼굴 표정 동작이 담긴 $\hat{M}^f_{1:T}$ 얼굴 표정 동작 벡터 시퀀스 반솬
+
+### Body and Hand Generator
+
+VQ-VAE를 활용하여 multi-mode distribution space를 학습한다. multi-mode distribution space라는 것은 여러 개의 모드를 가진 확률 분포 공간을 말하며 여러 가능성의 결과를 도출해 내는 것을 말한다.
+
+- 오디오 신호처리
+  - 64차원 MFCC features를 사용
+  - 말하는 사람의 스타일을 정의하기 위해 one-hot vector 사용
+
+- Encoder:
+  - 몸과 손의 움직임을 입력받아 Compositional Codebooks로 discrete한 모션 정보 전달
+  - 몸, 손 움직임을 각각 따로 인코딩
+
+- Compositional Codebooks: 
+  - Encoder로부터 받은 모션 정보를 조합하여 다양한 모션 생성
+
+- Cross-Conditional Autoregressive Modeling:
+  - 오디오, 모션 스타일, 몸 움직임, 손 움직임을 입력데이터로 사용
+  - 이전의 입력 데이터를 반영해 예측
+
+- Decoder:
+  - 예측 데이터를 입력 데이터로 사용
+  - 몸, 손, 얼굴 움직임을 모두 연결하여 하나의 비디오 클립 구성
+
+## Experiments
+
+데이터셋은 다음과 같이 분할한다.
+
+- 훈련: 80%
+- 평가: 10%
+- 테스트: 10%
+
+### Quantitative Analysis
+
+![그림4](../../../assets/img/papers/Comparison%20to%20Habibie.png)
+
+- L2: 실제 얼굴의 위치와 생성된 얼굴 위치 간의 거리
+- LVD: 실제 얼굴의 위치와 생성된 얼굴 위치 간의 속도 차이
+- RS: 생성된 모션의 실제성을 평가하는 지표
+- Variation: 생성된 모션의 다양성을 평가하는 지표
+
+### Qualitative Analysis
+
+![그림5](../../../assets/img/papers/diverse%20motions.png)
+
+- 같은 말이라도 음성 강조에 따라 다른 모션 생성
+
+![그림6](../../../assets/img/papers/facial%20expressions.png)
+
+- 정확한 입술 모양 생성
+
+![그림7](../../../assets/img/papers/codebook%20vs%20codebooks.png)
+
+- 단일 codebook보다는 다양한 codebook을 사용할 수록 RE(Reconstruction Error)가 낮아져 효과적임
+
+## Perceptual Study
+
+![그림8](../../../assets/img/papers/reconstruction%20performance.png)
+
+- 10명의 참가자 대상으로 Reconstruction 성능 평가를 했을떄 생성된 모델과 비디오 일치 여부 Yes/No로 평가한 결과
+
+![그림9](../../../assets/img/papers/ab_test.png)
+
+- A/B 테스트를 진행한 결과 p-GT를 가장 선호함
 
 
 
