@@ -42,7 +42,7 @@ SHOW에서는 신체별로 분리된 모델링을 하는데 얼굴 관절은 사
 - 전체 몸의 3D mesh와 동기화 된 음성 녹음 데이터 셋 부족  
   → 동기화된 오디오가 포함된 In the wild (일반적인 환경에서 촬영된) 동영상 데이터 사용
 - 사람마다 얼굴, 손 모양 이 다르고 변형이 심함  
-  → 정확한 전체 몸 mesh를 가져오기 위해 신체에 따라 형태, 포즈 등 여러 부분을 캡처
+  → 정확한 전체 몸 mesh를 가져오기 위해 신체에 따라 형태, 포즈 등 여러 부분을 캡처  
   → SMPLify-X 모델 사용
 - 신체 부위마다 음성 신호와의 상관관계가 다름  
   → 3D 신체 동작, 손짓, 얼굴 표정을 사실적이고 자동 회귀적으로 합성해주는 **TalkSHOW** 제안 
@@ -64,7 +64,7 @@ SHOW에서는 신체별로 분리된 모델링을 하는데 얼굴 관절은 사
 기존 데이터셋은 크게 2가지로 나눌 수 있다.
 
 - **In-house:** 제한된 환경에서 촬영된 데이터로 정확한 annotaion을 통해 얼굴 또는 몸의 위치를 파악할 수 있지만 비용, 공수에 따라 규모가 제한적이다.
-- **In-the-wild:** 일반적인 환경에서 촬영된 데이터로 해당 논문에서 사용되는 데이터셋이다. p-GT(psuedo ground truth)가 annotion으로 사용된다.
+- **In-the-wild:** 일반적인 환경에서 촬영된 데이터로 해당 논문에서 사용되는 데이터셋이다. p-GT(psuedo ground truth)가 annotation으로 사용된다.
 
 ### Holistic Body Motion Generation from Speech
 
@@ -89,15 +89,15 @@ SHOW에서는 신체별로 분리된 모델링을 하는데 얼굴 관절은 사
 - **오디오 데이터:** 26.9시간의 대규모 데이터셋이기 때문에 mini-batch processing 처리를 위해 10초 미만의 클립형태로 크롭되었다.
 - **3d 전신 mesh 데이터:** 얼굴, 손, 몸통이 연결된 방식이며 p-GT annotation에 사용된다.
 
-$T$ 프레임에 따른 p-GT 컴포넌트
-- Body shape: $\beta \in \mathbb{R}^{300}$
-- Body pose: $\{\theta_t | \theta_t \in \mathbb{R}^{156}\}^T_{t=1}$
-- Camera pose: $\theta^c \in \mathbb{R}^{3}$
-- Translation: $\epsilon \in \mathbb{R}^{3}$
-- Facial expression: $\{\Psi_t | \Psi_t\ \in \mathbb{R}^{100}\}^T_{t=1}$
-- Jaw pose: $\theta^{jaw}_t \in \mathbb{R}^3$
-- Body pose: $\theta^b_t \in \mathbb{R}^{63}$
-- Hand pose: $\theta^h_t \in \mathbb{R}^{90}$
+$$T$$ 프레임에 따른 p-GT 컴포넌트
+- Body shape: $$\beta \in \mathbb{R}^{300}$$
+- Body pose: $$\{\theta_t | \theta_t \in \mathbb{R}^{156}\}^T_{t=1}$$
+- Camera pose: $$\theta^c \in \mathbb{R}^{3}$$
+- Translation: $$\epsilon \in \mathbb{R}^{3}$$
+- Facial expression: $$\{\Psi_t | \Psi_t\ \in \mathbb{R}^{100}\}^T_{t=1}$$
+- Jaw pose: $$\theta^{jaw}_t \in \mathbb{R}^3$$
+- Body pose: $$\theta^b_t \in \mathbb{R}^{63}$$
+- Hand pose: $$\theta^h_t \in \mathbb{R}^{90}$$
 
 ### Good Practices for Improving p-GT
 
@@ -109,11 +109,11 @@ $T$ 프레임에 따른 p-GT 컴포넌트
 
 ### Preliminary
 
-$M = \{m\}^T_t$ 은 전체 모션 시퀀스이며 얼굴, 몸, 손 동작을 각각 $M^f$, $M^b$, $M^h$ 라고 나타낸다.
+$$M = \{m\}^T_t$$ 은 전체 모션 시퀀스이며 얼굴, 몸, 손 동작을 각각 $$M^f$$, $$M^b$$, $$M^h$$ 라고 나타낸다.
 
 ### Face Generator
 
-오디오 신호 $A_{1:T}$가 주어졌을 때 $G_F$ 모델이 실제 유사한 표정을 생성하는 것을 목표로 한다.
+오디오 신호 $$A_{1:T}$$가 주어졌을 때 $$G_F$$ 모델이 실제 유사한 표정을 생성하는 것을 목표로 한다.
 
 ![그림3](../../../assets/img/papers/face%20generator.png)
 
@@ -123,7 +123,7 @@ $M = \{m\}^T_t$ 은 전체 모션 시퀀스이며 얼굴, 몸, 손 동작을 각
   - Wav2vec Encoder를 사용하여 입력 오디오 신호를 768차원에서 256차원으로 축소
 - Decoder:
   - 축소된 차원 음성을 6 레이어의 TCNs(Temporal Convolutional Networks)와 연결
-  - 얼굴 표정 동작이 담긴 $\hat{M}^f_{1:T}$ 얼굴 표정 동작 벡터 시퀀스 반솬
+  - 얼굴 표정 동작이 담긴 $$\hat{M}^f_{1:T}$$ 얼굴 표정 동작 벡터 시퀀스 반솬
 
 ### Body and Hand Generator
 
