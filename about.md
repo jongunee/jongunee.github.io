@@ -13,9 +13,7 @@ hide_description: true
 ***
 <center>
 <span style="font-size:170%;font-weight:bold"> 박종원</span></center>
-<center>MAJOR : Robotics</center>
-<center>Kwangwoon University</center>
-<center>Gwangjin-gu, Seoul, Republic of Korea</center>
+
 
 ## Personal Data
 ---
@@ -25,8 +23,13 @@ hide_description: true
 
 ---
 
+> 2023.09 ~  서울시립대학교<br>
+> 인공지능학과 석사 과정 중
+
+---
+
 > 2013.03 ~ 2019.02 광운대학교<br>
-> 로봇학부 (Robotics)
+> 로봇학부 (Robotics) 학사 졸업
 
 ## Research Interest
 
