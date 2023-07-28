@@ -2,7 +2,7 @@
 layout: about
 image: /assets/img/me/me.jpg
 description: >
-  소프트웨어 인증 엔지니어 출신의 개발자입니다.
+  스마트 제조 기술 연구 중인 연구원입니다.
 hide_description: false
 ---
 
