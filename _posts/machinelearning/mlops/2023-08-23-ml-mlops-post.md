@@ -148,10 +148,12 @@ Yatai에서 Model, Bento를 관리하는 방식을 그림으로 나타내 보았
 
 위에서 모델, 서비스들을 저장했다면 배포를 통해 학습 모델을 서빙하는 과정이다.
 
+![그림4](../../../assets/img/mlops/yatai_depo.png)
+
 ### 배포 과정
 
 1. 대시보드에서 설정 후 배포
-    ![그림4](../../../assets/img/mlops/yatai_depo_dashboard.png)
+    ![그림5](../../../assets/img/mlops/yatai_depo_dashboard.png)
 2. yatai-image0builder 자동 호출
 3. `BentoRequest` CR 자동 생성
    - `BentoRequest` CR:어떤 요청을 할지에 대한 정보가 담김
@@ -166,12 +168,12 @@ Yatai에서 Model, Bento를 관리하는 방식을 그림으로 나타내 보았
 
 ### 최종 배포된 결과
 
-![그림5](../../../assets/img/mlops/yatai_depo_result.png)
+![그림6](../../../assets/img/mlops/yatai_depo_result.png)
 
 - 기본적으로 sslip.io를 사용하여 엔드포인트를 오픈해주는 것을 확인
 - BentoML은 기본적으로 Swagger API 문서를 제공하여 Input/Output 타입 확인 가능
 
-![그림6](../../../assets/img/mlops/yatai_depo_predict.png)
+![그림76](../../../assets/img/mlops/yatai_depo_predict.png)
 
 이처럼 Swagger를 통해 배포된 모델을 테스트하는 것도 가능하다.
 
