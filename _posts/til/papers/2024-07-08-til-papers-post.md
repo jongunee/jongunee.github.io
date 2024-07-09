@@ -2,7 +2,7 @@
 layout: post
 title: StyleGAN-nada
 description: >
-  StyleGAN-nada 논문 정리
+  [참조]https://stylegan-nada.github.io/
 sitemap: false
 hide_last_modified: true
 categories:
@@ -71,10 +71,44 @@ categories:
 ### CLIP-based guidance
 
 - Global Loss: styleCLIP의 Direct Loss 사용
-  - $$L_{\text{global}} = D_{\text{CLIP}} (G(w), t_{\text{target}})$$
+  - 수식: $$L_{\text{global}} = D_{\text{CLIP}} (G(w), t_{\text{target}})$$
   - $$G(w)$$: $$w$$로 생성된 이미지
   - $$t_{\text{target}}$$: 타겟 클래스 텍스트 설명
   - $$D_{\text{CLIP}}$$: CLIP 공간의 코사인 거리
   - 초기 이미지나 도메인에 의존하지 않기 때문에 글로벌 손실로 명명
   - adversarial solutions으로 이어질 수 있어 Generator 학습에 부적합하지만 Adaptive Layer Selection에서 활용
-- 
+
+![그림2](/assets/img/papers/stylegan_arch.png)
+
+### Directional CLIP Loss: 
+- 소스 도메인과 타겟 도메인 간의 방향성을 식별하는 방법
+- 텍스트 프롬프트 쌍을 사용해 소스와 타겟 도메인을 설명해 CLIP 공간 방향성 식별
+- $$G_{\text{frozen}$$ 생성기: 고정된 생성기로 소스 도메인 이미지 생성
+- $$G_{\text{train}$$ 생성기: 훈련 중인 생겅기로 텍스트로 설명된 방향으로 소스 도메인 이미지를 변환하도록 fine tuning
+- 수식:
+  - $$\Delta T = E_T(t_{\text{target}}) - E_T(t_{\text{source}})$$
+  - $$\Delta I = E_I(G_{\text{train}}(w)) - E_I(G_{\text{frozen}}(w))$$
+  - $$L_{\text{direction}} = 1 - \frac{\Delta I \cdot \Delta T}{|\Delta I| |\Delta T|}$$
+  - $$\(E_I\)$$와 $$\(E_T\)$$는 CLIP의 이미지 및 텍스트 인코더
+  - $$\(t_{\text{target}}\)$$와 $$\(t_{\text{source}}\)$$는 타겟 클래스와 소스 클래스의 텍스트 설명
+  - $$\(\Delta T\)$$는 CLIP 공간에서의 텍스트 간 방향 벡터
+  - $$\(\Delta I\)$$는 생성된 이미지 간 방향 벡터
+
+![그림3](/assets/img/papers/clip_direction.png)
+
+### Layer Freezing:
+
+- 긴 훈련으로 발생하는 네트워크 불안정 및 과적합 방지
+- 가장 관련이 있는 가중치 식별
+- 네트워크 가중치 일부만 최적화 및 훈련 정규화
+
+![그림4](/assets/img/papers/layer_freezing.png)
+
+### Latent-Mapper 'mining'
+
+- 일부 형태 변경 작업에서 완전한 변환을 완료하지 못하는 경우 발생
+- 소스와 타겟 중간 형태의 이미지로 생성하는 경우 모든 잠재 코드를 타겟 도메인과 유사한 영역으로 매핑
+
+## 결과
+
+![그림5](/assets/img/papers/stylegan_result.png)
