@@ -83,16 +83,16 @@ categories:
 ### Directional CLIP Loss: 
 - 소스 도메인과 타겟 도메인 간의 방향성을 식별하는 방법
 - 텍스트 프롬프트 쌍을 사용해 소스와 타겟 도메인을 설명해 CLIP 공간 방향성 식별
-- $$G_{\text{frozen}$$ 생성기: 고정된 생성기로 소스 도메인 이미지 생성
-- $$G_{\text{train}$$ 생성기: 훈련 중인 생겅기로 텍스트로 설명된 방향으로 소스 도메인 이미지를 변환하도록 fine tuning
+- $$G_{\text{frozen}}$$ 생성기: 고정된 생성기로 소스 도메인 이미지 생성
+- $$G_{\text{train}}$$ 생성기: 훈련 중인 생겅기로 텍스트로 설명된 방향으로 소스 도메인 이미지를 변환하도록 fine tuning
 - 수식:
   - $$\Delta T = E_T(t_{\text{target}}) - E_T(t_{\text{source}})$$
   - $$\Delta I = E_I(G_{\text{train}}(w)) - E_I(G_{\text{frozen}}(w))$$
   - $$L_{\text{direction}} = 1 - \frac{\Delta I \cdot \Delta T}{|\Delta I| |\Delta T|}$$
-  - $$\(E_I\)$$와 $$\(E_T\)$$는 CLIP의 이미지 및 텍스트 인코더
-  - $$\(t_{\text{target}}\)$$와 $$\(t_{\text{source}}\)$$는 타겟 클래스와 소스 클래스의 텍스트 설명
-  - $$\(\Delta T\)$$는 CLIP 공간에서의 텍스트 간 방향 벡터
-  - $$\(\Delta I\)$$는 생성된 이미지 간 방향 벡터
+  - $$E_I$$와 $$E_T$$는 CLIP의 이미지 및 텍스트 인코더
+  - $$t_{\text{target}}$$와 $$t_{\text{source}}$$는 타겟 클래스와 소스 클래스의 텍스트 설명
+  - $$\Delta T$$는 CLIP 공간에서의 텍스트 간 방향 벡터
+  - $$\Delta I$$는 생성된 이미지 간 방향 벡터
 
 ![그림3](/assets/img/papers/clip_direction.png)
 
