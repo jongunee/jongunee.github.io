@@ -2,7 +2,7 @@
 layout: post
 title: StyleGAN-nada
 description: >
-  [참조]https://stylegan-nada.github.io/
+  [참조]<https://stylegan-nada.github.io/>
 sitemap: false
 hide_last_modified: true
 categories:
