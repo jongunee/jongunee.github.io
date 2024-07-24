@@ -73,11 +73,11 @@ categories:
 
 ### Task Definition and Preliminaries
 
-- $$x_{OK}$$: 결함 없는 정상 이미지들로 구성된 샘플 셋으로 학습용 데이터로 사용
-- $$x_{NG}$$: 결함 있는 이미지들로 구성된 샘플 셋으로 $$x_{OK}$$ 의 수에 비해 매우 적음
+- $$\text{X}_{OK}$$: 결함 없는 정상 이미지들로 구성된 샘플 셋으로 학습용 데이터로 사용
+- $$\text{X}_{NG}$$: 결함 있는 이미지들로 구성된 샘플 셋으로 $$x_{OK}$$ 의 수에 비해 매우 적음
 - $$M_{NG}$$: 결함 있는 부분에 대한 마스크로 $$x_{NG}$$와 셋으로 구성
 - 목표: 합성 결함 이미지를 생성하는 것  
-  → $$\{x_{OK}, x_{NG}, M_{NG}\} \xrightarrow{\text{Defect Generator}} \{x_{NG}^*, M_{NG}^*\}$$
+  → $$\{\text{X}_{OK}, \text{X}_{NG}, M_{NG}\} \xrightarrow{\text{Defect Generator}} \{\text{X}_{NG}^*, M_{NG}^*\}$$
 
 **Forward Diffusion Process**
 - 정상 이미지를 무작위 노이즈로 변환
