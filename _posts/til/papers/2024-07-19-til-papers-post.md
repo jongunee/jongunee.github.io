@@ -146,15 +146,66 @@ categories:
 - $$\Omega, \Phi$$: VQ-VAE 알고리즘 모듈을 따라 배포되며 학습 동안 고정
 - $$\tau$$: CLIP의 텍스트 인코더를 사용하며 학습 동안 고정
 
+
 ### Multi-Stage Denoising with Content Editing
 
+**1단계: Free Diffusion Stage**
+- $$T_1$$ 단계 동안 진행
+- Content editing 없이 결함 없는 데이터에 대해 Denoising만 수행
+
+**2단계: Latent Editing Stage**
+- $$T_2$$ 단계 동안 진행
+- 입력 feature $$z_t$$를 결함 없는 이미지 $$x_ok$$와 결합
+- $$z_t$$는 $$M_{NG}^*$$ 결함 마스크에 맞추어 수정 후 Denoising
+
+**3단계: Image Editing Stage**
+- $$T_3$$ 단계 동안 진행
+- 입력 feature $$z_t$$가 디코더 $$\Phi$$를 거쳐 이미지 공간으로 변환하여 $$x_t$$ 획득
+- 변환 이미지와 결합 없는 이미지 조합
+- 수식: $$x_t \odot M_{NG} + x_{OK} \odot \neg M_{NG}$$
+- 다시 잠재 공간으로 변환
 
 
+### Online Decoder Adaptation
 
+- Multi-Stage Denoising with Content Editing을 통해 얻어진 변환된 $$z_{NG}^*$$를 디코더 $$\Phi$$에 입력
+- 디코더를 통해 이미지 복원
+- 결함 없는 픽셀은 원본 $$x_OK$$와 유사하게 복원
+- 결함 있는 픽셀은 디코더에 따라 복
 
+### Implementation Details
 
-$$\tau$$
+**Resize 이미지**
+- 이미지 크기: $$H_x = W_x = 256$$
+- Latent space 해상도: $$H_z = W_z = 32$$
 
+**Latent Feature 채널 수**
+- 채널 수 $$C_z = 4$$
+
+**Affine 변환**
+- 무작위 회전 각도: $$\gamma \in [0^\circ, 360^\circ]$$
+- 무작위 스케일링 인자: $$s \in [0.85, 1.15]$$
+
+**Anomaly Detection**
+- 나무나 직물 표면 같은 경우 결함 외에 모든 픽셀이 Foreground로 간주
+
+**최적화**
+- AdamW Optimizer 사용
+- 학습률: $$1 \times 10^{-5}$$
+- 베타 값: $$\beta_1 = 0.9, \beta_2 = 0.999$$
+
+**텍스트 프롬프트**
+- 10% 확률로 비어있는 텍스트 프롬프트를 모델에 입력
+
+**디노이징 DDIM 샘플링 단계**
+- Free Diffusion Stage: $$T_1 = 50$$
+- Latent Editing Stage: $$T_2 = 30$$
+- Image Editing Stage: $$T_3 = 5$$
+
+**Online Decoder Apation**
+- 최대 반복 횟수: $$T_{ft} = 200$$
+- 보수적 비율: $$\lambda_{con} = 100$$
+- 학습률: $$1 \times 10^{-4}$$
 
 
 
