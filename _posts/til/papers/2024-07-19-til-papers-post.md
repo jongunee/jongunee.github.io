@@ -54,7 +54,7 @@ categories:
 - GAN(Generative Adversarial Networks):
   - SDGAN: 두 개의 생성기를 사용하여 결함과 비결함 상태를 전환해 고품질 이미지 생성
   - Defect-GAN: 비결함 이미지를 결함 이미지로 변환하여 결함 분류기 학습
-- 결함의 위치가 부정확할 수 있음
+  - 결함의 위치가 부정확할 수 있음
 
 ![그림3](/assets/img/papers/adabldm_gan_method.png)
 
@@ -74,8 +74,8 @@ categories:
 ### Task Definition and Preliminaries
 
 - $$\text{X}_{OK}$$: 결함 없는 정상 이미지들로 구성된 샘플 셋으로 학습용 데이터로 사용
-- $$\text{X}_{NG}$$: 결함 있는 이미지들로 구성된 샘플 셋으로 $$x_{OK}$$ 의 수에 비해 매우 적음
-- $$M_{NG}$$: 결함 있는 부분에 대한 마스크로 $$x_{NG}$$와 셋으로 구성
+- $$\text{X}_{NG}$$: 결함 있는 이미지들로 구성된 샘플 셋으로 $$\text{X}_{OK}$$ 의 수에 비해 매우 적음
+- $$M_{NG}$$: 결함 있는 부분에 대한 마스크로 $$\text{X}{NG}$$와 셋으로 구성
 - 목표: 합성 결함 이미지를 생성하는 것  
   → $$\{\text{X}_{OK}, \text{X}_{NG}, M_{NG}\} \xrightarrow{\text{Defect Generator}} \{\text{X}_{NG}^*, M_{NG}^*\}$$
 
@@ -176,10 +176,11 @@ categories:
 - 수식: $$x_t \odot M_{NG} + x_{OK} \odot \neg M_{NG}$$
 - 다시 잠재 공간으로 변환
 
+![그림6](/assets/img/papers/adabldm_algorithm_arch.png)
 
 ### Online Decoder Adaptation
 
-![그림5](/assets/img/papers/adabldm_algorithm2.png)
+![그림7](/assets/img/papers/adabldm_algorithm2.png)
 
 - Multi-Stage Denoising with Content Editing을 통해 얻어진 변환된 $$z_{NG}^*$$를 디코더 $$\Phi$$에 입력
 - 디코더를 통해 이미지 복원
