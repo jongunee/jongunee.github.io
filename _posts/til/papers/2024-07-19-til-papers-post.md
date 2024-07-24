@@ -19,7 +19,7 @@ categories:
 
 이 논문은 <span style='background-color: #f5f0ff'>산업 결함 탐지(Anomaly Detection, AD)</span>을 개선하기 위한 새로운 알고리즘인 AdaBLDM을 소개한다. 산업 결함 탐지를 효과적으로 수행하기 위해서는 많은 결함 샘플들이 필요하기 때문에 높은 품질의 결함 샘플을 생성하기 위한 생성형 AI 모델을 설명하고 있다.
 
-
+![그림1](/assets/img/papers/adabldm_proposed_method.png)
 
 ## Introduction
 
@@ -44,6 +44,8 @@ categories:
   - 새로운 결함 패턴을 생성할 수 없으며 과적합 문제 발생 가능성이 높음
   - ex) Crop&Paste, PRN
 
+![그림2](/assets/img/papers/adabldm_traditional_method.png)
+
 - 이상 패턴 생성 방식:
   - 데이터셋에 Noise를 결합하여 결함 생성
   - 생성된 결함의 분포가 실제 결함과 다를 수 있어 성능 향상 보장이 안됨
@@ -53,6 +55,8 @@ categories:
   - SDGAN: 두 개의 생성기를 사용하여 결함과 비결함 상태를 전환해 고품질 이미지 생성
   - Defect-GAN: 비결함 이미지를 결함 이미지로 변환하여 결함 분류기 학습
 - 결함의 위치가 부정확할 수 있음
+
+![그림3](/assets/img/papers/adabldm_gan_method.png)
 
 ### Diffusion Probabilistic Models for Image Editing
 
@@ -118,6 +122,9 @@ categories:
 
 
 **Defect trimap prompts**
+
+![그림4](/assets/img/papers/bldm_method.png)
+
 - 트리맵 $$\Gamma \in \mathbb{R}^{H_x \times W_x}$$는 생성된 객체와 결함의 원하는 위치를 지정
 - 정의:  
   $$\Gamma(x, y) =
@@ -151,6 +158,8 @@ categories:
 
 ### Multi-Stage Denoising with Content Editing
 
+![그림5](/assets/img/papers/adabldm_algorithm1.png)
+
 **1단계: Free Diffusion Stage**
 - $$T_1$$ 단계 동안 진행
 - Content editing 없이 결함 없는 데이터에 대해 Denoising만 수행
@@ -169,6 +178,8 @@ categories:
 
 
 ### Online Decoder Adaptation
+
+![그림5](/assets/img/papers/adabldm_algorithm2.png)
 
 - Multi-Stage Denoising with Content Editing을 통해 얻어진 변환된 $$z_{NG}^*$$를 디코더 $$\Phi$$에 입력
 - 디코더를 통해 이미지 복원
