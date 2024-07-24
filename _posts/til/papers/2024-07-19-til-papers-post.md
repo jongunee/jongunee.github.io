@@ -19,6 +19,8 @@ categories:
 
 이 논문은 <span style='background-color: #f5f0ff'>산업 결함 탐지(Anomaly Detection, AD)</span>을 개선하기 위한 새로운 알고리즘인 AdaBLDM을 소개한다. 산업 결함 탐지를 효과적으로 수행하기 위해서는 많은 결함 샘플들이 필요하기 때문에 높은 품질의 결함 샘플을 생성하기 위한 생성형 AI 모델을 설명하고 있다.
 
+
+
 ## Introduction
 
 ### AD 알고리즘
@@ -98,7 +100,7 @@ categories:
 - Reverse diffusion에서 역방향 조건부 확률
   - 수식: $$p_\theta(z_{t-1} \mid z_t, t, C) = \mathcal{N} \left(z_{t-1}; \frac{1}{\sqrt{\alpha_t}} \left( z_t - \frac{1 - \alpha_t}{\sqrt{1 - \bar{\alpha}_t}} \epsilon_\theta(z_t, t, C) \right), \sigma_t I\right)$$
   - $$\epsilon_\theta$$: 훈련될 $$\theta$$ 파라미터가 설정된 심층 모델
-  - $$\C$$: LDM에 전달되는 제어 프롬프트로 생성 과정 안정화에 사용됨
+  - $$C$$: LDM에 전달되는 제어 프롬프트로 생성 과정 안정화에 사용됨
   - $$\alpha_t\, \bar{\alpha}_t, \sigma_t$$: 각 단계 $$t$$에서 결정적으로 계산되는 파라미터
 
 **Linguistic prompts**
@@ -107,7 +109,7 @@ categories:
 - 정의: $$y:="\{obj\},$$ $$a$$ $$\{obj\}$$ $$with a$$ $$\{def\}"$$
   - $$obj$$: 객체의 범주를 의미 ex) 캡슐
   - $$def$$: 결함 유형 ex) 검은 오염 
-- 텍스트 인코딩: 텍스트 프롬프트는 파라미터가 고정된 텍스트 인코더 $$\tay$$를 통해 처리
+- 텍스트 인코딩: 텍스트 프롬프트는 파라미터가 고정된 텍스트 인코더 $$\tau$$를 통해 처리
   - 수식: $$\tau : \mathbb{R}^{d_y} \to \mathbb{R}^{d_{\text{lang}}}$$
   - $$\mathbb{R}^{d_y}$$: 텍스트 임베딩 공간
   - $$\mathbb{R}^{d_{\text{lang}}}$$: 언어적 임베딩 공간
@@ -120,15 +122,15 @@ categories:
 - 정의:  
   $$\Gamma(x, y) =
   \begin{cases}
-  1 & \text{if } \bold{M}^*_{NG}(x, y) = 1, \\
+  1 & \text{if } \boldsymbol{M}^*_{NG}(x, y) = 1, \\
   0.5 & \text{else if } F(x, y) = 1, \\
   0 & \text{else.}
   \end{cases}$$
 - 결함 마스크:
-  - 생성: $$M_{NG} \xrightarrow{ rand. i } \bold{M}_{NG}^i \xrightarrow{\text{rand. affine}} \bold{M}^A_{NG} \xrightarrow{\text{ fit F }} \bold{M}^*_{NG}$$
+  - 생성: $$M_{NG} \xrightarrow{ rand. i } \boldsymbol{M}_{NG}^i \xrightarrow{\text{rand. affine}} \boldsymbol{M}^A_{NG} \xrightarrow{\text{ fit F }} \boldsymbol{M}^*_{NG}$$
   - $$\text{rand. i}$$: 무작위 인덱스 선택
   - $$\text{rand.affine}$$: 무작위 아핀 변환
-  - $$\text{fit F}$$: $$\bold{M}^A_{NG}$$ 위치와 크기를 조정하여 $$F$$에 맞게 조정
+  - $$\text{fit F}$$: $$\boldsymbol{M}^A_{NG}$$ 위치와 크기를 조정하여 $$F$$에 맞게 조정
 - 트리맵 임베딩:
   - Convolution block을 통해 임베딩: $$\zeta(\Gamma) \in \mathbb{R}^{H_z \times W_z \times C_z}$$
   - 임베딩된 feature는 인코더 네트워크 $$\hat{\epsilon}_{tri}$$에 입력되어 "spatial attention" 모듈을 "self attention" 과정으로 대체 사용
@@ -155,7 +157,7 @@ categories:
 
 **2단계: Latent Editing Stage**
 - $$T_2$$ 단계 동안 진행
-- 입력 feature $$z_t$$를 결함 없는 이미지 $$x_ok$$와 결합
+- 입력 feature $$z_t$$를 결함 없는 이미지 $$x_{ok}$$와 결합
 - $$z_t$$는 $$M_{NG}^*$$ 결함 마스크에 맞추어 수정 후 Denoising
 
 **3단계: Image Editing Stage**
@@ -170,8 +172,8 @@ categories:
 
 - Multi-Stage Denoising with Content Editing을 통해 얻어진 변환된 $$z_{NG}^*$$를 디코더 $$\Phi$$에 입력
 - 디코더를 통해 이미지 복원
-- 결함 없는 픽셀은 원본 $$x_OK$$와 유사하게 복원
-- 결함 있는 픽셀은 디코더에 따라 복
+- 결함 없는 픽셀은 원본 $$x_{OK}$$와 유사하게 복원
+- 결함 있는 픽셀은 디코더에 따라 복원
 
 ### Implementation Details
 
